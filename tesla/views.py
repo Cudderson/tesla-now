@@ -22,7 +22,8 @@ def home(request):
     # First step is generating a tesla chart
     # This view should provide data to template only, not calculate/generate chart
     current_price = tesla_utils.current_price()
+    plotly_graph = tesla_utils.create_candle_chart()
 
-    context = {'current_price': current_price}
+    context = {'current_price': current_price, 'graph': plotly_graph}
 
     return render(request, 'tesla/home.html', context)
