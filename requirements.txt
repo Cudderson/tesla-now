@@ -1,0 +1,6 @@
+pip install:
+requests
+plotly
+
+possibly:
+finnhub.io free API key
