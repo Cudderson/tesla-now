@@ -2,8 +2,6 @@ from django.shortcuts import render
 
 from . import tesla_utils
 
-# Create your views here.
-
 
 def landing(request):
     """The initial landing page for Tesla Now"""
@@ -22,8 +20,18 @@ def home(request):
     # First step is generating a tesla chart
     # This view should provide data to template only, not calculate/generate chart
     current_price = tesla_utils.current_price()
-    plotly_graph = tesla_utils.create_candle_chart()
+    home_chart = tesla_utils.create_candle_chart()
 
-    context = {'current_price': current_price, 'graph': plotly_graph}
+    context = {'current_price': current_price, 'home_chart': home_chart}
 
     return render(request, 'tesla/home.html', context)
+
+
+def eps(request):
+    """Page that displays an EPS chart for Tesla"""
+
+    eps_chart = tesla_utils.create_eps_chart()
+
+    context = {'eps_chart': eps_chart}
+
+    return render(request, 'tesla/eps.html', context)

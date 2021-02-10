@@ -1,6 +1,10 @@
 <p>button works.</p>
 
+<form action="{% url 'tesla:eps' %}">
+    <input type="submit" value="View EPS chart" />
+</form>
+
 <p>The current price of Tesla is: {{ current_price }}</p>
 
-{{ graph|safe }}
+{{ home_chart|safe }}
 
