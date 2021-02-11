@@ -166,3 +166,49 @@ def create_recommend_chart():
 
     chart = fig.to_html(full_html=False, default_height=800, default_width=1000)
     return chart
+
+
+def gather_news():
+    """Gathers the latest news on Tesla"""
+
+    #  example: 'https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=c0b1ie748v6sc0gs1q40'
+
+    # unix times:
+    real_time_unix = int(time.time())
+    one_month_ago_unix = int(time.time()) - 2_592_000
+
+    # convert unix time to datetime:
+    real_time = datetime.datetime.fromtimestamp(real_time_unix)
+    one_month_ago = datetime.datetime.fromtimestamp(one_month_ago_unix)
+
+    # format datetime for API query
+    real_time = real_time.strftime('%Y-%m-%d')
+    one_month_ago = one_month_ago.strftime('%Y-%m-%d')
+
+    # query to receive last month of news on Tesla:
+    df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={config.finn_key}')
+
+    i = 0
+
+    # We find headlines that contain the keywords we want, and match them to their appropriate data
+    # This is working great.
+
+    headlines = []
+    times_posted = []
+    urls = []
+    summaries = []
+    images = []
+
+    for news in df['headline'][:10]:
+        if 'tesla' in news.lower() or 'elon' in news.lower():
+            headlines.append(news)
+            times_posted.append(df['datetime'][i])
+            urls.append(df['url'][i])
+            summaries.append(df['summary'][i])
+            images.append(df['image'][i])
+        i += 1
+
+    print(headlines, urls)
+
+
+gather_news()
