@@ -1,13 +1,16 @@
 <p>button works.</p>
 
 <form action="{% url 'tesla:eps' %}">
-    <input type="submit" value="View EPS chart" />
+    <input type="submit" value="View EPS Chart" />
 </form>
 
 <div>yo</div>
 
 <form action="{% url 'tesla:sma' %}">
-    <input type="submit" value="View SMA chart" />
+    <input type="submit" value="View SMA Chart" />
+</form>
+<form action="{% url 'tesla:recommendations' %}">
+    <input type="submit" value="View Recommendation Chart" />
 </form>
 
 <p>The current price of Tesla is: {{ current_price }}</p>

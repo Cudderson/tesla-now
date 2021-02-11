@@ -132,3 +132,37 @@ def create_sma_chart():
     chart = fig.to_html(full_html=False, default_height=600, default_width=800)
 
     return chart
+
+
+def gather_recommend_data(): #  save just incase
+    """Gathers information needed to create recommendation chart"""
+
+    df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={config.finn_key}')
+
+
+def create_recommend_chart():
+    """Returns a recommendation trend chart in HTML format"""
+
+    df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={config.finn_key}')
+
+    # create lists of latest 6 months of data of recommendations. (reversed with '[::-1]' to get oldest data first)
+    strong_buy = [i for i in df['strongBuy'][:6]]
+    buy = [i for i in df['buy'][:6]][::-1]
+    hold = [i for i in df['hold'][:6][::-1]]
+    sell = [i for i in df['sell'][:6][::-1]]
+    strong_sell = [i for i in df['strongSell'][:6][::-1]]
+    period = [i for i in df['period'][:6][::-1]]
+
+    # Create stacked bar graph, can optimize later
+    fig = go.Figure(data=[
+        go.Bar(name='Strong Sell', x=period, y=strong_sell, text=strong_sell, textposition='inside'),  # example
+        go.Bar(name="Sell", x=period, y=sell),
+        go.Bar(name="Hold", x=period, y=hold),
+        go.Bar(name="Buy", x=period, y=buy),
+        go.Bar(name="Strong Buy", x=period, y=strong_buy),
+    ])
+
+    fig.update_layout(barmode='stack')
+
+    chart = fig.to_html(full_html=False, default_height=800, default_width=1000)
+    return chart

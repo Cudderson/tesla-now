@@ -45,3 +45,13 @@ def sma(request):
     context = {'sma_chart': sma_chart}
 
     return render(request, 'tesla/sma.html', context)
+
+
+def recommendations(request):
+    """Page that displays analyst recommendations for Tesla"""
+
+    recommend_chart = tesla_utils.create_recommend_chart()
+
+    context = {'recommend_chart': recommend_chart}
+
+    return render(request, 'tesla/recommend.html', context)
