@@ -188,6 +188,14 @@ def gather_news():
     # query to receive last month of news on Tesla:
     df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={config.finn_key}')
 
+    return df
+
+
+def create_news_package():
+    """Packages news data into a dictionary structure for easy handling"""
+
+    df = gather_news()
+
     headlines = []
     times_posted = []
     urls = []
@@ -216,6 +224,3 @@ def gather_news():
 
     # print(full_news_data['headlines'][0]) <- example
     return full_news_data
-
-
-gather_news()
