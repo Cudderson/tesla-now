@@ -4,6 +4,12 @@
     <input type="submit" value="View EPS chart" />
 </form>
 
+<div>yo</div>
+
+<form action="{% url 'tesla:sma' %}">
+    <input type="submit" value="View SMA chart" />
+</form>
+
 <p>The current price of Tesla is: {{ current_price }}</p>
 
 {{ home_chart|safe }}

@@ -35,3 +35,13 @@ def eps(request):
     context = {'eps_chart': eps_chart}
 
     return render(request, 'tesla/eps.html', context)
+
+
+def sma(request):
+    """Page that displays a 20-day sma chart for Tesla"""
+
+    sma_chart = tesla_utils.create_sma_chart()
+
+    context = {'sma_chart': sma_chart}
+
+    return render(request, 'tesla/sma.html', context)

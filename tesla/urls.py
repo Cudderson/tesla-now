@@ -10,5 +10,6 @@ urlpatterns = [
     path('', views.landing, name='landing'),
     path('home/', views.home, name='home'),
     path('eps/', views.eps, name='eps'),
+    path('sma/', views.sma, name='sma'),
 ]
 
