@@ -188,17 +188,14 @@ def gather_news():
     # query to receive last month of news on Tesla:
     df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={config.finn_key}')
 
-    i = 0
-
-    # We find headlines that contain the keywords we want, and match them to their appropriate data
-    # This is working great.
-
     headlines = []
     times_posted = []
     urls = []
     summaries = []
     images = []
+    i = 0
 
+    # grabbing news data we want based on headlines containing 'tesla' or 'elon'
     for news in df['headline'][:10]:
         if 'tesla' in news.lower() or 'elon' in news.lower():
             headlines.append(news)
@@ -208,7 +205,17 @@ def gather_news():
             images.append(df['image'][i])
         i += 1
 
-    print(headlines, urls)
+    # create dictionary for news data received
+    full_news_data = {
+        'headlines': headlines,
+        'times_posted': times_posted,
+        'urls': urls,
+        'summaries': summaries,
+        'images': images,
+    }
+
+    # print(full_news_data['headlines'][0]) <- example
+    return full_news_data
 
 
 gather_news()
