@@ -146,7 +146,7 @@ def create_recommend_chart():
     df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={config.finn_key}')
 
     # create lists of latest 6 months of data of recommendations. (reversed with '[::-1]' to get oldest data first)
-    strong_buy = [i for i in df['strongBuy'][:6]]
+    strong_buy = [i for i in df['strongBuy'][:6][::-1]]
     buy = [i for i in df['buy'][:6]][::-1]
     hold = [i for i in df['hold'][:6][::-1]]
     sell = [i for i in df['sell'][:6][::-1]]
