@@ -53,14 +53,15 @@ def create_eps_chart():
 
     # create custom ticks/labels for better UX/UI
     custom_x_ticks = [i for i in range(1, 5)]
-    custom_x_labels = [i for i in df['period']]
+    custom_x_labels = [i for i in df['period'][::-1]]
 
-    fig = go.Figure(data=[go.Scatter(x=custom_x_ticks, y=df['actual'],
+    # Iterate through dataframe backwards, to plot oldest data first
+    fig = go.Figure(data=[go.Scatter(x=custom_x_ticks, y=df['actual'][::-1],
                                      mode='markers',
                                      marker=dict(size=[80, 80, 80, 80], color='#00FE35'),
                                      name='Actual')])
 
-    fig.add_trace(go.Scatter(x=custom_x_ticks, y=df['estimate'],
+    fig.add_trace(go.Scatter(x=custom_x_ticks, y=df['estimate'][::-1],
                              mode='markers',
                              marker=dict(size=[80, 80, 80, 80], color='#fe0d00'),
                              name='Estimate'))
@@ -86,7 +87,7 @@ def create_eps_chart():
     return chart
 
 
-def generate_sma_data():
+def gather_sma_data():
     """Returns data needed to create a moving average chart"""
 
     current_time_unix = int(time.time())
@@ -111,21 +112,13 @@ def generate_sma_data():
         moving_averages_20_day.append(sma_20)
         i += 1
 
-    # We also need to return the last 20 closing prices for Tesla (raw)
-    # We already have that; 'last_20_prices'
-
     return last_20_prices, moving_averages_20_day
-
-    # to plot the moving average, a point should be plotted every time a new sma is declared
-    # we can store averages in a list, and plot those
-    # we can plot this list over the raw closing prices
-    # let's try it
 
 
 def create_sma_chart():
     """Returns a simple moving average chart in HTML format"""
 
-    last_20_prices, moving_averages_20_day = generate_sma_data()
+    last_20_prices, moving_averages_20_day = gather_sma_data()
 
     # 20 day moving average figure
     fig = go.Figure([go.Scatter(x=[i for i in range(len(moving_averages_20_day))], y=moving_averages_20_day)])
