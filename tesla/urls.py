@@ -12,4 +12,5 @@ urlpatterns = [
     path('eps/', views.eps, name='eps'),
     path('sma/', views.sma, name='sma'),
     path('recommendations/', views.recommendations, name='recommendations'),
+    path('news/', views.news, name='news'),
 ]

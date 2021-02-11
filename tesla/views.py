@@ -55,3 +55,13 @@ def recommendations(request):
     context = {'recommend_chart': recommend_chart}
 
     return render(request, 'tesla/recommend.html', context)
+
+
+def news(request):
+    """Page that displays newest news articles for Tesla"""
+
+    news_package = tesla_utils.create_news_package()
+
+    context = {'news_package': news_package}
+
+    return render(request, 'tesla/news.html', context)

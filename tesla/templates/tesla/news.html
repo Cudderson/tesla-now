@@ -1,0 +1,9 @@
+<h2>Here is the latest news for Tesla</h2>
+<p>We can structure the data how we'd like later.</p>
+
+{% for news in news_package.headlines %}
+  <p>{{ news }}</p>
+{% endfor %}
+{% for news in news_package.images %}
+  <p>{{ news }}</p>
+{% endfor %}

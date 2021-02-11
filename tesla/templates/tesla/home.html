@@ -12,6 +12,9 @@
 <form action="{% url 'tesla:recommendations' %}">
     <input type="submit" value="View Recommendation Chart" />
 </form>
+<form action="{% url 'tesla:news' %}">
+    <input type="submit" value="View Real-Time Tesla News" />
+</form>
 
 <p>The current price of Tesla is: {{ current_price }}</p>
 
