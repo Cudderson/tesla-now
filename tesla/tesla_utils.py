@@ -121,15 +121,33 @@ def create_sma_chart():
     last_20_prices, moving_averages_20_day = gather_sma_data()
 
     # 20 day moving average figure
-    fig = go.Figure([go.Scatter(x=[i for i in range(len(moving_averages_20_day))], y=moving_averages_20_day)])
+    fig = go.Figure([go.Scatter(x=[i+1 for i in range(len(moving_averages_20_day))], y=moving_averages_20_day)])
 
     # We also need to plot the closing prices of Tesla for the same time range.
-    fig.add_trace(go.Scatter(x=[i for i in range(len(last_20_prices))], y=last_20_prices))
+    fig.add_trace(go.Scatter(x=[i+1 for i in range(len(last_20_prices))], y=last_20_prices))
 
-    # fig.show()
-    # This chart works, can tweak it later! niiice
+    # highlighting latest closing price
+    fig.add_trace(go.Scatter(
+        mode='markers', x=[20], y=last_20_prices[-1:],
+        marker=dict(
+            size=15,
+        ), showlegend=False
+    ))
 
-    chart = fig.to_html(full_html=False, default_height=600, default_width=800)
+    # highlighting latest moving average level
+    fig.add_trace(go.Scatter(
+        mode='markers', x=[20], y=moving_averages_20_day[-1:],
+        marker=dict(
+            size=15,
+        ), showlegend=False
+    ))
+
+    fig.update_xaxes(type='category', range=[0, 20])
+    fig.update_yaxes(tickprefix='$')
+
+    fig.update_layout(title_text='20-day Simple Moving Average: TSLA', template='plotly_dark')
+
+    chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
 
     return chart
 
