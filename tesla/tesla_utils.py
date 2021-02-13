@@ -36,10 +36,20 @@ def create_candle_chart():
     real_time = [datetime.datetime.fromtimestamp(int(x)).strftime('%Y-%m-%d') for x in df['t']]
 
     # create figure using 'OHLC' Tesla data
-    fig = go.Figure(data=[go.Candlestick(x=real_time, open=df['o'], high=df['h'], low=df['l'], close=df['c'])])
+    fig = go.Figure(data=[go.Candlestick(
+        x=real_time,
+        open=df['o'],
+        high=df['h'],
+        low=df['l'],
+        close=df['c'],
+        increasing_line_color='#00FE35',
+        decreasing_line_color='#fe0d00',
+    )])
+
+    fig.update_layout(title='Tesla Now Candlestick (6 Months)', yaxis_title='Tesla Stock Price', title_x=0.5)
 
     # Converting figure into HTML format
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1000)
+    chart = fig.to_html(full_html=False, default_height=600, default_width=1000)
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart
