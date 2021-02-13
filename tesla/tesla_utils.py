@@ -39,7 +39,7 @@ def create_candle_chart():
     fig = go.Figure(data=[go.Candlestick(x=real_time, open=df['o'], high=df['h'], low=df['l'], close=df['c'])])
 
     # Converting figure into HTML format
-    chart = fig.to_html(full_html=False, default_height=500, default_width=700)
+    chart = fig.to_html(full_html=False, default_height=800, default_width=1000)
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart

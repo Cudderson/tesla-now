@@ -1,5 +1,9 @@
+{% extends 'tesla/base.html' %}
+
+{% block content %}
 <h2>This is a chart displaying analysts' buy/sell recommendations for Tesla</h2>
 
 {{ recommend_chart|safe }}
 
 <p>test text</p>
+{% endblock content %}

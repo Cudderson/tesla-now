@@ -1,3 +1,7 @@
+{% extends 'tesla/base.html' %}
+
+{% block content %}
 <p>Here is a chart displaying Tesla's EPS statistics for the last year.</p>
 
 {{ eps_chart|safe }}
+{% endblock content %}
