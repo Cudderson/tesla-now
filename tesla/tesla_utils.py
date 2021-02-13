@@ -120,32 +120,50 @@ def create_sma_chart():
 
     last_20_prices, moving_averages_20_day = gather_sma_data()
 
-    # 20 day moving average figure
-    fig = go.Figure([go.Scatter(x=[i+1 for i in range(len(moving_averages_20_day))], y=moving_averages_20_day)])
+    fig = go.Figure()
 
-    # We also need to plot the closing prices of Tesla for the same time range.
-    fig.add_trace(go.Scatter(x=[i+1 for i in range(len(last_20_prices))], y=last_20_prices))
+    # 20 day moving average figure
+    fig.add_trace(go.Scatter(
+        name='20-day SMA',
+        x=[i+1 for i in range(len(moving_averages_20_day))],
+        y=moving_averages_20_day,
+        line=dict(color='#fe0d00')))
+
+    # Closing prices figure
+    fig.add_trace(go.Scatter(
+        name='Closing Price',
+        x=[i+1 for i in range(len(last_20_prices))],
+        y=last_20_prices,
+        line=dict(color='#00FE35')))
 
     # highlighting latest closing price
     fig.add_trace(go.Scatter(
-        mode='markers', x=[20], y=last_20_prices[-1:],
+        name='Latest Closing Price', mode='markers', x=[20], y=last_20_prices[-1:],
         marker=dict(
             size=15,
+            color='#00FE35',
+            opacity=.8
         ), showlegend=False
     ))
 
     # highlighting latest moving average level
     fig.add_trace(go.Scatter(
-        mode='markers', x=[20], y=moving_averages_20_day[-1:],
+        name='Current SMA Level', mode='markers', x=[20], y=moving_averages_20_day[-1:],
         marker=dict(
             size=15,
+            color='#fe0d00',
+            opacity=.8
         ), showlegend=False
     ))
 
+    # Format figure (UI)
     fig.update_xaxes(type='category', range=[0, 20])
     fig.update_yaxes(tickprefix='$')
 
-    fig.update_layout(title_text='20-day Simple Moving Average: TSLA', template='plotly_dark')
+    fig.update_layout(title_text='20-day Simple Moving Average: TSLA',
+                      xaxis_title='20-day Period (Trading Days)',
+                      yaxis_title='Closing Price vs SMA',
+                      template='plotly_dark')
 
     chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
 
