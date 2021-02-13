@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     # My Apps
     'tesla',
 
+    # Third Party Apps
+    'bootstrap4',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

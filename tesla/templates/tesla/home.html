@@ -1,11 +1,10 @@
+{% extends 'tesla/base.html' %}
+
 <p>button works.</p>
 
 <form action="{% url 'tesla:eps' %}">
     <input type="submit" value="View EPS Chart" />
 </form>
-
-<div>yo</div>
-
 <form action="{% url 'tesla:sma' %}">
     <input type="submit" value="View SMA Chart" />
 </form>
@@ -16,7 +15,10 @@
     <input type="submit" value="View Real-Time Tesla News" />
 </form>
 
+{% block page_header %}
 <p>The current price of Tesla is: {{ current_price }}</p>
+{% endblock page_header %}
 
+{% block content %}
 {{ home_chart|safe }}
-
+{% endblock content %}
