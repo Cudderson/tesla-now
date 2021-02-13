@@ -1,7 +1,26 @@
-<h1>{{ greeting }}</h1>
-<h4>{{ description }}</h4>
+{% load bootstrap4 %}
 
-<form action="{% url 'tesla:home' %}">
-    <input type="submit" value="Enter Tesla One" />
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+        shrink-to-fit=no">
+    <title>Tesla Now</title>
 
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+
+{% block page_header %}
+    <div class="jumbotron jumbotron-fluid mt-2 bg-success text-white ml-2 mr-2 border border-dark rounded">
+        <div class="container">
+            <h1 class="display-1 text-center font-weight-normal">{{ greeting }}</h1>
+
+            <p class="lead text-center font-italic">{{ description }}</p>
+
+            <a class="btn btn-lg btn-success btn-block text-white border" href="{% url 'tesla:home' %}"
+            role="button">Enter Tesla Now</a>
+        </div>
+    </div>
+{% endblock page_header %}

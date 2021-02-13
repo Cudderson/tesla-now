@@ -8,7 +8,7 @@ def landing(request):
 
     welcome_text = "Welcome to Tesla Now."
 
-    description = "Real-time charts, news, and opinions all in one place."
+    description = "View Tesla-specific charts, news, and analyst recommendations, all in real-time."
 
     context = {'greeting': welcome_text, "description": description}
 
