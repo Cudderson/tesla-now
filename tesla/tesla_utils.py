@@ -254,6 +254,7 @@ def create_news_package():
     urls = []
     summaries = []
     images = []
+    sources = []
     i = 0
 
     # grabbing news data we want based on headlines containing 'tesla' or 'elon'
@@ -264,15 +265,17 @@ def create_news_package():
             urls.append(df['url'][i])
             summaries.append(df['summary'][i])
             images.append(df['image'][i])
+            sources.append(df['source'][i].title())
         i += 1
 
     # create nested lists for news data received
     full_news_data = [
         times_posted,
-        summaries,
         headlines,
+        summaries,
         urls,
         images,
+        sources,  # 5.0
     ]
 
     # print(full_news_data['headlines'][0]) <- example

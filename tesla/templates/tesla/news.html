@@ -2,18 +2,16 @@
 
 {% block content %}
 <h1>Here is the latest news for Tesla</h1>
-<p>We can structure the data how we'd like later.</p>
-
-<p><a href="http://www.google.com">Google</a></p>
-<p><a href="{{ news_package.3.0 }}">Link</a></p>
-
-<tr>
-  <td>{{ news_package.0.0 }}<br></td>
-  <td>{{ news_package.1.0 }}<br></td>
-  <td>{{ news_package.2.0 }}<br></td>
-  <td>{{ news_package.3.0 }}<br></td>
-  <td>{{ news_package.4.0 }}<br></td>
-</tr>
-
+<br>
+<img src="{{ news_package.4.0 }}" alt="Article Image">
+<br>
+<div class="news">
+  <tr>
+    <td><p>{{ news_package.5.0 }}, {{ news_package.0.0 }}</p></td>
+    <td><h3>{{ news_package.1.0 }}</h3></td>
+    <td><p>{{ news_package.2.0 }}</p></td>
+    <a href="{{ news_package.3.0 }}" target="_blank" class="btn btn-success">Go To Article</a>
+  </tr>
+</div>
 
 {% endblock content %}
