@@ -1,14 +1,19 @@
 {% extends 'tesla/base.html' %}
 
 {% block content %}
-<h2>Here is the latest news for Tesla</h2>
+<h1>Here is the latest news for Tesla</h1>
 <p>We can structure the data how we'd like later.</p>
 
-{% for news in news_package.headlines %}
-  <p>{{ news }}</p>
-{% endfor %}
-{% for news in news_package.images %}
-  <p>{{ news }}</p>
-{% endfor %}
+<p><a href="http://www.google.com">Google</a></p>
+<p><a href="{{ news_package.3.0 }}">Link</a></p>
+
+<tr>
+  <td>{{ news_package.0.0 }}<br></td>
+  <td>{{ news_package.1.0 }}<br></td>
+  <td>{{ news_package.2.0 }}<br></td>
+  <td>{{ news_package.3.0 }}<br></td>
+  <td>{{ news_package.4.0 }}<br></td>
+</tr>
+
 
 {% endblock content %}

@@ -266,14 +266,14 @@ def create_news_package():
             images.append(df['image'][i])
         i += 1
 
-    # create dictionary for news data received
-    full_news_data = {
-        'headlines': headlines,
-        'times_posted': times_posted,
-        'urls': urls,
-        'summaries': summaries,
-        'images': images,
-    }
+    # create nested lists for news data received
+    full_news_data = [
+        times_posted,
+        summaries,
+        headlines,
+        urls,
+        images,
+    ]
 
     # print(full_news_data['headlines'][0]) <- example
     return full_news_data
