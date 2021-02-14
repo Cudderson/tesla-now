@@ -258,7 +258,7 @@ def create_news_package():
     i = 0
 
     # grabbing news data we want based on headlines containing 'tesla' or 'elon'
-    for news in df['headline'][:10]:
+    for news in df['headline'][:25]:
         if 'tesla' in news.lower() or 'elon' in news.lower():
             headlines.append(news)
             times_posted.append(df['datetime'][i])
@@ -275,7 +275,7 @@ def create_news_package():
         summaries,
         urls,
         images,
-        sources,  # 5.0
+        sources,
     ]
 
     # print(full_news_data['headlines'][0]) <- example
