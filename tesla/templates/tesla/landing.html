@@ -10,16 +10,22 @@
 
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+    <style>
+        body {
+            background-color: #121212;
+        }
+        h1 {text-align: center;}
+    </style>
 </head>
 
 {% block page_header %}
     <div class="jumbotron jumbotron-fluid mt-2 bg-success text-white ml-2 mr-2 border border-dark rounded">
         <div class="container">
-            <h1 class="display-1 text-center font-weight-normal">{{ greeting }}</h1>
+            <h1 class="display-1 text-center font-weight-bold">{{ greeting }}</h1>
 
-            <p class="lead text-center font-italic">{{ description }}</p>
+            <p class="lead text-center font-weight-normal">{{ description }}</p>
 
-            <a class="btn btn-lg btn-success btn-block text-white border" href="{% url 'tesla:home' %}"
+            <a class="btn btn-lg btn-success btn-block border" href="{% url 'tesla:home' %}"
             role="button">Enter Tesla Now</a>
         </div>
     </div>

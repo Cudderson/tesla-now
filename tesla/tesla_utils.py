@@ -46,10 +46,14 @@ def create_candle_chart():
         decreasing_line_color='#fe0d00',
     )])
 
-    fig.update_layout(title='Tesla Now Candlestick (6 Months)', yaxis_title='Tesla Stock Price', title_x=0.5)
+    fig.update_layout(title='Tesla Now Candlestick (6 Months)',
+                      yaxis_title='Tesla Stock Price',
+                      title_x=0.5,
+                      template='plotly_dark'
+                      )
 
     # Converting figure into HTML format
-    chart = fig.to_html(full_html=False, default_height=600, default_width=1000)
+    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart
@@ -90,10 +94,10 @@ def create_eps_chart():
         xaxis_title='Date Reported',
         yaxis_title='Earnings Per Share',
         legend_title='Earnings Per Share',
-        # plot_bgcolor='#727370' not a good color
+        template='plotly_dark'
     )
 
-    chart = fig.to_html(full_html=False, default_height=500, default_width=700)
+    chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
     return chart
 
 
@@ -201,16 +205,19 @@ def create_recommend_chart():
 
     # Create stacked bar graph, can optimize later
     fig = go.Figure(data=[
-        go.Bar(name='Strong Sell', x=period, y=strong_sell, text=strong_sell, textposition='inside'),  # example
-        go.Bar(name="Sell", x=period, y=sell),
-        go.Bar(name="Hold", x=period, y=hold),
-        go.Bar(name="Buy", x=period, y=buy),
-        go.Bar(name="Strong Buy", x=period, y=strong_buy),
+        go.Bar(name='Strong Sell', x=period, y=strong_sell, marker_color='#8d423e'),
+        go.Bar(name="Sell", x=period, y=sell, marker_color='#8d693e'),
+        go.Bar(name="Hold", x=period, y=hold, marker_color='#473e8d'),
+        go.Bar(name="Buy", x=period, y=buy, marker_color='#3e8d50'),
+        go.Bar(name="Strong Buy", x=period, y=strong_buy, marker_color='#28a745'),
     ])
 
-    fig.update_layout(barmode='stack')
+    fig.update_layout(
+        barmode='stack',
+        template='plotly_dark',
+        )
 
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1000)
+    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
     return chart
 
 
