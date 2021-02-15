@@ -1,7 +1,10 @@
 {% extends 'tesla/base.html' %}
 
+{% block page_header %}
+    <h1>{{ about_page_data.0 }}</h1>
+{% endblock page_header %}
+
 {% block content %}
-<h1>{{ about_page_data.0 }}</h1>
 <br>
 <h3>{{ about_page_data.1 }}</h3>
 <br><br>
