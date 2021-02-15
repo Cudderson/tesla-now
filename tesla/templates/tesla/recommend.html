@@ -1,7 +1,10 @@
 {% extends 'tesla/base.html' %}
 
+{% block page_header %}
+    <h1>Analyst Buy/Sell Recommendations (Last 6 Months)</h1>
+{% endblock page_header %}
+
 {% block content %}
-<h1>This is a chart displaying analysts' buy/sell recommendations for Tesla</h1>
 
 {{ recommend_chart|safe }}
 

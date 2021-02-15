@@ -212,6 +212,8 @@ def create_recommend_chart():
     ])
 
     fig.update_layout(
+        title_text='Tesla',
+        yaxis_title='Number of Recommendations',
         barmode='stack',
         template='plotly_dark',
         )
