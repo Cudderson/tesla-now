@@ -1,112 +1,13 @@
-"""This file will contain utilities that view functions can use"""
+"""This file will contain utilities that build figures for view functions to use"""
 
-# Finnhub 'quote' !!!
-# create function that handles all api calls, once all graphs are complete.
-
-import requests
-import config
-import time
-import datetime
-import pandas as pd
 import plotly.graph_objs as go
-
-
-def current_price():
-    """Returns the current price of Tesla"""
-
-    r = requests.get(f'https://finnhub.io/api/v1/quote?symbol=TSLA&token={config.finn_key}')
-    res = r.json()
-
-    return res['c']
-
-
-def gather_candle_data():
-    """Gathers the data needed to make a candlestick chart"""
-
-    # defining time range for api call (in UNIX)
-    current_time_unix = int(time.time())
-    six_months_ago_unix = int(time.time() - 15_780_000)
-    # one_month_ago_unix = int(time.time() - 2_592_000)
-    # three_months_ago_unix = int(time.time() - 7_776_000)
-
-    df = pd.read_json(f'https://finnhub.io/api/v1/stock/candle?symbol=TSLA'
-                      f'&resolution=D&from={six_months_ago_unix}&to={current_time_unix}&token={config.finn_key}')
-
-    # convert unix time list in response dict to datetime list for x-axis in figure
-    real_time = [datetime.datetime.fromtimestamp(int(x)).strftime('%Y-%m-%d') for x in df['t']]
-
-    return df, real_time
-
-
-def gather_eps_data():
-    """Gathers the data required to make an EPS chart"""
-
-    df = pd.read_json(f'https://finnhub.io/api/v1/stock/earnings?symbol=TSLA&token={config.finn_key}')
-
-    return df
-
-
-def gather_sma_data():
-    """Returns data needed to create a moving average chart"""
-
-    current_time_unix = int(time.time())
-    # one month doesn't have enough data for 20 trading days sometimes.
-    one_month_ago_unix = int(time.time() - 2_592_000)
-    two_months_ago_unix = one_month_ago_unix - 2_592_000
-
-    df = pd.read_json(f'https://finnhub.io/api/v1/stock/candle?symbol=TSLA'
-                      f'&resolution=D&from={two_months_ago_unix}&to={current_time_unix}&token={config.finn_key}')
-
-    # last 20 closing prices for time range specified
-    last_20_prices = [i for i in df['c'][-20:]]
-    moving_averages_20_day = []
-
-    total = 0
-    i = 1
-
-    # calculate moving average values
-    for price in last_20_prices:
-        total += price
-        sma_20 = total / i
-        moving_averages_20_day.append(sma_20)
-        i += 1
-
-    return last_20_prices, moving_averages_20_day
-
-
-def gather_recommend_data():
-    """Gathers information needed to create recommendation chart"""
-
-    df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={config.finn_key}')
-
-    return df
-
-
-def gather_news():
-    """Gathers the latest news on Tesla"""
-
-    # unix times:
-    real_time_unix = int(time.time())
-    one_month_ago_unix = int(time.time()) - 2_592_000
-
-    # convert unix time to datetime:
-    real_time = datetime.datetime.fromtimestamp(real_time_unix)
-    one_month_ago = datetime.datetime.fromtimestamp(one_month_ago_unix)
-
-    # format datetime for API query
-    real_time = real_time.strftime('%Y-%m-%d')
-    one_month_ago = one_month_ago.strftime('%Y-%m-%d')
-
-    # query to receive last month of news on Tesla:
-    df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={config.finn_key}')
-
-    return df
+from . import tesla_api
 
 
 def create_candle_chart():
     """Returns a candlestick chart in HTML format using a stock API and Pandas/Plotly"""
 
-    df, real_time = gather_candle_data()
+    df, real_time = tesla_api.gather_candle_data()
 
     # create figure using 'OHLC' Tesla data
     fig = go.Figure(data=[go.Candlestick(
@@ -135,7 +36,7 @@ def create_candle_chart():
 def create_eps_chart():
     """Returns a EPS surprise chart in HTML format"""
 
-    df = gather_eps_data()
+    df = tesla_api.gather_eps_data()
 
     # create custom ticks/labels for better UX/UI
     custom_x_ticks = [i for i in range(1, 5)]
@@ -176,7 +77,7 @@ def create_eps_chart():
 def create_sma_chart():
     """Returns a simple moving average chart in HTML format"""
 
-    last_20_prices, moving_averages_20_day = gather_sma_data()
+    last_20_prices, moving_averages_20_day = tesla_api.gather_sma_data()
 
     fig = go.Figure()
 
@@ -231,7 +132,7 @@ def create_sma_chart():
 def create_recommend_chart():
     """Returns a recommendation trend chart in HTML format"""
 
-    df = gather_recommend_data()
+    df = tesla_api.gather_recommend_data()
 
     # create lists of latest 6 months of data of recommendations. (reversed with '[::-1]' to get oldest data first)
     strong_buy = [i for i in df['strongBuy'][:6][::-1]]
@@ -264,7 +165,7 @@ def create_recommend_chart():
 def create_news_package():
     """Packages news data into a dictionary structure for easy handling"""
 
-    df = gather_news()
+    df = tesla_api.gather_news()
 
     headlines = []
     times_posted = []

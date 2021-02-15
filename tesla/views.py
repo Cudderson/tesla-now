@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from . import tesla_utils
+from . import tesla_api
 
 
 def landing(request):
@@ -18,7 +19,7 @@ def landing(request):
 def home(request):
     """The Home/Main page of Tesla One"""
 
-    current_price = tesla_utils.current_price()
+    current_price = tesla_api.current_price()
 
     home_chart = tesla_utils.create_candle_chart()
 
