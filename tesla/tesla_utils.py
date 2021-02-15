@@ -280,3 +280,44 @@ def create_news_package():
 
     # print(full_news_data['headlines'][0]) <- example
     return full_news_data
+
+
+def about_page_data():
+    """Holds information for the 'about' page to be passed to a view"""
+
+    what_is_this = 'What is Tesla Now?'
+
+    what_it_is = 'Tesla Now is a personal project that is designed ' \
+                 'as an investment tool and central location for all things Tesla.'
+
+    project_details = 'Built with Django, this project gathers Tesla-related information in real-time ' \
+                      'with the help of the Finnhub.io API. Tesla Now ' \
+                      'uses fresh-data to build interactive-charts and supply ' \
+                      'the newest articles to the user, as soon as they are published.'
+
+    about_the_creator = "My name is Cody and I'm an aspiring software developer. I created this project " \
+                        "due not only to my love for Tesla, but as a showcase for my programming abilities as well. " \
+                        "If you enjoyed the project, please consider giving it a 'star' on Github. Feel free to " \
+                        "contact me for anything related to this project, hiring, or programming! " \
+                        "(links below)"
+
+    disclaimer = 'Tesla Now is a non-monetized project with no affiliation to Tesla Inc.'
+
+    finnhub_url = 'https://finnhub.io/'
+
+    my_github_profile = 'http://github.com/cudderson/tesla-now'
+
+    tesla_url = 'https://www.tesla.com/'
+
+    about_package = [
+        what_is_this,
+        what_it_is,
+        project_details,
+        about_the_creator,
+        disclaimer,
+        finnhub_url,
+        my_github_profile,
+        tesla_url,
+    ]
+
+    return about_package

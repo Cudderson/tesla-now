@@ -65,3 +65,13 @@ def news(request):
     context = {'news_package': news_package}
 
     return render(request, 'tesla/news.html', context)
+
+
+def about(request):
+    """Page that displays information about the project"""
+
+    about_page_data = tesla_utils.about_page_data()
+
+    context = {'about_page_data': about_page_data}
+
+    return render(request, 'tesla/about.html', context)
