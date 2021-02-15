@@ -1,0 +1,1 @@
+web: gunicorn tesla_now.wsgi --log-file -
