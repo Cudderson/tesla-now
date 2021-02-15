@@ -105,13 +105,12 @@ def gather_sma_data():
     """Returns data needed to create a moving average chart"""
 
     current_time_unix = int(time.time())
+    # one month doesn't have enough data for 20 trading days sometimes.
     one_month_ago_unix = int(time.time() - 2_592_000)
+    two_months_ago_unix = one_month_ago_unix - 2_592_000
 
     df = pd.read_json(f'https://finnhub.io/api/v1/stock/candle?symbol=TSLA'
-                      f'&resolution=D&from={one_month_ago_unix}&to={current_time_unix}&token={config.finn_key}')
-
-    # the number of entries we want
-    n = 20
+                      f'&resolution=D&from={two_months_ago_unix}&to={current_time_unix}&token={config.finn_key}')
 
     # last 20 closing prices for time range specified
     last_20_prices = [i for i in df['c'][-20:]]
@@ -138,14 +137,14 @@ def create_sma_chart():
 
     # 20 day moving average figure
     fig.add_trace(go.Scatter(
-        name='20-day SMA',
+        name='20-day SMA', mode='lines',
         x=[i+1 for i in range(len(moving_averages_20_day))],
         y=moving_averages_20_day,
         line=dict(color='#fe0d00')))
 
     # Closing prices figure
     fig.add_trace(go.Scatter(
-        name='Closing Price',
+        name='Closing Price', mode='lines',
         x=[i+1 for i in range(len(last_20_prices))],
         y=last_20_prices,
         line=dict(color='#00FE35')))
