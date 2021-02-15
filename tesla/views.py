@@ -17,9 +17,9 @@ def landing(request):
 
 def home(request):
     """The Home/Main page of Tesla One"""
-    # First step is generating a tesla chart
-    # This view should provide data to template only, not calculate/generate chart
+
     current_price = tesla_utils.current_price()
+
     home_chart = tesla_utils.create_candle_chart()
 
     context = {'current_price': current_price, 'home_chart': home_chart}

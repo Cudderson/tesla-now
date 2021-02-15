@@ -57,7 +57,6 @@ def create_candle_chart():
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart
-    # fig.show()
 
 
 def create_eps_chart():
@@ -119,6 +118,7 @@ def gather_sma_data():
     total = 0
     i = 1
 
+    # calculate moving average values
     for price in last_20_prices:
         total += price
         sma_20 = total / i
@@ -202,7 +202,7 @@ def create_recommend_chart():
     strong_sell = [i for i in df['strongSell'][:6][::-1]]
     period = [i for i in df['period'][:6][::-1]]
 
-    # Create stacked bar graph, can optimize later
+    # Create stacked bar graph
     fig = go.Figure(data=[
         go.Bar(name='Strong Sell', x=period, y=strong_sell, marker_color='#8d423e'),
         go.Bar(name="Sell", x=period, y=sell, marker_color='#8d693e'),
@@ -224,8 +224,6 @@ def create_recommend_chart():
 
 def gather_news():
     """Gathers the latest news on Tesla"""
-
-    #  example: 'https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=c0b1ie748v6sc0gs1q40'
 
     # unix times:
     real_time_unix = int(time.time())
