@@ -27,8 +27,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 FINN_KEY = os.getenv('FINN_KEY')
 
-print(SECRET_KEY, FINN_KEY)
-input()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
