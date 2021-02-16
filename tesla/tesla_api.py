@@ -1,13 +1,13 @@
 """This file will handle the communication with the Finnhub API, as well as package API data for 'tesla_utils'"""
 
 import requests
-import config
 import time
 import datetime
 import pandas as pd
 import os
 
-finn_key = os.environ["FINN_KEY"]
+finn_key = os.getenv('FINN_KEY')
+
 
 def current_price():
     """Returns the current price of Tesla"""
