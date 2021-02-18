@@ -6,10 +6,7 @@ import datetime
 import pandas as pd
 import os
 
-finn_key = 'c0b1ie748v6sc0gs1q40'
-
-# go back to using this after work is done
-# finn_key = os.getenv('FINN_KEY')
+finn_key = os.getenv('FINN_KEY')
 
 
 def current_price():
@@ -49,9 +46,6 @@ def gather_sma_data():
     """Returns data needed to create a moving average chart"""
 
     current_time_unix = int(time.time())
-    # one month doesn't have enough data for 20 trading days sometimes.
-    one_month_ago_unix = int(time.time() - 2_592_000)
-    two_months_ago_unix = one_month_ago_unix - 2_592_000
 
     # We will use 6 months of data to create the SMA chart
     six_months_ago_unix = int(time.time() - 15_780_000)
@@ -65,6 +59,7 @@ def gather_sma_data():
     # closing prices for time range specified
     closing_prices = [i for i in df['c']]
     moving_averages_20_day = []
+    moving_averages_4_day = []
 
     print(closing_prices)
 
@@ -72,16 +67,28 @@ def gather_sma_data():
     i = 0
     j = 20
 
+    # counters to examine a range of 4 closing prices
+    n = 16
+    m = 20
+
     # Generate list representing values for 20-day moving average
     while j < len(closing_prices):
 
-        ma_val = (sum(closing_prices[i:j])) / 20
+        average_20_day = (sum(closing_prices[i:j])) / 20
+        moving_averages_20_day.append(average_20_day)
 
-        moving_averages_20_day.append(ma_val)
         i += 1
         j += 1
 
-    return closing_prices, moving_averages_20_day, real_time
+    while m < len(closing_prices):
+
+        average_4_day = (sum(closing_prices[n:m])) / 4
+        moving_averages_4_day.append(average_4_day)
+
+        n += 1
+        m += 1
+
+    return closing_prices, moving_averages_20_day, moving_averages_4_day, real_time
 
 
 def gather_recommend_data():
@@ -111,6 +118,3 @@ def gather_news():
     df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={finn_key}')
 
     return df
-
-
-gather_sma_data()
