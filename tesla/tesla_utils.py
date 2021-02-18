@@ -77,37 +77,45 @@ def create_eps_chart():
 def create_sma_chart():
     """Returns a simple moving average chart in HTML format"""
 
-    last_20_prices, moving_averages_20_day = tesla_api.gather_sma_data()
+    closing_prices, moving_averages_20_day, moving_averages_4_day, real_time = tesla_api.gather_sma_data()
 
     fig = go.Figure()
 
     # 20 day moving average figure
     fig.add_trace(go.Scatter(
         name='20-day SMA', mode='lines',
-        x=[i+1 for i in range(len(moving_averages_20_day))],
+        x=real_time[20:],
         y=moving_averages_20_day,
         line=dict(color='#fe0d00')))
+
+    # 4 day moving average figure
+    fig.add_trace(go.Scatter(
+        name='4-day SMA', mode='lines',
+        x=real_time[20:],
+        y=moving_averages_4_day,
+        line=dict(color='#00cbfe')
+    ))
 
     # Closing prices figure
     fig.add_trace(go.Scatter(
         name='Closing Price', mode='lines',
-        x=[i+1 for i in range(len(last_20_prices))],
-        y=last_20_prices,
-        line=dict(color='#00FE35')))
+        x=real_time[20:],
+        y=closing_prices[20::],
+        line=dict(color='#66fe00')))
 
     # highlighting latest closing price
     fig.add_trace(go.Scatter(
-        name='Latest Closing Price', mode='markers', x=[20], y=last_20_prices[-1:],
+        name='Latest Closing Price', mode='markers', x=[real_time[-1]], y=closing_prices[-1:],
         marker=dict(
             size=15,
-            color='#00FE35',
+            color='#66fe00',
             opacity=.8
         ), showlegend=False
     ))
 
-    # highlighting latest moving average level
+    # highlighting latest 20 day moving average level
     fig.add_trace(go.Scatter(
-        name='Current SMA Level', mode='markers', x=[20], y=moving_averages_20_day[-1:],
+        name='Current SMA20 Level', mode='markers', x=[real_time[-1]], y=moving_averages_20_day[-1:],
         marker=dict(
             size=15,
             color='#fe0d00',
@@ -115,16 +123,24 @@ def create_sma_chart():
         ), showlegend=False
     ))
 
+    # highlighting latest 4 day moving average level
+    fig.add_trace(go.Scatter(
+        name='Current SMA4 Level', mode='markers', x=[real_time[-1]], y=moving_averages_4_day[-1:],
+        marker=dict(
+            size=15,
+            color='#00cbfe',
+            opacity=.8
+        ), showlegend=False
+    ))
+
     # Format figure (UI)
-    fig.update_xaxes(type='category', range=[0, 20])
     fig.update_yaxes(tickprefix='$')
 
-    fig.update_layout(title_text='20-day Simple Moving Average: TSLA',
-                      xaxis_title='20-day Period (Trading Days)',
+    fig.update_layout(title_text='Simple Moving Averages: TSLA',
                       yaxis_title='Closing Price vs SMA',
                       template='plotly_dark')
 
-    chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=700, default_width=1200)
 
     return chart
 
@@ -176,15 +192,17 @@ def create_news_package():
     i = 0
 
     # grabbing news data we want based on headlines containing 'tesla' or 'elon'
+    # sometimes we receive duplicate articles, so we filter the extras out
     for news in df['headline'][:25]:
-        if 'tesla' in news.lower() or 'elon' in news.lower():
-            headlines.append(news)
-            times_posted.append(df['datetime'][i])
-            urls.append(df['url'][i])
-            summaries.append(df['summary'][i])
-            images.append(df['image'][i])
-            sources.append(df['source'][i].title())
-        i += 1
+        if news not in headlines and news:
+            if 'tesla' in news.lower() or 'elon' in news.lower():
+                headlines.append(news)
+                times_posted.append(df['datetime'][i])
+                urls.append(df['url'][i])
+                summaries.append(df['summary'][i])
+                images.append(df['image'][i])
+                sources.append(df['source'][i].title())
+            i += 1
 
     # create nested lists for news data received
     full_news_data = [
