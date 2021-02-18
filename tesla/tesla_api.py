@@ -6,7 +6,10 @@ import datetime
 import pandas as pd
 import os
 
-finn_key = os.getenv('FINN_KEY')
+finn_key = 'c0b1ie748v6sc0gs1q40'
+
+# go back to using this after work is done
+# finn_key = os.getenv('FINN_KEY')
 
 
 def current_price():
@@ -50,24 +53,50 @@ def gather_sma_data():
     one_month_ago_unix = int(time.time() - 2_592_000)
     two_months_ago_unix = one_month_ago_unix - 2_592_000
 
-    df = pd.read_json(f'https://finnhub.io/api/v1/stock/candle?symbol=TSLA'
-                      f'&resolution=D&from={two_months_ago_unix}&to={current_time_unix}&token={finn_key}')
+    # We will use 6 months of data to create the SMA chart
+    six_months_ago_unix = int(time.time() - 15_780_000)
 
-    # last 20 closing prices for time range specified
-    last_20_prices = [i for i in df['c'][-20:]]
+    df = pd.read_json(f'https://finnhub.io/api/v1/stock/candle?symbol=TSLA'
+                      f'&resolution=D&from={six_months_ago_unix}&to={current_time_unix}&token={finn_key}')
+
+    # closing prices for time range specified
+    closing_prices = [i for i in df['c']]
     moving_averages_20_day = []
 
-    total = 0
-    i = 1
+    print(closing_prices)
 
-    # calculate moving average values
-    for price in last_20_prices:
-        total += price
-        sma_20 = total / i
-        moving_averages_20_day.append(sma_20)
+    # Create counters to examine the last 20 closing prices
+    i = 0
+    j = 20
+
+    # We start with 6 months of closing prices
+    # The first point for our 20-day MA is the average of the first 20 closing prices
+
+    # ma_val = sum(closing_prices[i:j]) / 20
+
+    # print(first_value_ma)
+
+    # First val was found with sum(1st val - 20th val) / 20
+    # Our next value will be = sum(2nd val - 21st val) / 20
+    # We examine 20 values at a time, and take the average. The average = our MA point to plot
+    # Let's create a loop that finds the 20-day MA value for every point in 'closing_prices' (starting after 20 points)
+
+    while j < len(closing_prices):
+        # break this up
+        ma_val = (sum(closing_prices[i:j]))
+        ma_val = ma_val / 20
+        moving_averages_20_day.append(ma_val)
         i += 1
+        j += 1
 
-    return last_20_prices, moving_averages_20_day
+    print(len(closing_prices))
+    print(len(moving_averages_20_day))
+    print(moving_averages_20_day)
+
+    # at this point, the 20-day moving average list has 20-less vals than closing_prices.
+    # we should start the chart plot with closing price 20 = first val in moving average
+
+    return closing_prices, moving_averages_20_day
 
 
 def gather_recommend_data():
@@ -97,3 +126,6 @@ def gather_news():
     df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={finn_key}')
 
     return df
+
+
+gather_sma_data()
