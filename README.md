@@ -1,14 +1,16 @@
-### This project is live: 
+## This project is live: 
 
 ### http://tesla-now.herokuapp.com
+
+#### ( Allow time for initial load, as this app will likely be cold-starting due to low traffic/requests. Page requests after the inital connection will be quicker. ) 
 
 # About
 
 [![tesla-snap.png](https://i.postimg.cc/vZgFzPKn/tesla-snap.png)](https://postimg.cc/21DKjxrj)
 
-### Tesla Now is a web app that serves as a central location for all things Tesla. 
+## Tesla Now is a web application that serves as a central location for all things Tesla. 
 
-#### Using real-time data, Tesla Now provides the user with interactive charts, statistics, and Tesla-related news/articles-- as soon as they're published.
+### Using real-time data, Tesla Now provides the user with interactive charts, statistics, and Tesla-related news/articles-- as soon as they're published.
 
 
 ## Built With
@@ -19,7 +21,7 @@
 ## Usage
 
 - Running this project locally will require a little extra work, as you will need your own assets/keys:
-  - Free API key from http://finnhub.io
+  - A Free API key from http://finnhub.io
   - A Django 'SECRET_KEY'
     - from https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/ : 
   
@@ -29,7 +31,7 @@
 ### 1. Set Environment Variables
 - For privacy, the keys are not stored within the project's files. Instead, save them as environment variables on your os.
 - 'settings.py' uses `os.getenv()` to retrieve the keys from your system variables:
-- 
+
 ```
 SECRET_KEY = os.getenv('SECRET_KEY')
 
