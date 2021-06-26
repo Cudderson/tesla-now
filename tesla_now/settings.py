@@ -35,9 +35,21 @@ elif os.environ.get('DEBUG') == 'FALSE':
 else:
     DEBUG = False
 
-print(DEBUG)
+if DEBUG == False:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    # one year
+    SECURE_HSTS_SECONDS = 31556952
 
-ALLOWED_HOSTS = []
+print(f'DEBUG: {DEBUG}')
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '*.herokuapp.com',
+    'tesla-now.herokuapp.com',
+]
 
 
 # Application definition
