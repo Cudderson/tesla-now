@@ -1,8 +1,7 @@
-{% load bootstrap4 %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load bootstrap4 %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tesla Now</title>
@@ -52,14 +51,8 @@
         </div>
   </nav>
 
-<main role="main" class="container">
-    <div class="pb-2 mb-2 border-bottom">
-        {% block page_header %}{% endblock page_header %}
-    </div>
-    <div>
-        {% block content %}{% endblock content %}
-    </div>
-</main>
+{% block page_header %}{% endblock page_header %}
+{% block content %}{% endblock content %}
 
 </body>
 </html>
