@@ -27,7 +27,8 @@ def create_candle_chart():
                       )
 
     # Converting figure into HTML format
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    # chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=600)
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart
@@ -70,7 +71,7 @@ def create_eps_chart():
         template='plotly_dark'
     )
 
-    chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=600)
     return chart
 
 
@@ -140,7 +141,7 @@ def create_sma_chart():
                       yaxis_title='Closing Price vs SMA',
                       template='plotly_dark')
 
-    chart = fig.to_html(full_html=False, default_height=700, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=700)
 
     return chart
 
@@ -174,7 +175,7 @@ def create_recommend_chart():
         template='plotly_dark',
         )
 
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=800)
     return chart
 
 
@@ -231,8 +232,7 @@ def about_page_data():
                       'uses fresh-data to build interactive-charts and supply ' \
                       'the newest articles to the user, as soon as they are published.'
 
-    about_the_creator = "My name is Cody and I'm an aspiring software developer. I created this project " \
-                        "due not only to my love for Tesla, but as a showcase for my programming abilities as well. " \
+    about_the_creator = "My name is Cody and I'm an aspiring software developer. " \
                         "If you enjoyed the project, please consider giving it a 'star' on Github. Feel free to " \
                         "contact me for anything related to this project, hiring, or programming! " \
                         "(links below)"
@@ -241,7 +241,7 @@ def about_page_data():
 
     finnhub_url = 'https://finnhub.io/'
 
-    my_github_profile = 'http://github.com/cudderson/tesla-now'
+    my_github_profile = 'https://github.com/cudderson/tesla-now'
 
     tesla_url = 'https://www.tesla.com/'
 

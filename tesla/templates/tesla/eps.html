@@ -1,15 +1,17 @@
 {% extends 'tesla/base.html' %}
 
 {% block page_header %}
-    <h1>Tesla EPS Statistics for the Last 4 Quarters</h1>
+    <h1 class="text-center">Tesla EPS Statistics for the Last 4 Quarters</h1>
 {% endblock page_header %}
 
 {% block content %}
 
-{{ eps_chart|safe }}
+<div class="tesla-chart">
+    {{ eps_chart|safe }}
+</div>
 
 <br>
-<h1>What is EPS?</h1>
+<h1 class="text-center">What is EPS?</h1>
 <br>
 <h3>EPS, or Earnings per Share, represents a company's net profit divided by its outstanding shares.</h3>
 <br>
@@ -17,6 +19,6 @@
 for each share of its stock.</h3>
 <br>
 <h3>Read more about EPS here:
-    <a href="https://en.wikipedia.org/wiki/Earnings_per_share" target="_blank">Wikipedia/eps</a></h3>
+    <a class="tesla-link" href="https://en.wikipedia.org/wiki/Earnings_per_share" target="_blank">Wikipedia/eps</a></h3>
 <br><br>
 {% endblock content %}

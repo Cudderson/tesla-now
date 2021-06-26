@@ -1,15 +1,17 @@
 {% extends 'tesla/base.html' %}
 
 {% block page_header %}
-    <h1>Tracking the 4-day and 20-Day Moving Average Price of Tesla Shares, Compared to the Real Closing Prices</h1>
+    <h1 class="text-center">Tracking the 4-day and 20-Day Moving Average Price of Tesla Shares, Compared to the Real Closing Prices</h1>
 {% endblock page_header %}
 
 {% block content %}
 
-{{ sma_chart|safe }}
+<div class="tesla-chart">
+    {{ sma_chart|safe }}
+</div>
 
 <br><br>
-<h1>What is SMA?</h1>
+<h1 class="text-center">What is SMA?</h1>
 <br>
 <h3>SMA, or simple moving average, is a statistic used by investors to find trends in the short-term
 fluctuations of a company's stock.</h3>
@@ -19,6 +21,6 @@ of the SMA, (7-day, 50-day, 200-day, etc.) as well as more complicated versions,
 Moving Average.</h3>
 <br>
 <h3>Read more about SMA, and other moving average statistics here:
-    <a href="https://en.wikipedia.org/wiki/Moving_average" target="_blank">Wikipedia/moving_average</a></h3>
+    <a class="tesla-link" href="https://en.wikipedia.org/wiki/Moving_average" target="_blank">Wikipedia/moving_average</a></h3>
 <br><br>
 {% endblock content %}
