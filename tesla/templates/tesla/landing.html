@@ -19,14 +19,12 @@
     <div class="landing-container">
         <div class="jumbotron jumbotron-fluid mt-3 bg-success text-white ml-2 mr-2 border border-dark rounded">
             <div class="container">
-                <h1>{{ greeting }}</h1>
-
+                <span class="landing-header display-3">{{ greeting }}</span>
                 <p>{{ description }}</p>
-
+                <br>
                 <a class="btn btn-lg btn-success btn-block border" href="{% url 'tesla:home' %}"
                 role="button">Enter Tesla Now</a>
             </div>
         </div>
     </div>
-
 {% endblock content %}

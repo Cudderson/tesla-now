@@ -7,7 +7,7 @@ from . import tesla_api
 def landing(request):
     """The initial landing page for Tesla Now"""
 
-    welcome_text = "Welcome to Tesla Now."
+    welcome_text = "Tesla Now"
 
     description = "View Tesla-specific charts, news, and analyst recommendations, all in real-time."
 

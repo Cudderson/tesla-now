@@ -17,6 +17,13 @@ img {
 /* landing.html (does not inherit base.html) */
 .landing-container {
     margin-top: 12.5rem;
+    text-align: center;
+}
+
+.landing-header {
+    display: block;
+    font-size: 60px;
+    font-weight: bold;
 }
 /* base.html */
 
