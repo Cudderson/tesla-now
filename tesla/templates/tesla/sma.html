@@ -6,7 +6,9 @@
 
 {% block content %}
 
-{{ sma_chart|safe }}
+<div class="tesla-chart">
+    {{ sma_chart|safe }}
+</div>
 
 <br><br>
 <h1>What is SMA?</h1>
@@ -19,6 +21,6 @@ of the SMA, (7-day, 50-day, 200-day, etc.) as well as more complicated versions,
 Moving Average.</h3>
 <br>
 <h3>Read more about SMA, and other moving average statistics here:
-    <a href="https://en.wikipedia.org/wiki/Moving_average" target="_blank">Wikipedia/moving_average</a></h3>
+    <a class="tesla-link" href="https://en.wikipedia.org/wiki/Moving_average" target="_blank">Wikipedia/moving_average</a></h3>
 <br><br>
 {% endblock content %}

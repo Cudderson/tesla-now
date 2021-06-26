@@ -71,7 +71,7 @@ def create_eps_chart():
         template='plotly_dark'
     )
 
-    chart = fig.to_html(full_html=False, default_height=600, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=600)
     return chart
 
 
@@ -141,7 +141,7 @@ def create_sma_chart():
                       yaxis_title='Closing Price vs SMA',
                       template='plotly_dark')
 
-    chart = fig.to_html(full_html=False, default_height=700, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=700)
 
     return chart
 
@@ -175,7 +175,7 @@ def create_recommend_chart():
         template='plotly_dark',
         )
 
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=800)
     return chart
 
 

@@ -6,7 +6,9 @@
 
 {% block content %}
 
-{{ eps_chart|safe }}
+<div class="tesla-chart">
+    {{ eps_chart|safe }}
+</div>
 
 <br>
 <h1>What is EPS?</h1>
@@ -17,6 +19,6 @@
 for each share of its stock.</h3>
 <br>
 <h3>Read more about EPS here:
-    <a href="https://en.wikipedia.org/wiki/Earnings_per_share" target="_blank">Wikipedia/eps</a></h3>
+    <a class="tesla-link" href="https://en.wikipedia.org/wiki/Earnings_per_share" target="_blank">Wikipedia/eps</a></h3>
 <br><br>
 {% endblock content %}
