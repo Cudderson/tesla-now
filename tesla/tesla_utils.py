@@ -27,7 +27,8 @@ def create_candle_chart():
                       )
 
     # Converting figure into HTML format
-    chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    # chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
+    chart = fig.to_html(full_html=False, default_height=600)
 
     # Returning our figure/graph to our 'home_page' view function on call
     return chart

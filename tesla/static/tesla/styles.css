@@ -1,6 +1,5 @@
 body {
     background-color: #121212;
-    text-align: none;
     color: #CCCCCC;
 }
 
@@ -28,9 +27,10 @@ img {
     font-weight: bold;
 }
 /* base.html */
-.center-text {
-    text-align: center;
-    color: blue;
+.tesla-base-container {
+    width: 85%;
+    min-width: 375px;
+    margin: 0 auto;
 }
 
 .tesla-link {
@@ -39,6 +39,10 @@ img {
 
 .tesla-link:hover {
     color: lightgreen;
+}
+
+.tesla-chart {
+    width: 100%;
 }
 /* home.html */
 
