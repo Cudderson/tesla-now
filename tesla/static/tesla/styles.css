@@ -1,5 +1,7 @@
 body {
     background-color: #121212;
+    text-align: none;
+    color: #CCCCCC;
 }
 
 /* keep for reference
@@ -26,7 +28,18 @@ img {
     font-weight: bold;
 }
 /* base.html */
+.center-text {
+    text-align: center;
+    color: blue;
+}
 
+.tesla-link {
+    color: #49BB49;
+}
+
+.tesla-link:hover {
+    color: lightgreen;
+}
 /* home.html */
 
 /* eps.html */
