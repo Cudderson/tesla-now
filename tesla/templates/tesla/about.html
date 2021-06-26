@@ -1,26 +1,26 @@
 {% extends 'tesla/base.html' %}
 
 {% block page_header %}
-    <h1>{{ about_page_data.0 }}</h1>
+    <h1 class="green-header">{{ about_page_data.0 }}</h1>
 {% endblock page_header %}
 
 {% block content %}
 <br>
-<h3>{{ about_page_data.1 }}</h3>
+<h4>{{ about_page_data.1 }}</h4>
 <br><br>
-<h3>{{ about_page_data.2 }}</h3>
+<h4>{{ about_page_data.2 }}</h4>
 <br><br>
-<h1>About the Creator</h1>
+<h2 class="green-header">About the Creator</h2>
 <br>
-<h3>{{ about_page_data.3 }}</h3>
+<h4>{{ about_page_data.3 }}</h4>
 <br><br>
-<h1>Links:</h1>
+<h2 class="green-header">Links:</h2>
 <br>
-<h3>Contact Me: <a class="tesla-link" href="http://codered1227@gmail.com" target="_blank">codered1227@gmail.com</a></h3>
-<h3>Github project link: <a class="tesla-link" href="{{ about_page_data.6 }}" target="_blank">http://github.com/cudderson/tesla-now</a></h3>
-<h3>Finnhub: <a class="tesla-link" href="{{ about_page_data.5 }}" target="_blank">http://finnhub.io</a></h3>
-<h3>Tesla Inc: <a class="tesla-link" href="{{ about_page_data.7 }}" target="_blank">http://tesla.com</a></h3>
+<h5>Contact Me: <a class="tesla-link" href="http://codered1227@gmail.com" target="_blank">codered1227@gmail.com</a></h5>
+<h5>Github project link: <a class="tesla-link" href="{{ about_page_data.6 }}" target="_blank">http://github.com/cudderson/tesla-now</a></h5>
+<h5>Finnhub: <a class="tesla-link" href="{{ about_page_data.5 }}" target="_blank">http://finnhub.io</a></h5>
+<h5>Tesla Inc: <a class="tesla-link" href="{{ about_page_data.7 }}" target="_blank">http://tesla.com</a></h5>
 <br><br>
-<h3>Disclaimer: {{ about_page_data.4 }}</h3>
+<h4 class="text-center">Disclaimer: {{ about_page_data.4 }}</h4>
 <br><br><br>
 {% endblock content %}
