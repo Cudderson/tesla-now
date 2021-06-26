@@ -1,5 +1,3 @@
-{% load bootstrap4 %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,19 +6,27 @@
         shrink-to-fit=no">
     <title>Tesla Now</title>
 
+    {% load static %}
+    {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
+
+    <link rel="stylesheet" type="text/css" href="\static\tesla\styles.css">
+
 </head>
 
-{% block page_header %}
-    <div class="jumbotron jumbotron-fluid mt-3 bg-success text-white ml-2 mr-2 border border-dark rounded">
-        <div class="container">
-            <h1 class="display-1 text-center font-weight-bold">{{ greeting }}</h1>
+{% block content %}
+    <div class="landing-container">
+        <div class="jumbotron jumbotron-fluid mt-3 bg-success text-white ml-2 mr-2 border border-dark rounded">
+            <div class="container">
+                <h1>{{ greeting }}</h1>
 
-            <p class="lead text-center font-weight-normal">{{ description }}</p>
+                <p>{{ description }}</p>
 
-            <a class="btn btn-lg btn-success btn-block border" href="{% url 'tesla:home' %}"
-            role="button">Enter Tesla Now</a>
+                <a class="btn btn-lg btn-success btn-block border" href="{% url 'tesla:home' %}"
+                role="button">Enter Tesla Now</a>
+            </div>
         </div>
     </div>
-{% endblock page_header %}
+
+{% endblock content %}
