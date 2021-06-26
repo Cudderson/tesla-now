@@ -50,6 +50,11 @@ Create environment variables with names `SECRET_KEY` and `FINN_KEY`, with values
   - Still in terminal, navigate back to the previous directory `cd ..` and run `python manage.py runserver`
   - Project should now be running on your local server: `http://127.0.0.1:8000/`
 
+## Developer Notes
+  - Site is secure via SSL/HTTPS
+  - Though this site is fully-responsive, view on desktop for the best user-experince. The plotly charts appear more-congested on mobile. 
+
+
 ## Author
 
 - Cody : Myself
