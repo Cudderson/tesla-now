@@ -6,29 +6,7 @@ body {
     background-color: #121212;
 }
 
-h1 {
-    text-align: center;
-}
-
-/* base.html */
-body {
-    background-color: #121212;
-}
-
-h1 {
-    text-align: center;
-    color: #ded7d2;
-}
-
-h3 {
-    text-align: center;
-    color: #ded7d2;
-}
-
-p {
-    color: #ded7d2;
-}
-
+/* keep for reference
 img {
     display: block;
     border-radius: 15px;
@@ -38,20 +16,24 @@ img {
     width:512px;
     height:288px;
 }
+*/
 
+/* base.html */
+
+/* home.html */
+
+/* eps.html */
+
+/* recommend.html */
+
+/* sma.html */
+
+/* about.html */
+
+/* news.html */
+/*
 .news {
     text-align: center;
     margin-bottom: 80px;
 }
-
-/* home.html (NO ORIGINAL STYLES) */
-
-/* eps.html (NO ORIGINAL STYLES) */
-
-/* news.html (NO ORIGINAL STYLES) */
-
-/* recommend.html (NO ORIGINAL STYLES) */
-
-/* sma.html (NO ORIGINAL STYLES) */
-
-/* about.html (NO ORIGINAL STYLES) */
+*/
