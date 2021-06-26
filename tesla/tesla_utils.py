@@ -232,7 +232,7 @@ def about_page_data():
                       'uses fresh-data to build interactive-charts and supply ' \
                       'the newest articles to the user, as soon as they are published.'
 
-    about_the_creator = "My name is Cody and I'm an aspiring software developer." \
+    about_the_creator = "My name is Cody and I'm an aspiring software developer. " \
                         "If you enjoyed the project, please consider giving it a 'star' on Github. Feel free to " \
                         "contact me for anything related to this project, hiring, or programming! " \
                         "(links below)"
