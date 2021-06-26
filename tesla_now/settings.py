@@ -28,7 +28,14 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 FINN_KEY = os.getenv('FINN_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('DEBUG') == 'TRUE':
+    DEBUG = True
+elif os.environ.get('DEBUG') == 'FALSE':
+    DEBUG = False
+else:
+    DEBUG = False
+
+print(DEBUG)
 
 ALLOWED_HOSTS = []
 
@@ -133,10 +140,3 @@ STATIC_URL = '/static/'
 # heroku settings
 import django_heroku
 django_heroku.settings(locals())
-
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False
-
-print(DEBUG)
