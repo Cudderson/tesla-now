@@ -6,7 +6,7 @@
 
 # About
 
-[![tesla-snap.png](https://i.postimg.cc/vZgFzPKn/tesla-snap.png)](https://postimg.cc/21DKjxrj)
+![tesla-now-1.png](https://github.com/Cudderson/tesla-now/blob/master/tesla-now-1.png)
 
 ## Tesla Now is a web application that serves as a central location for all things Tesla. 
 
