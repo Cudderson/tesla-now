@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from rest_framework import routers
+from tesla.api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tesla.urls')),
+    path('api/hello-world', views.hello_world, name='hello-world')
 ]
