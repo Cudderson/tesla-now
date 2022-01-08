@@ -21,5 +21,7 @@ from tesla.api import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tesla.urls')),
-    path('api/hello-world', views.hello_world, name='hello-world')
+    # combine into viewset when possible
+    path('api/hello-world', views.hello_world, name='hello-world'),
+    path('api/test-current-price', views.test_get_current_price, name='test-current-price')
 ]
