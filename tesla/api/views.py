@@ -39,15 +39,16 @@ def test_get_current_price(request):
     return Response(serialized_data)
 
 
-# [] successfully display candlestick chart in React
+# [x] successfully display candlestick chart in React
 # in future, we will decouple code
-
 @api_view()
 def get_candlestick_chart(request):
     """
     returns a djangorestframework Response(serialized_data)
     """
     # doing everything here to make sure it works
+
+
     # defining time range for api call (in UNIX)
     current_time_unix = int(time.time())
     six_months_ago_unix = int(time.time() - 15_780_000)
@@ -81,12 +82,9 @@ def get_candlestick_chart(request):
     # plotly.offline.plot(data, include_plotlyjs="cdn", output_type="div")
     # will give you a div with the necessary plotly js so that the div can just be embedded and you're done 
 
-    # since plotly is now imported in React, determine how to not include it at all in this conversion
-    chart = plotly.offline.plot(fig, include_plotlyjs="cdn", output_type="div")
-
-    # Converting figure into HTML format
-    # chart = fig.to_html(full_html=False, default_height=800, default_width=1200)
-    # chart = fig.to_html(full_html=True, default_height=600)
+    # with 'include_plotly.js=False', we don't include any <scripts> to load Plotly within the HTML string
+    # this is because plotly is linked in the <head> of our main index.html in React 
+    chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     # at this point, we have an html representation of the chart.
     # we should serialize it and return a DRF Response
