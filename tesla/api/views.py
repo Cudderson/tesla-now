@@ -78,3 +78,20 @@ def get_EPS_chart(request):
     serialized_data = HTMLChartPlotlySerializer({"chart": eps_chart})
 
     return Response(serialized_data.data)
+
+@api_view()
+def get_SMA_chart(request):
+    """
+    Returns a DRF Response with a serialized html string representing a Plotly chart
+    """
+
+    # consider decoupling
+    closing_prices, moving_averages_20_day, moving_averages_4_day, real_time = finnhub_data.get_sma_data()
+
+    # HTML string representation of a plotly chart
+    sma_chart = plotly_charts.build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, real_time)
+
+    # serialize and return a DRF Response
+    serialized_data = HTMLChartPlotlySerializer({"chart": sma_chart})
+
+    return Response(serialized_data.data)

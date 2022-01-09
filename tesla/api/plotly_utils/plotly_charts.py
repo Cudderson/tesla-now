@@ -68,3 +68,76 @@ def build_eps(df):
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     return chart
+
+
+def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, real_time):
+
+    # build simple moving average chart
+
+    fig = go.Figure()
+
+    # 20 day moving average figure
+    fig.add_trace(go.Scatter(
+        name='20-day SMA', mode='lines',
+        x=real_time[20:],
+        y=moving_averages_20_day,
+        line=dict(color='#fe0d00')))
+
+    # 4 day moving average figure
+    fig.add_trace(go.Scatter(
+        name='4-day SMA', mode='lines',
+        x=real_time[20:],
+        y=moving_averages_4_day,
+        line=dict(color='#00cbfe')
+    ))
+
+    # Closing prices figure
+    fig.add_trace(go.Scatter(
+        name='Closing Price', mode='lines',
+        x=real_time[20:],
+        y=closing_prices[20::],
+        line=dict(color='#66fe00')))
+
+    # highlighting latest closing price
+    fig.add_trace(go.Scatter(
+        name='Latest Closing Price', mode='markers', x=[real_time[-1]], y=closing_prices[-1:],
+        marker=dict(
+            size=15,
+            color='#66fe00',
+            opacity=.8
+        ), showlegend=False
+    ))
+
+    # highlighting latest 20 day moving average level
+    fig.add_trace(go.Scatter(
+        name='Current SMA20 Level', mode='markers', x=[real_time[-1]], y=moving_averages_20_day[-1:],
+        marker=dict(
+            size=15,
+            color='#fe0d00',
+            opacity=.8
+        ), showlegend=False
+    ))
+
+    # highlighting latest 4 day moving average level
+    fig.add_trace(go.Scatter(
+        name='Current SMA4 Level', mode='markers', x=[real_time[-1]], y=moving_averages_4_day[-1:],
+        marker=dict(
+            size=15,
+            color='#00cbfe',
+            opacity=.8
+        ), showlegend=False
+    ))
+
+    # Format figure (UI)
+    fig.update_yaxes(tickprefix='$')
+
+    fig.update_layout(title_text='Simple Moving Averages: TSLA',
+                      yaxis_title='Closing Price vs SMA',
+                      template='plotly_dark')
+
+    # chart = fig.to_html(full_html=False, default_height=700)
+
+    # new method
+    chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
+
+    return chart
