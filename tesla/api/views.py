@@ -95,3 +95,20 @@ def get_SMA_chart(request):
     serialized_data = HTMLChartPlotlySerializer({"chart": sma_chart})
 
     return Response(serialized_data.data)
+
+
+@api_view()
+def get_recommendation_chart(request):
+    """
+    Returns a DRF Response with a serialized html string representing a Plotly chart
+    """
+
+    recommendation_data = finnhub_data.get_recommendation_data()
+
+    # HTML string representation of a plotly chart
+    recommendation_chart = plotly_charts.build_recommendation(recommendation_data)
+
+    # serialize and return a DRF Response
+    serialized_data = HTMLChartPlotlySerializer({"chart": recommendation_chart})
+
+    return Response(serialized_data.data)

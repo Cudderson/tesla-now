@@ -2,6 +2,8 @@
 import plotly
 import plotly.graph_objs as go
 
+# df = pandas dataframe object
+
 def build_candlestick(df, real_time):
   # create figure using 'OHLC' Tesla data
     fig = go.Figure(data=[go.Candlestick(
@@ -136,6 +138,39 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
                       template='plotly_dark')
 
     # chart = fig.to_html(full_html=False, default_height=700)
+
+    # new method
+    chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
+
+    return chart
+
+
+def build_recommendation(df):
+    # create lists of latest 6 months of data of recommendations. (reversed with '[::-1]' to get oldest data first)
+    strong_buy = [i for i in df['strongBuy'][:6][::-1]]
+    buy = [i for i in df['buy'][:6]][::-1]
+    hold = [i for i in df['hold'][:6][::-1]]
+    sell = [i for i in df['sell'][:6][::-1]]
+    strong_sell = [i for i in df['strongSell'][:6][::-1]]
+    period = [i for i in df['period'][:6][::-1]]
+
+    # Create stacked bar graph
+    fig = go.Figure(data=[
+        go.Bar(name='Strong Sell', x=period, y=strong_sell, marker_color='#8d423e'),
+        go.Bar(name="Sell", x=period, y=sell, marker_color='#8d693e'),
+        go.Bar(name="Hold", x=period, y=hold, marker_color='#473e8d'),
+        go.Bar(name="Buy", x=period, y=buy, marker_color='#3e8d50'),
+        go.Bar(name="Strong Buy", x=period, y=strong_buy, marker_color='#28a745'),
+    ])
+
+    fig.update_layout(
+        title_text='Tesla',
+        yaxis_title='Number of Recommendations',
+        barmode='stack',
+        template='plotly_dark',
+        )
+
+    # chart = fig.to_html(full_html=False, default_height=800)
 
     # new method
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")

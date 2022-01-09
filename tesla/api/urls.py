@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
   path('test-get-candlestick', views.get_candlestick_chart, name='test-get-candlestick'),
   path('eps/', views.get_EPS_chart, name='eps'),
-  path('sma/', views.get_SMA_chart, name='sma')
+  path('sma/', views.get_SMA_chart, name='sma'),
+  path('recommendations/', views.get_recommendation_chart, name='recommendations')
 ]

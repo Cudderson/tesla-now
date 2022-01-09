@@ -1,5 +1,6 @@
 import CandlestickChart from "./api/CandlestickChart.js";
 import EPSChart from "./api/EPSChart.js";
+import RecommendationChart from "./api/RecommendationChart.js";
 import SMAChart from "./api/SMAChart.js";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <h1>Hello from react-integration branch :)</h1>
       {/* <div><CandlestickChart/></div> */}
       {/* <div><EPSChart /></div> */}
-      <SMAChart />
+      {/* <SMAChart /> */}
+      <RecommendationChart />
     </div>
   );
 }

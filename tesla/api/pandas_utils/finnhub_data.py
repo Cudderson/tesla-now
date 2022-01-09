@@ -73,3 +73,8 @@ def get_sma_data():
         m += 1
 
     return closing_prices, moving_averages_20_day, moving_averages_4_day, real_time
+
+
+def get_recommendation_data():
+    df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={finn_key}')
+    return df
