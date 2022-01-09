@@ -6,6 +6,7 @@ function App() {
   return (
     <div>
       <h1>Hello from react-integration branch :)</h1>
+      <div><CandlestickChart/></div>
       <div><EPSChart /></div>
     </div>
   );
