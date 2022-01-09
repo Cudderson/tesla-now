@@ -3,7 +3,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .serializers import HelloWorldSerializer, PriceSerializer, HTMLChartPlotlySerializer
+from .serializers import HTMLChartPlotlySerializer
 
 # maybe move these?
 import os
@@ -17,29 +17,30 @@ import pandas as pd
 import plotly
 import plotly.graph_objs as go
 
-@api_view()
-def hello_world(request):
+# saving these as examples
+#
+# @api_view()
+# def hello_world(request):
     
-    data = {"message": "Hello from Django Rest Framework!"}
-    results = HelloWorldSerializer(data).data
+#     data = {"message": "Hello from Django Rest Framework!"}
+#     results = HelloWorldSerializer(data).data
 
-    return Response(results)
+#     return Response(results)
     
 
-# this works!
-# hits the finnhub api and serializes the response for use by React 
-@api_view()
-def test_get_current_price(request):
-    """Returns the current price of Tesla"""
-    res = requests.get(f'https://finnhub.io/api/v1/quote?symbol=TSLA&token={finn_key}')
-    data = res.json()
-    print(data)
-    serialized_data = PriceSerializer({'price': data}).data
+# @api_view()
+# def test_get_current_price(request):
+#     """Returns the current price of Tesla"""
+#     res = requests.get(f'https://finnhub.io/api/v1/quote?symbol=TSLA&token={finn_key}')
+#     data = res.json()
+#     print(data)
+#     serialized_data = PriceSerializer({'price': data}).data
 
-    return Response(serialized_data)
+#     return Response(serialized_data)
 
 
-# [x] successfully display candlestick chart in React
+
+
 # in future, we will decouple code
 @api_view()
 def get_candlestick_chart(request):
@@ -92,4 +93,56 @@ def get_candlestick_chart(request):
     # print(serialized_data.data) very long 
 
     # visiting 'localhost:8000/api/test-get-candlestick' correctly displays a dict: {chart: <div> object}
+    return Response(serialized_data.data)
+
+
+# Next, let's get the EPS chart
+@api_view()
+def get_EPS_chart(request):
+    """
+    Returns a DRF Response with a serialized html string representing a Plotly chart
+    """
+
+    df = pd.read_json(f'https://finnhub.io/api/v1/stock/earnings?symbol=TSLA&token={finn_key}')
+
+    # create custom ticks/labels for better UX/UI
+    custom_x_ticks = [i for i in range(1, 5)]
+    custom_x_labels = [i for i in df['period'][::-1]]
+
+    # Iterate through dataframe backwards, to plot oldest data first
+    fig = go.Figure(data=[go.Scatter(x=custom_x_ticks, y=df['actual'][::-1],
+                                     mode='markers',
+                                     marker=dict(size=[80, 80, 80, 80], color='#00FE35'),
+                                     name='Actual')])
+
+    fig.add_trace(go.Scatter(x=custom_x_ticks, y=df['estimate'][::-1],
+                             mode='markers',
+                             marker=dict(size=[80, 80, 80, 80], color='#fe0d00'),
+                             name='Estimate'))
+
+    fig.update_layout(
+        title={'text': 'Tesla Earnings per Share (Estimate vs Actual)',
+               'x': .5,
+               'y': .9,
+               'xanchor': 'center'},
+        xaxis=dict(
+            tickmode='array',
+            tickvals=custom_x_ticks,
+            ticktext=custom_x_labels,
+            showgrid=False,
+        ),
+        xaxis_title='Date Reported',
+        yaxis_title='Earnings Per Share',
+        legend_title='Earnings Per Share',
+        template='plotly_dark'
+    )
+
+    # chart = fig.to_html(full_html=False, default_height=600)
+    # return chart
+
+    # this is the new method for converting charts
+    chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
+
+    serialized_data = HTMLChartPlotlySerializer({"chart": chart})
+
     return Response(serialized_data.data)

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 // dangerouslySetInnerHTML() will not let script tags execute in Plotly chart html string
 // to solve this, I'm using npm package 'dangerously-set-html-content'
+// consider passing this component as props from higher component (for all)
 import InnerHTML from "dangerously-set-html-content";
 
 // might rename later, during modularization
