@@ -13,6 +13,8 @@ from tesla.api.urls import urlpatterns as api_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # django frontend (deprecating/replacing with React frontend, may break at any time)
     path('', include('tesla.urls')),
 
     # sets 'api/' as the basename for api urls
