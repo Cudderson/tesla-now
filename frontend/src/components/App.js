@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { Routes, Route, Link, Redirect } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 // hook to obtain the current url
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 // import CandlestickChart from "./api/CandlestickChart.js";
 // import EPSChart from "./api/EPSChart.js";
@@ -15,6 +15,9 @@ import Candlestick from "./Candlestick.js";
 import EPS from "./EPS.js";
 import SMA from "./SMA.js";
 import Recommendations from "./Recommendations.js";
+
+// urls for django REST api
+import endpoints from "../django-endpoints.js";
 
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
@@ -55,7 +58,8 @@ function App() {
         {userHasLanded ? (
           <>
             <Route path="/" element={<Landing setUserHasLanded={setUserHasLanded} />} />
-            <Route path="/candlestick" element={<Candlestick />} />
+            {/* in future, may not pass these urls, but maybe a chart component */}
+            <Route path="/candlestick" element={<Candlestick apiURL={endpoints.charts.candlestick} />} />
             <Route path="/eps" element={<EPS />} />
             <Route path="/sma" element={<SMA />} />
             <Route path="/recommendations" element={<Recommendations />} />
