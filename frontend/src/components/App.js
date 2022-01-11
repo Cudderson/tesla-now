@@ -6,14 +6,15 @@ import { useLocation } from "react-router-dom";
 
 // import CandlestickChart from "./api/CandlestickChart.js";
 // import EPSChart from "./api/EPSChart.js";
-// import RecommendationChart from "./api/RecommendationChart.js";
 // import SMAChart from "./api/SMAChart.js";
+// import RecommendationChart from "./api/RecommendationChart.js";
 
 // top-level page components
 import Landing from "./Landing.js";
 import Candlestick from "./Candlestick.js";
 import EPS from "./EPS.js";
 import SMA from "./SMA.js";
+import Recommendations from "./Recommendations.js";
 
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
@@ -40,6 +41,9 @@ function App() {
               <li>
                 <Link to="/sma">Simple Moving Average</Link>
               </li>
+              <li>
+                <Link to="/recommendations">Analyst Recommendations</Link>
+              </li>
             </ul>
           </nav>
         </>
@@ -54,6 +58,7 @@ function App() {
             <Route path="/candlestick" element={<Candlestick />} />
             <Route path="/eps" element={<EPS />} />
             <Route path="/sma" element={<SMA />} />
+            <Route path="/recommendations" element={<Recommendations />} />
           </>
         ) : (
           <Route path="/*" element={<Landing setUserHasLanded={setUserHasLanded} />} />

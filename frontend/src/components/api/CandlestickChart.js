@@ -12,7 +12,7 @@ const CandlestickChart = () => {
   useEffect(() => {
     // async IIFE
     (async () => {
-      const url = "http://localhost:8000/api/test-get-candlestick";
+      const url = "http://localhost:8000/api/candlestick";
       const res = await fetch(url);
       const data = await res.json();
       setChartData(data);
