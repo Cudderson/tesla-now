@@ -2,7 +2,10 @@
 
 const endpoints = {
   charts: {
-    candlestick: "http://localhost:8000/api/candlestick"
+    candlestick: "http://localhost:8000/api/candlestick",
+    eps: "http://localhost:8000/api/eps",
+    sma: "http://localhost:8000/api/sma",
+    recommendations: "http://localhost:8000/api/recommendations",
   }
 }
 

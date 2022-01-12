@@ -2,12 +2,13 @@
 // import CandlestickChart from "./api/CandlestickChart.js";
 import { PlotlyChart } from "./api/PlotlyChart.js";
 
-const Candlestick = ({ apiURL }) => {
+const Candlestick = (props) => {
   console.log("Candlestick called");
+  console.log(props);
   return (
     <>
       <h1>You're visiting the Candlestick page</h1>
-      <PlotlyChart apiURL={apiURL} />
+      <PlotlyChart chartDataHTML={props.chartDataHTML} />
     </>
   )
 }

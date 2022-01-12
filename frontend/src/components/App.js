@@ -1,13 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 // hook to obtain the current url
 // import { useLocation } from "react-router-dom";
-
-// import CandlestickChart from "./api/CandlestickChart.js";
-// import EPSChart from "./api/EPSChart.js";
-// import SMAChart from "./api/SMAChart.js";
-// import RecommendationChart from "./api/RecommendationChart.js";
 
 // top-level page components
 import Landing from "./Landing.js";
@@ -19,11 +14,21 @@ import Recommendations from "./Recommendations.js";
 // urls for django REST api
 import endpoints from "../django-endpoints.js";
 
+// custom hook
+import { useFetchFinnhubData } from "../hooks/useFetchFinnhubData.js";
+
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
+  const [chartAPIData, setChartAPIData] = useState({});
 
-  console.log('App rendered');
-  console.log('user landed? ' + userHasLanded);
+  console.log("App rendered");
+  console.log("user landed? " + userHasLanded);
+
+  // this custom hook has a useEffect() that only runs on the first render
+  // i.e this hook will only update <App/>'s state once
+  // On <App/> re-render, this hook is called again, but the useEffect will prevent logic from executing!
+  const response = useFetchFinnhubData(endpoints.charts, setChartAPIData);
+  console.log('useFetch response: ' + response);
 
   return (
     <>
@@ -51,21 +56,30 @@ function App() {
           </nav>
         </>
       )}
-      
+
       {/* routes only available once user has visited the landing page (and click Enter button) */}
       {/* this is to ensure the api data is always gathered the same way (user must visit defined entrypoint) */}
       <Routes>
         {userHasLanded ? (
           <>
-            <Route path="/" element={<Landing setUserHasLanded={setUserHasLanded} />} />
+            <Route
+              path="/"
+              element={<Landing setUserHasLanded={setUserHasLanded} />}
+            />
             {/* in future, may not pass these urls, but maybe a chart component */}
-            <Route path="/candlestick" element={<Candlestick apiURL={endpoints.charts.candlestick} />} />
+            <Route
+              path="/candlestick"
+              element={<Candlestick chartDataHTML={chartAPIData['candlestick']} />}
+            />
             <Route path="/eps" element={<EPS />} />
             <Route path="/sma" element={<SMA />} />
             <Route path="/recommendations" element={<Recommendations />} />
           </>
         ) : (
-          <Route path="/*" element={<Landing setUserHasLanded={setUserHasLanded} />} />
+          <Route
+            path="/*"
+            element={<Landing setUserHasLanded={setUserHasLanded} />}
+          />
         )}
       </Routes>
     </>

@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 
-const useFetchFinnhubData = (url) => {
-  const [finnhubData, setFinnhubData] = useState(null);
+const useFetchFinnhubData = (urls, setChartAPIData) => {
+  // const [finnhubData, setFinnhubData] = useState(null);
 
   console.log('useFetch called');
 
@@ -12,20 +12,29 @@ const useFetchFinnhubData = (url) => {
 
     // async IIFE defined here, because useEffect() doesn't expect a Promise to be returned
     (async () => {
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log('useFetch useEffect setting state')
-        setFinnhubData(data);
+      const charts = {};
+      for (const url in urls) {
+        console.log(url);
+        try {
+          const res = await fetch(urls[url]);
+          const data = await res.json();
+          // charts.push(data.chart);
+          charts[url] = data.chart;
+        }
+        catch (err) {
+          console.log(err);
+        }  
       }
-      catch (err) {
-        console.log(err);
-      }      
+      console.log('useFetch useEffect setting state')
+      // setFinnhubData(charts);
+      console.log(charts);
+      setChartAPIData(charts);
     })();
   }, []);
 
-  console.log("useFetch returning: " + finnhubData);
-  return !finnhubData ? null : finnhubData;
+  // currently, this Hook doesn't return anything, but
+  // rather updates <App/>'s state via the passed updater function
+  // [] Next: determine how this will work in the big picture
 }
 
 export { useFetchFinnhubData };
