@@ -1,4 +1,5 @@
 import { PlotlyChart } from "./PlotlyChart";
+import LoadingChart from "./LoadingChart.js";
 
 const EPS = (props) => {
   console.log("EPS called");
@@ -6,7 +7,11 @@ const EPS = (props) => {
   return (
     <>
       <h1>This is the EPS page</h1>
-      <PlotlyChart chartDataHTML={props.chartDataHTML} />
+      {props.chartDataHTML ? (
+        <PlotlyChart chartDataHTML={props.chartDataHTML} />
+      ) : (
+        <LoadingChart />
+      )}
     </>
   )
 }
