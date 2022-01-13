@@ -1,5 +1,5 @@
 // import RecommendationChart from './api/RecommendationChart.js';
-import { PlotlyChart } from "./api/PlotlyChart.js";
+import { PlotlyChart } from "./PlotlyChart.js";
 
 const Recommendations = (props) => {
   console.log("Recommendations called");

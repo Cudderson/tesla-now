@@ -1,6 +1,6 @@
 // This is the high-level page component that contains the candlestick chart
 // import CandlestickChart from "./api/CandlestickChart.js";
-import { PlotlyChart } from "./api/PlotlyChart.js";
+import { PlotlyChart } from "./PlotlyChart.js";
 
 const Candlestick = (props) => {
   console.log("Candlestick called");

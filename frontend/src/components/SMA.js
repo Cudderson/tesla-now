@@ -1,4 +1,4 @@
-import { PlotlyChart } from "./api/PlotlyChart";
+import { PlotlyChart } from "./PlotlyChart";
 
 const SMA = (props) => {
   console.log("SMA called");

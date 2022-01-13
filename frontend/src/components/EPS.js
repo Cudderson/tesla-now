@@ -1,4 +1,4 @@
-import { PlotlyChart } from "./api/PlotlyChart";
+import { PlotlyChart } from "./PlotlyChart";
 
 const EPS = (props) => {
   console.log("EPS called");
