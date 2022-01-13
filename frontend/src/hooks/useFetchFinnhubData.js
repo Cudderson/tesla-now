@@ -14,7 +14,6 @@ const useFetchFinnhubData = (urls, setChartAPIData) => {
     (async () => {
       const charts = {};
       for (const url in urls) {
-        console.log(url);
         try {
           const res = await fetch(urls[url]);
           const data = await res.json();
@@ -25,16 +24,13 @@ const useFetchFinnhubData = (urls, setChartAPIData) => {
           console.log(err);
         }  
       }
-      console.log('useFetch useEffect setting state')
-      // setFinnhubData(charts);
-      console.log(charts);
+      console.log('useFetch useEffect setting state');
       setChartAPIData(charts);
     })();
   }, []);
 
   // currently, this Hook doesn't return anything, but
   // rather updates <App/>'s state via the passed updater function
-  // [] Next: determine how this will work in the big picture
 }
 
 export { useFetchFinnhubData };

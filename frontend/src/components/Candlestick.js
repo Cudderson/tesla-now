@@ -4,7 +4,6 @@ import { PlotlyChart } from "./api/PlotlyChart.js";
 
 const Candlestick = (props) => {
   console.log("Candlestick called");
-  console.log(props);
   return (
     <>
       <h1>You're visiting the Candlestick page</h1>

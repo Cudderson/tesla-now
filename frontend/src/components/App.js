@@ -1,8 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
-// hook to obtain the current url
-// import { useLocation } from "react-router-dom";
 
 // top-level page components
 import Landing from "./Landing.js";
@@ -21,14 +19,16 @@ function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
   const [chartAPIData, setChartAPIData] = useState({});
 
-  console.log("App rendered");
+  console.log("App called");
   console.log("user landed? " + userHasLanded);
 
   // this custom hook has a useEffect() that only runs on the first render
   // i.e this hook will only update <App/>'s state once
   // On <App/> re-render, this hook is called again, but the useEffect will prevent logic from executing!
   const response = useFetchFinnhubData(endpoints.charts, setChartAPIData);
-  console.log('useFetch response: ' + response);
+  console.log("useFetch response: " + response);
+
+  // console.log(chartAPIData);
 
   return (
     <>
@@ -66,14 +66,28 @@ function App() {
               path="/"
               element={<Landing setUserHasLanded={setUserHasLanded} />}
             />
-            {/* in future, may not pass these urls, but maybe a chart component */}
             <Route
               path="/candlestick"
-              element={<Candlestick chartDataHTML={chartAPIData['candlestick']} />}
+              element={
+                <Candlestick chartDataHTML={chartAPIData["candlestick"]} />
+              }
             />
-            <Route path="/eps" element={<EPS />} />
-            <Route path="/sma" element={<SMA />} />
-            <Route path="/recommendations" element={<Recommendations />} />
+            <Route
+              path="/eps"
+              element={<EPS chartDataHTML={chartAPIData["eps"]} />}
+            />
+            <Route
+              path="/sma"
+              element={<SMA chartDataHTML={chartAPIData["sma"]} />}
+            />
+            <Route
+              path="/recommendations"
+              element={
+                <Recommendations
+                  chartDataHTML={chartAPIData["recommendations"]}
+                />
+              }
+            />
           </>
         ) : (
           <Route

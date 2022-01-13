@@ -1,11 +1,12 @@
-// charts may be stored in Redux or higher-level in future
-import EPSChart from "./api/EPSChart.js";
+import { PlotlyChart } from "./api/PlotlyChart";
 
-const EPS = () => {
+const EPS = (props) => {
+  console.log("EPS called");
+
   return (
     <>
       <h1>This is the EPS page</h1>
-      <EPSChart />
+      <PlotlyChart chartDataHTML={props.chartDataHTML} />
     </>
   )
 }

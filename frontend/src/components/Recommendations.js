@@ -1,10 +1,12 @@
-import RecommendationChart from './api/RecommendationChart.js';
+// import RecommendationChart from './api/RecommendationChart.js';
+import { PlotlyChart } from "./api/PlotlyChart.js";
 
-const Recommendations = () => {
+const Recommendations = (props) => {
+  console.log("Recommendations called");
   return (
     <>
       <h1>This is the recommendations page.</h1>
-      <RecommendationChart />
+      <PlotlyChart chartDataHTML={props.chartDataHTML} />
     </>
   )
 }

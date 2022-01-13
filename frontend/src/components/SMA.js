@@ -1,11 +1,11 @@
-// charts may be stored in Redux or higher-level in future
-import SMAChart from "./api/SMAChart.js";
+import { PlotlyChart } from "./api/PlotlyChart";
 
-const SMA = () => {
+const SMA = (props) => {
+  console.log("SMA called");
   return (
     <>
       <h1>This is the SMA page</h1>
-      <SMAChart />
+      <PlotlyChart chartDataHTML={props.chartDataHTML} />
     </>
   )
 }
