@@ -148,9 +148,23 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
     # Format figure (UI)
     fig.update_yaxes(tickprefix='$')
 
-    fig.update_layout(title_text='Simple Moving Averages: TSLA',
-                      yaxis_title='Closing Price vs SMA',
-                      template='plotly_dark')
+    fig.update_layout(
+        title={
+            'text': 'Tesla (TSLA) Simple Moving Averages',
+            'x': .5,
+            'y': .9,
+        },
+        # yaxis=dict(showticklabels=False),
+        margin=go.layout.Margin(
+            l=45, #left margin
+            r=0, #right margin
+            b=100, #bottom margin
+            t=130, #top margin
+        ),
+        # yaxis_title='Closing Price vs SMA',
+        legend=dict(x=.5, y=-0.25, xanchor='center', orientation='h', bgcolor='rgb(35, 35, 35)'),
+        template='plotly_dark'
+    )
 
     # chart = fig.to_html(full_html=False, default_height=700)
 
