@@ -41,16 +41,24 @@ def build_eps(df):
     # Iterate through dataframe backwards, to plot oldest data first
     fig = go.Figure(data=[go.Scatter(x=custom_x_ticks, y=df['actual'][::-1],
                                      mode='markers',
-                                     marker=dict(size=[80, 80, 80, 80], color='#00FE35'),
-                                     name='Actual')])
+                                     marker=dict(size=[40, 40, 40, 40], color='#00FE35'),
+                                     name='Actual'
+                                    )])
 
     fig.add_trace(go.Scatter(x=custom_x_ticks, y=df['estimate'][::-1],
                              mode='markers',
-                             marker=dict(size=[80, 80, 80, 80], color='#fe0d00'),
-                             name='Estimate'))
+                             marker=dict(size=[40, 40, 40, 40], color='#fe0d00'),
+                             name='Estimate'
+                            ))
 
     fig.update_layout(
-        title={'text': 'Tesla Earnings per Share (Estimate vs Actual)',
+        margin=go.layout.Margin(
+            l=25, #left margin
+            r=0, #right margin
+            b=90, #bottom margin
+            t=100, #top margin
+        ),
+        title={'text': 'Tesla EPS (Estimate vs Actual)',
                'x': .5,
                'y': .9,
                'xanchor': 'center'},
@@ -61,8 +69,9 @@ def build_eps(df):
             showgrid=False,
         ),
         xaxis_title='Date Reported',
-        yaxis_title='Earnings Per Share',
-        legend_title='Earnings Per Share',
+        # yaxis_title='Earnings Per Share',
+        # legend_title='EPS',
+        # showlegend=False,
         template='plotly_dark'
     )
 
