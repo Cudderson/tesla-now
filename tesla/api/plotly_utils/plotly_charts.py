@@ -16,8 +16,14 @@ def build_candlestick(df, real_time):
         decreasing_line_color='#fe0d00',
     )])
 
-    fig.update_layout(title='Tesla Now Candlestick (6 Months)',
-                      yaxis_title='Tesla Stock Price',
+    fig.update_layout(title='Tesla (TSLA) Candlestick Chart',
+                    margin=go.layout.Margin(
+                        l=25, #left margin
+                        r=25, #right margin
+                        b=20, #bottom margin
+                        t=100, #top margin
+                    ),
+                    #   yaxis_title='Tesla Stock Price',
                       title_x=0.5,
                       template='plotly_dark'
                       )
