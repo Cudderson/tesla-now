@@ -175,13 +175,16 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
 
 
 def build_recommendation(df):
-    # create lists of latest 6 months of data of recommendations. (reversed with '[::-1]' to get oldest data first)
-    strong_buy = [i for i in df['strongBuy'][:6][::-1]]
-    buy = [i for i in df['buy'][:6]][::-1]
-    hold = [i for i in df['hold'][:6][::-1]]
-    sell = [i for i in df['sell'][:6][::-1]]
-    strong_sell = [i for i in df['strongSell'][:6][::-1]]
-    period = [i for i in df['period'][:6][::-1]]
+    # create lists of latest x months of data of recommendations. (x = num_recommendations) 
+    num_recommendations = len(df)
+
+    # (reversed with '[::-1]' to get oldest data first)
+    strong_buy = [i for i in df['strongBuy'][:num_recommendations][::-1]]
+    buy = [i for i in df['buy'][:num_recommendations]][::-1]
+    hold = [i for i in df['hold'][:num_recommendations][::-1]]
+    sell = [i for i in df['sell'][:num_recommendations][::-1]]
+    strong_sell = [i for i in df['strongSell'][:num_recommendations][::-1]]
+    period = [i for i in df['period'][:num_recommendations][::-1]]
 
     # Create stacked bar graph
     fig = go.Figure(data=[
@@ -193,7 +196,17 @@ def build_recommendation(df):
     ])
 
     fig.update_layout(
-        title_text='Tesla',
+        title=dict(
+            text="Recommendation Trends (TSLA)",
+            x=.5,
+            y=.9,
+            xanchor='center',
+        ),
+        xaxis=dict(
+            title='Date Reported',
+            tickmode='array',
+            tickvals=[i for i in period],
+        ),
         yaxis_title='Number of Recommendations',
         barmode='stack',
         template='plotly_dark',

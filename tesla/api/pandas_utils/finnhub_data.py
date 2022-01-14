@@ -45,7 +45,7 @@ def get_sma_data():
     moving_averages_20_day = []
     moving_averages_4_day = []
 
-    print(closing_prices)
+    # print(closing_prices)
 
     # counters to examine a range of 20 closing prices
     i = 0
