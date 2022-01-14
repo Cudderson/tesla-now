@@ -16,6 +16,9 @@ import endpoints from "../django-endpoints.js";
 // custom hook
 import { useFetchFinnhubData } from "../hooks/useFetchFinnhubData.js";
 
+// styles
+import styles from './../styles/App.module.css';
+
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
   const [djangoAPIData, setDjangoAPIData] = useState({});
@@ -34,7 +37,10 @@ function App() {
   return (
     <>
       {!userHasLanded ? (
-        <h1>on landing page, no nav</h1>
+        <div>
+          <h1>on landing page, no nav</h1>
+          <h1 className={styles['hello']}>Hello, world!</h1>
+        </div>
       ) : (
         <>
           <nav>
