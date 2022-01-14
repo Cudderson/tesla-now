@@ -8,6 +8,7 @@ import Candlestick from "./Candlestick.js";
 import EPS from "./EPS.js";
 import SMA from "./SMA.js";
 import Recommendations from "./Recommendations.js";
+import News from "./News.js";
 
 // urls for django REST api
 import endpoints from "../django-endpoints.js";
@@ -17,7 +18,7 @@ import { useFetchFinnhubData } from "../hooks/useFetchFinnhubData.js";
 
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
-  const [chartAPIData, setChartAPIData] = useState({});
+  const [djangoAPIData, setDjangoAPIData] = useState({});
 
   console.log("App called");
   console.log("user landed? " + userHasLanded);
@@ -25,7 +26,7 @@ function App() {
   // this custom hook has a useEffect() that only runs on the first render
   // i.e this hook will only update <App/>'s state once
   // On <App/> re-render, this hook is called again, but the useEffect will prevent logic from executing!
-  const response = useFetchFinnhubData(endpoints.charts, setChartAPIData);
+  const response = useFetchFinnhubData(endpoints.django, setDjangoAPIData);
   console.log("useFetch response: " + response);
 
   // console.log(chartAPIData);
@@ -52,6 +53,9 @@ function App() {
               <li>
                 <Link to="/recommendations">Analyst Recommendations</Link>
               </li>
+              <li>
+                <Link to="/news">News</Link>
+              </li>
             </ul>
           </nav>
         </>
@@ -69,24 +73,28 @@ function App() {
             <Route
               path="/candlestick"
               element={
-                <Candlestick chartDataHTML={chartAPIData["candlestick"]} />
+                <Candlestick chartDataHTML={djangoAPIData["candlestick_chart"]} />
               }
             />
             <Route
               path="/eps"
-              element={<EPS chartDataHTML={chartAPIData["eps"]} />}
+              element={<EPS chartDataHTML={djangoAPIData["eps_chart"]} />}
             />
             <Route
               path="/sma"
-              element={<SMA chartDataHTML={chartAPIData["sma"]} />}
+              element={<SMA chartDataHTML={djangoAPIData["sma_chart"]} />}
             />
             <Route
               path="/recommendations"
               element={
                 <Recommendations
-                  chartDataHTML={chartAPIData["recommendations"]}
+                  chartDataHTML={djangoAPIData["recommendations_chart"]}
                 />
               }
+            />
+            <Route
+              path="/news"
+              element={<News newsData={djangoAPIData["news"]} />}
             />
           </>
         ) : (

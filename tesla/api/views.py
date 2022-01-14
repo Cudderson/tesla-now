@@ -124,6 +124,6 @@ def get_news_package(request):
 
     serialized_data = NewsDataSerializer({'news': news_package})
 
-    print(serialized_data.data)
+    # print(serialized_data.data)
 
     return Response(serialized_data.data)

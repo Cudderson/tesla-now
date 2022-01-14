@@ -1,9 +1,8 @@
 // custom hook for fetching tesla chart/news data from finnhub
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-const useFetchFinnhubData = (urls, setChartAPIData) => {
-  // const [finnhubData, setFinnhubData] = useState(null);
+const useFetchFinnhubData = (urls, setDjangoAPIData) => {
 
   console.log('useFetch called');
 
@@ -12,20 +11,26 @@ const useFetchFinnhubData = (urls, setChartAPIData) => {
 
     // async IIFE defined here, because useEffect() doesn't expect a Promise to be returned
     (async () => {
-      const charts = {};
+      const allData = {};
       for (const url in urls) {
         try {
           const res = await fetch(urls[url]);
           const data = await res.json();
-          // charts.push(data.chart);
-          charts[url] = data.chart;
+
+          // handle charts and news
+          if (data.chart) {
+            allData[url] = data.chart;
+          }
+          else if (data.news) {
+            allData[url] = data.news;
+          }
         }
         catch (err) {
           console.log(err);
         }  
       }
       console.log('useFetch useEffect setting state');
-      setChartAPIData(charts);
+      setDjangoAPIData(allData);
     })();
   }, []);
 
