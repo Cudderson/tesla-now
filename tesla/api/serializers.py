@@ -22,3 +22,11 @@ class HTMLChartPlotlySerializer(serializers.Serializer):
 
     # using CharField for now, may change to DictField/JSONField
     chart = serializers.CharField()
+
+# serialize our news data
+class NewsDataSerializer(serializers.Serializer):
+    """
+    Serializes news data (text, links, images) from finnhub api
+    """
+
+    news = serializers.JSONField()

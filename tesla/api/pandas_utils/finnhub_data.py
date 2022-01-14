@@ -78,3 +78,80 @@ def get_sma_data():
 def get_recommendation_data():
     df = pd.read_json(f'https://finnhub.io/api/v1/stock/recommendation?symbol=TSLA&token={finn_key}')
     return df
+
+
+def get_news_data():
+    """Gathers the latest news on Tesla"""
+
+    # unix times:
+    real_time_unix = int(time.time())
+    one_month_ago_unix = int(time.time()) - 2_592_000
+    # two_weeks_ago_unix = int(time.time()) - 1_209_600
+    # one_week_ago_unix = int(time.time()) - 604800
+
+    # convert unix time to datetime:
+    real_time = datetime.datetime.fromtimestamp(real_time_unix)
+    one_month_ago = datetime.datetime.fromtimestamp(one_month_ago_unix)
+    # two_weeks_ago = datetime.datetime.fromtimestamp(two_weeks_ago_unix)
+    # one_week_ago = datetime.datetime.fromtimestamp(one_week_ago_unix)
+
+    # format datetime for API query
+    real_time = real_time.strftime('%Y-%m-%d')
+    one_month_ago = one_month_ago.strftime('%Y-%m-%d')
+    # two_weeks_ago = two_weeks_ago.strftime('%Y-%m-%d')
+    # one_week_ago = one_week_ago.strftime('%Y-%m-%d')
+
+    # query to receive news on Tesla:
+    df = pd.read_json(f'https://finnhub.io/api/v1/company-news?symbol=TSLA&from={one_month_ago}&to={real_time}&token={finn_key}')
+
+    return df
+
+
+def create_news_package(df):
+    """Packages news data into a dictionary structure for easy handling"""
+
+    # df = tesla_api.gather_news()
+
+    headlines = []
+    times_posted = []
+    urls = []
+    summaries = []
+    images = []
+    sources = []
+    i = 0
+
+    # grabbing news data we want based on headlines containing 'tesla' or 'elon'
+    # sometimes we receive duplicate articles, so we filter the extras out
+    for news in df['headline'][:25]:
+        if news not in headlines and news:
+            if 'tesla' in news.lower() or 'elon' in news.lower():
+                headlines.append(news)
+                times_posted.append(df['datetime'][i])
+                urls.append(df['url'][i])
+                summaries.append(df['summary'][i])
+                images.append(df['image'][i])
+                sources.append(df['source'][i].title())
+            i += 1
+
+    # create nested lists for news data received
+    # full_news_data = [
+    #     times_posted,
+    #     headlines,
+    #     summaries,
+    #     urls,
+    #     images,
+    #     sources,
+    # ]
+
+    # a dictionary would be so much better here
+    full_news_data = {
+        'times_posted': times_posted,
+        'headlines': headlines,
+        'summaries': summaries,
+        'urls': urls,
+        'images': images,
+        'sources': sources,
+    }
+
+    # print(full_news_data['headlines'][0]) <- example
+    return full_news_data

@@ -3,7 +3,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .serializers import HTMLChartPlotlySerializer
+from .serializers import HTMLChartPlotlySerializer, NewsDataSerializer
 
 from .pandas_utils import finnhub_data
 from .plotly_utils import plotly_charts
@@ -110,5 +110,20 @@ def get_recommendation_chart(request):
 
     # serialize and return a DRF Response
     serialized_data = HTMLChartPlotlySerializer({"chart": recommendation_chart})
+
+    return Response(serialized_data.data)
+
+@api_view()
+def get_news_package(request):
+    """
+    Returns a DRF Response with a serialized dictionary of news data
+    """
+    raw_news_data = finnhub_data.get_news_data()
+
+    news_package = finnhub_data.create_news_package(raw_news_data)
+
+    serialized_data = NewsDataSerializer({'news': news_package})
+
+    print(serialized_data.data)
 
     return Response(serialized_data.data)

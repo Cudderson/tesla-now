@@ -6,6 +6,9 @@ const endpoints = {
     eps: "http://localhost:8000/api/eps",
     sma: "http://localhost:8000/api/sma",
     recommendations: "http://localhost:8000/api/recommendations",
+
+    // still testing
+    news: "http://localhost:8000/api/news",
   }
 }
 

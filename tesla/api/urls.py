@@ -6,5 +6,6 @@ urlpatterns = [
   path('candlestick/', views.get_candlestick_chart, name='candlestick'),
   path('eps/', views.get_EPS_chart, name='eps'),
   path('sma/', views.get_SMA_chart, name='sma'),
-  path('recommendations/', views.get_recommendation_chart, name='recommendations')
+  path('recommendations/', views.get_recommendation_chart, name='recommendations'),
+  path('news/', views.get_news_package, name='news')
 ]
