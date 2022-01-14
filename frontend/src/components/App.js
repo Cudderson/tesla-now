@@ -32,14 +32,12 @@ function App() {
   const response = useFetchFinnhubData(endpoints.django, setDjangoAPIData);
   console.log("useFetch response: " + response);
 
-  // console.log(chartAPIData);
-
   return (
-    <>
+    <div className={styles['app-container']}>
       {!userHasLanded ? (
         <div>
           <h1>on landing page, no nav</h1>
-          <h1 className={styles['hello']}>Hello, world!</h1>
+          <h1>Hello, world!</h1>
         </div>
       ) : (
         <>
@@ -110,7 +108,7 @@ function App() {
           />
         )}
       </Routes>
-    </>
+    </div>
   );
 }
 

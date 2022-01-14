@@ -1,3 +1,19 @@
-.hello {
-  color: darkgoldenrod;
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  border: 1px solid rgb(218, 175, 7);
+}
+
+.app-container {
+  margin: 0 auto;
+  border: 1px solid darkblue;
+  width: 98%;
+  max-width: 1200px;
 }
