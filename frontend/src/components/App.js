@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { Routes, Route, Link } from "react-router-dom";
 
-// top-level page components
+// components
+import Nav from "./Nav.js";
 import Landing from "./Landing.js";
 import Candlestick from "./Candlestick.js";
 import EPS from "./EPS.js";
@@ -40,29 +41,7 @@ function App() {
           <h1>Hello, world!</h1>
         </div>
       ) : (
-        <>
-          <nav>
-            <h1>not on landing page, nav available</h1>
-            <ul>
-              <h3>nav element</h3>
-              <li>
-                <Link to="/candlestick">Candlestick</Link>
-              </li>
-              <li>
-                <Link to="/eps">Earnings Per Share</Link>
-              </li>
-              <li>
-                <Link to="/sma">Simple Moving Average</Link>
-              </li>
-              <li>
-                <Link to="/recommendations">Analyst Recommendations</Link>
-              </li>
-              <li>
-                <Link to="/news">News</Link>
-              </li>
-            </ul>
-          </nav>
-        </>
+        <Nav />
       )}
 
       {/* routes only available once user has visited the landing page (and click Enter button) */}
