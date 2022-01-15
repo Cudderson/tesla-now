@@ -1,9 +1,11 @@
 nav {
-  display: flex;
-  justify-content: space-between;
   position: sticky;
   top: 0;
+  /* left: 0; */
   z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   border: 1px solid rgb(218, 175, 7);
 }
 
@@ -11,11 +13,22 @@ nav > h3 {
   border: 1px solid palegreen;
 }
 
-nav > ul {
-  display: none;
+.nav-links {
+  position: relative;
+  /* display: inline; */
+  border-bottom: 1px dotted violet;
+}
+
+.nav-links > ul {
+  position: absolute;
+  margin: 0;
+  border: 1px solid green;
+  padding: 0;
+  list-style-type: none;
 }
 
 .link {
+  display: block;
   border: 1px solid blue;
   padding: .25rem .5rem;
   background-color: mediumspringgreen;
@@ -24,22 +37,27 @@ nav > ul {
 }
 
 .dropdown-btn {
-  border: 1px solid black;
+  border-bottom: 1px dotted black;
+}
+
+.hide {
+  display: none;
 }
 
 /* breakpoint may change */
 @media (min-width: 950px) {
-  nav > ul {
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav-links > ul {
+    position: static;
     display: flex;
     flex-wrap: wrap;
     gap: 0 1rem;
-    margin: 0;
-    border: 1px solid green;
-    padding: 0;
-    list-style-type: none;
   }
 
-  nav > ul > li {
+  .nav-links > ul > li {
     /* vertically centers .link in <li> */
     display: flex;
     flex-direction: row;
@@ -49,5 +67,10 @@ nav > ul {
 
   .dropdown-btn {
     display: none;
+  }
+
+  .hide {
+    /* nav should never be hidden on larger screens */
+    display: block;
   }
 }

@@ -1,38 +1,44 @@
 import { Link } from "react-router-dom";
 import styles from "./../styles/Nav.module.css";
+import { useState } from "react";
 
 const Nav = () => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <nav>
       <h3>Tesla Now</h3>
-      <button className={styles['dropdown-btn']}>Go To &#9660;</button>
-      <ul>
-        <li>
-          <Link className={styles["link"]} to="/candlestick">
-            Candlestick
-          </Link>
-        </li>
-        <li>
-          <Link className={styles["link"]} to="/eps">
-            Earnings Per Share
-          </Link>
-        </li>
-        <li>
-          <Link className={styles["link"]} to="/sma">
-            Simple Moving Average
-          </Link>
-        </li>
-        <li>
-          <Link className={styles["link"]} to="/recommendations">
-            Analyst Recommendations
-          </Link>
-        </li>
-        <li>
-          <Link className={styles["link"]} to="/news">
-            News
-          </Link>
-        </li>
-      </ul>
+      <div className={styles['nav-links']}>
+        <button className={styles['dropdown-btn']} onClick={() => {setShowDropdown(!showDropdown)}}>Go To &#9660;</button>
+        {/* <ul> needs to be positioned according to the dropdown btn */}
+        <ul className={showDropdown ? '' : styles['hide']}>
+          <li>
+            <Link className={styles["link"]} to="/candlestick">
+              Candlestick
+            </Link>
+          </li>
+          <li>
+            <Link className={styles["link"]} to="/eps">
+              Earnings Per Share
+            </Link>
+          </li>
+          <li>
+            <Link className={styles["link"]} to="/sma">
+              Simple Moving Average
+            </Link>
+          </li>
+          <li>
+            <Link className={styles["link"]} to="/recommendations">
+              Analyst Recommendations
+            </Link>
+          </li>
+          <li>
+            <Link className={styles["link"]} to="/news">
+              News
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
