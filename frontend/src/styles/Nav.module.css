@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(218, 175, 7);
+}
+
+nav > h3 {
+  border: 1px solid palegreen;
+}
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin: 0;
+  border: 1px solid green;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav > ul > li {
+  /* vertically centers .link in <li> */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.link {
+  border: 1px solid blue;
+  padding: .25rem .5rem;
+  background-color: mediumspringgreen;
+  text-decoration: none;
+  color: black;
+}
