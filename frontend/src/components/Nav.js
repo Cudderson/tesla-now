@@ -8,32 +8,69 @@ const Nav = () => {
   return (
     <nav>
       <h3>Tesla Now</h3>
-      <div className={styles['nav-links']}>
-        <button className={styles['dropdown-btn']} onClick={() => {setShowDropdown(!showDropdown)}}>Go To &#9660;</button>
-        {/* <ul> needs to be positioned according to the dropdown btn */}
-        <ul className={showDropdown ? '' : styles['hide']}>
+      <div className={styles["nav-links"]}>
+        <button
+          className={styles["dropdown-btn"]}
+          onClick={() => {
+            setShowDropdown(!showDropdown);
+          }}
+        >
+          Go To &#9660;
+        </button>
+        {/* (mobile) <ul> is positioned according to nav-links (which wraps dropdown-btn for correct effect) */}
+        <ul className={showDropdown ? "" : styles["hide"]}>
           <li>
-            <Link className={styles["link"]} to="/candlestick">
+            <Link
+              onClick={() => {
+                setShowDropdown(false);
+              }}
+              className={styles["link"]}
+              to="/candlestick"
+            >
               Candlestick
             </Link>
           </li>
           <li>
-            <Link className={styles["link"]} to="/eps">
+            <Link
+              onClick={() => {
+                setShowDropdown(false);
+              }}
+              className={styles["link"]}
+              to="/eps"
+            >
               Earnings Per Share
             </Link>
           </li>
           <li>
-            <Link className={styles["link"]} to="/sma">
+            <Link
+              onClick={() => {
+                setShowDropdown(false);
+              }}
+              className={styles["link"]}
+              to="/sma"
+            >
               Simple Moving Average
             </Link>
           </li>
           <li>
-            <Link className={styles["link"]} to="/recommendations">
+            <Link
+              onClick={() => {
+                setShowDropdown(false);
+              }}
+              className={styles["link"]}
+              to="/recommendations"
+            >
               Analyst Recommendations
             </Link>
           </li>
           <li>
-            <Link className={styles["link"]} to="/news">
+            <Link
+              onClick={() => {
+                setShowDropdown(false);
+              }}
+              className={styles["link"]}
+              to="/news"
+            >
               News
             </Link>
           </li>
