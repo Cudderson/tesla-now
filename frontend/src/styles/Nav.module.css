@@ -4,27 +4,32 @@ nav {
   /* left: 0; */
   z-index: 1;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid rgb(218, 175, 7);
 }
 
 nav > h3 {
   border: 1px solid palegreen;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links {
   position: relative;
-  /* display: inline; */
   border-bottom: 1px dotted violet;
 }
 
 .nav-links > ul {
   position: absolute;
+  top: 100%;
+  right: 0;
   margin: 0;
   border: 1px solid green;
-  padding: 0;
+  padding: 1rem;
+  background-color: blueviolet;
   list-style-type: none;
+  white-space: nowrap;
 }
 
 .link {
@@ -38,6 +43,8 @@ nav > h3 {
 
 .dropdown-btn {
   border-bottom: 1px dotted black;
+  padding: .5rem .75rem;
+  background-color: green;
 }
 
 .hide {
