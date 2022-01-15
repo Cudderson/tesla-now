@@ -16,6 +16,7 @@ const Candlestick = (props) => {
       ) : (
         <LoadingChart />
       )}
+      <div style={{backgroundColor: 'red', height: '1000px'}}></div>
     </>
   );
 };

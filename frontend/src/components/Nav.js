@@ -5,6 +5,7 @@ const Nav = () => {
   return (
     <nav>
       <h3>Tesla Now</h3>
+      <button className={styles['dropdown-btn']}>Go To &#9660;</button>
       <ul>
         <li>
           <Link className={styles["link"]} to="/candlestick">
