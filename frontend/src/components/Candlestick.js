@@ -2,7 +2,6 @@
 // import CandlestickChart from "./api/CandlestickChart.js";
 import { PlotlyChart } from "./PlotlyChart.js";
 import LoadingChart from "./LoadingChart.js";
-import pageContent from "../constants/page-content.js";
 
 const Candlestick = (props) => {
   console.log("Candlestick called");

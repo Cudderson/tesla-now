@@ -64,11 +64,11 @@ function App() {
             />
             <Route
               path="/eps"
-              element={<EPS chartDataHTML={djangoAPIData["eps_chart"]} />}
+              element={<EPS staticContent={pageStaticContent['eps']} chartDataHTML={djangoAPIData["eps_chart"]} />}
             />
             <Route
               path="/sma"
-              element={<SMA chartDataHTML={djangoAPIData["sma_chart"]} />}
+              element={<SMA staticContent={pageStaticContent['sma']} chartDataHTML={djangoAPIData["sma_chart"]} />}
             />
             <Route
               path="/recommendations"
