@@ -12,7 +12,7 @@ import Recommendations from "./Recommendations.js";
 import News from "./News.js";
 
 // static page text
-import pageContent from "../constants/page-content.js";
+import pageStaticContent from "../constants/page-content.js";
 
 // urls for django REST api
 import endpoints from "./../constants/django-endpoints.js";
@@ -59,7 +59,7 @@ function App() {
             <Route
               path="/candlestick"
               element={
-                <Candlestick testData={pageContent['candlestick']} chartDataHTML={djangoAPIData["candlestick_chart"]} />
+                <Candlestick staticContent={pageStaticContent['candlestick']} chartDataHTML={djangoAPIData["candlestick_chart"]} />
               }
             />
             <Route

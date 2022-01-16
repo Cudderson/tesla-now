@@ -17,9 +17,16 @@ const Candlestick = (props) => {
       ) : (
         <LoadingChart />
       )}
-      {props.testData.title}
-      {props.testData.description}
-      <div style={{backgroundColor: 'red', height: '1000px'}}></div>
+      <h2>{props.staticContent.title}</h2>
+
+      {props.staticContent.descriptions.map((description, index) => (
+        <p key={`${description.slice(0, 20).toString()}:${index}`}>
+          {description}
+        </p>
+      ))}
+
+      <a>{props.staticContent.link}</a>
+      <div style={{ backgroundColor: "red", height: "1000px" }}></div>
     </>
   );
 };
