@@ -2,27 +2,32 @@ console.log("page-content imported");
 
 const pageContent = {
   candlestick: {
-    title: `What is a Candlestick Chart?`,
+    title: `Candlestick`,
     descriptions: [
       `Candlestick Charts use 'OHLC' prices (open, high, low, close) to create 'candles' for a certain time interval,
     typically 1 day per candle.`,
       `Candlestick charts are a staple for investors, as they provide detailed insight to how the market is trending
     for a particular company, many companies, or the entire stock market.`,
+      `investopedia: "In the 1700s, a Japanese man named Homma discovered that, while there was a link between price and the supply and demand of rice,
+    the markets were strongly influenced by the emotions of traders. Candlesticks show that emotion by visually representing the size of price moves with
+    different colors. Traders use the candlesticks to make trading decisions based on regularly occurring patterns that help forecast the short-term direction of the price."`,
     ],
     link: `https://en.wikipedia.org/wiki/Candlestick_chart`,
   },
 
   eps: {
-    title: `What is EPS?`,
+    title: `EPS`,
     descriptions: [
-      `Investors use EPS as a measure a company's real value, as EPS indicates how much money a company makes
-      for each share of its stock.`,
+      `investopedia: EPS is calculated as a company's profit divided by the outstanding shares of its common stock.
+      The resulting number serves as an indicator of a company's profitability. 
+      The higher a company's EPS, the more profitable it is considered to be.`,
+      ``,
     ],
     link: `https://en.wikipedia.org/wiki/Earnings_per_share`,
   },
 
   sma: {
-    title: `What is SMA?`,
+    title: `SMA`,
     descriptions: [
       `SMA, or simple moving average, is a statistic used by investors to find trends in the short-term
       fluctuations of a company's stock.`,
