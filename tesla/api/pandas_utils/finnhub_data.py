@@ -119,48 +119,28 @@ def get_news_data():
 def create_news_package(df):
     """Packages news data into a dictionary structure for easy handling"""
 
-    # df = tesla_api.gather_news()
-
+    all_news_data = []
     headlines = []
-    times_posted = []
-    urls = []
-    summaries = []
-    images = []
-    sources = []
     i = 0
 
-    # grabbing news data we want based on headlines containing 'tesla' or 'elon'
-    # sometimes we receive duplicate articles, so we filter the extras out
-    for news in df['headline'][:25]:
-        if news not in headlines and news:
-            if 'tesla' in news.lower() or 'elon' in news.lower():
-                headlines.append(news)
-                times_posted.append(df['datetime'][i])
-                urls.append(df['url'][i])
-                summaries.append(df['summary'][i])
-                images.append(df['image'][i])
-                sources.append(df['source'][i].title())
-            i += 1
+    for headline in df['headline'][:40]:
+        if headline and headline not in headlines:
+            if 'tesla' in headline.lower() or 'elon' in headline.lower():
+                # do this to track headlines we've already seen
+                headlines.append(headline)
 
-    # create nested lists for news data received
-    # full_news_data = [
-    #     times_posted,
-    #     headlines,
-    #     summaries,
-    #     urls,
-    #     images,
-    #     sources,
-    # ]
+                # if we make it here, we can be confident that we have enough data for a proper news article
+                news_data = {
+                    'headline': df['headline'][i],
+                    'source': df['source'][i],
+                    'time_posted': df['datetime'][i],
+                    'summary': df['summary'][i],
+                    'url': df['url'][i],
+                    'image': df['image'][i]
+                }
 
-    # a dictionary would be so much better here
-    full_news_data = {
-        'times_posted': times_posted,
-        'headlines': headlines,
-        'summaries': summaries,
-        'urls': urls,
-        'images': images,
-        'sources': sources,
-    }
+                all_news_data.append(news_data)
+        i += 1
 
-    # print(full_news_data['headlines'][0]) <- example
-    return full_news_data
+    # returning just 10 for now
+    return all_news_data[:10]
