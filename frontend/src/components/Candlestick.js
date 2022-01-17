@@ -10,13 +10,13 @@ const Candlestick = (props) => {
   }
   return (
     <>
-      <h1>You're visiting the Candlestick page</h1>
+      {/* <h1>You're visiting the Candlestick page</h1> */}
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
       ) : (
         <LoadingChart />
       )}
-      <h2>{props.staticContent.title}</h2>
+      {/* <h2>{props.staticContent.title}</h2>
 
       {props.staticContent.descriptions.map((description, index) => (
         <p key={`${description.slice(0, 20).toString()}:${index}`}>
@@ -24,8 +24,8 @@ const Candlestick = (props) => {
         </p>
       ))}
 
-      <a>{props.staticContent.link}</a>
-      <div style={{ backgroundColor: "red", height: "1000px" }}></div>
+      <a>{props.staticContent.link}</a> */}
+      <div style={{ backgroundColor: "rgb(45, 50, 45)", height: "1000px" }}></div>
     </>
   );
 };

@@ -5,11 +5,16 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color: rgb(17, 17, 17);
+}
+
+h1, h2, h3, a, p {
+  color: white;
 }
 
 .app-container {
   margin: 0 auto;
-  border: 1px solid darkblue;
+  /* border: 1px solid darkblue; */
   width: 98%;
   max-width: 1200px;
 }

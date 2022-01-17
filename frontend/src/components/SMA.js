@@ -12,7 +12,7 @@ const SMA = (props) => {
         <LoadingChart />
       )}
 
-      <h2>{props.staticContent.title}</h2>
+      {/* <h2>{props.staticContent.title}</h2>
 
       {props.staticContent.descriptions.map((description, index) => (
         <p key={`${description.slice(0, 20).toString()}:${index}`}>
@@ -20,7 +20,7 @@ const SMA = (props) => {
         </p>
       ))}
 
-      <a>{props.staticContent.link}</a>
+      <a>{props.staticContent.link}</a> */}
       <div style={{ backgroundColor: "red", height: "1000px" }}></div>
     </>
   )
