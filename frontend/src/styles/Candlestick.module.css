@@ -1,5 +1,5 @@
 .price-header {
   font-size: clamp(18px, 4vw, 40px);
   text-align: center;
-  color: lightgreen;
+  color: #00CA35;
 }

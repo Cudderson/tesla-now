@@ -1,12 +1,12 @@
 import { PlotlyChart } from "./PlotlyChart";
 import LoadingChart from "./LoadingChart.js";
+import styles from './../styles/EPS.module.css';
 
 const EPS = (props) => {
   console.log("EPS called");
 
   return (
     <>
-      <h1>This is the EPS page</h1>
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
       ) : (
@@ -22,7 +22,7 @@ const EPS = (props) => {
       ))}
 
       <a>{props.staticContent.link}</a> */}
-      <div style={{ backgroundColor: "red", height: "1000px" }}></div>
+      <div style={{ backgroundColor: "black", height: "1000px" }}></div>
     </>
   )
 }

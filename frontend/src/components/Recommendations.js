@@ -6,7 +6,6 @@ const Recommendations = (props) => {
   console.log("Recommendations called");
   return (
     <>
-      <h1>This is the recommendations page.</h1>
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
       ) : (

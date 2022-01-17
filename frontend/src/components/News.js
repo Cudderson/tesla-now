@@ -3,7 +3,6 @@ const News = (props) => {
 
   return (
     <>
-      <h1>This is the News page</h1>
       {/* let's make sure all the data was serialized properly */}
       <img src={props.newsData.images[0]} alt='missing photo' style={{width: '200px'}}></img>
       <h4>{props.newsData.times_posted[0]}</h4>

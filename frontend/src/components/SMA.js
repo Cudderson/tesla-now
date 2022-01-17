@@ -5,7 +5,6 @@ const SMA = (props) => {
   console.log("SMA called");
   return (
     <>
-      <h1>This is the SMA page</h1>
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
       ) : (
@@ -21,7 +20,7 @@ const SMA = (props) => {
       ))}
 
       <a>{props.staticContent.link}</a> */}
-      <div style={{ backgroundColor: "red", height: "1000px" }}></div>
+      <div style={{ backgroundColor: "black", height: "1000px" }}></div>
     </>
   )
 }
