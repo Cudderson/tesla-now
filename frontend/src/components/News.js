@@ -1,4 +1,5 @@
 import styles from './../styles/News.module.css';
+import tesla_default_image from './../tesla-logo.png';
 
 const News = (props) => {
   console.log(props.newsData);
@@ -17,6 +18,7 @@ const News = (props) => {
       {props.newsData ? (
         props.newsData.map((news) => (
           <div key={news.time_posted.toString()} className={styles['news']}>
+            {news.image ? <img src={news.image}/> : <img src={tesla_default_image} /> }
             <h4>{news.headline}</h4>
             <h5>{news.time_posted}</h5>
             <h6>{news.summary}</h6>

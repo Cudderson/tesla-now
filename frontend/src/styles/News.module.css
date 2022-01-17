@@ -3,5 +3,9 @@
 }
 
 .news {
-  border: 1px solid red;
+  border: 1px solid cyan;
+}
+
+.news > img {
+  width: 200px;
 }
