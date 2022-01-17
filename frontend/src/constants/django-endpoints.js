@@ -2,6 +2,7 @@
 
 const endpoints = {
   django: {
+    current_price: "http://localhost:8000/api/current-price",
     candlestick_chart: "http://localhost:8000/api/candlestick",
     eps_chart: "http://localhost:8000/api/eps",
     sma_chart: "http://localhost:8000/api/sma",

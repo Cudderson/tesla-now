@@ -13,6 +13,13 @@ from rest_framework import serializers
 #     price = serializers.DictField()
 
 
+class PriceSerializer(serializers.Serializer):
+    """
+    Serializes a floating point number
+    """
+
+    current_price = serializers.FloatField()
+
 # serialize a plotly figure (already in html format)
 class HTMLChartPlotlySerializer(serializers.Serializer):
     """

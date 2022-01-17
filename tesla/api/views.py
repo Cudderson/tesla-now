@@ -3,7 +3,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .serializers import HTMLChartPlotlySerializer, NewsDataSerializer
+from .serializers import HTMLChartPlotlySerializer, NewsDataSerializer, PriceSerializer
 
 from .pandas_utils import finnhub_data
 from .plotly_utils import plotly_charts
@@ -41,7 +41,17 @@ import requests
 
 #     return Response(serialized_data)
 
+@api_view()
+def get_current_price(request):
+    """
+    returns a djangorestframework Response(serialized_data)
+    """
 
+    raw_current_price_data = finnhub_data.get_current_price_data()
+
+    serialized_data = PriceSerializer({"current_price": raw_current_price_data})
+
+    return Response(serialized_data.data)
 
 # in future, we will decouple code
 @api_view()

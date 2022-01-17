@@ -5,11 +5,13 @@ import LoadingChart from "./LoadingChart.js";
 
 const Candlestick = (props) => {
   console.log("Candlestick called");
+  console.log(props);
   if (props.chartDataHTML) {
     console.log("hello");
   }
   return (
     <>
+      <h1>The current share price for Tesla (TSLA): {props.currentPrice}</h1>
       {/* <h1>You're visiting the Candlestick page</h1> */}
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />

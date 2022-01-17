@@ -17,12 +17,17 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
           const res = await fetch(urls[url]);
           const data = await res.json();
 
+          console.log(url);
+
           // handle charts and news
           if (data.chart) {
             allData[url] = data.chart;
           }
           else if (data.news) {
             allData[url] = data.news;
+          }
+          else if (data.current_price) {
+            allData[url] = data.current_price;
           }
         }
         catch (err) {

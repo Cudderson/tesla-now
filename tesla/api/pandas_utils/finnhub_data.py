@@ -4,9 +4,18 @@ import pandas as pd
 import time
 import datetime
 import os
+import requests
 
 # could pass the key as a param?
 finn_key = os.getenv('FINN_KEY')
+
+def get_current_price_data():
+    """Returns the current price of Tesla"""
+
+    r = requests.get(f'https://finnhub.io/api/v1/quote?symbol=TSLA&token={finn_key}')
+    res = r.json()
+
+    return res['c']
 
 def get_candlestick_data():
     # defining time range for api call (in UNIX)

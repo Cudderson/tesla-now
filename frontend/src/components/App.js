@@ -61,7 +61,7 @@ function App() {
               <Route
                 path="/candlestick"
                 element={
-                  <Candlestick staticContent={pageStaticContent['candlestick']} chartDataHTML={djangoAPIData["candlestick_chart"]} />
+                  <Candlestick staticContent={pageStaticContent['candlestick']} currentPrice={djangoAPIData["current_price"]} chartDataHTML={djangoAPIData["candlestick_chart"]} />
                 }
               />
               <Route
