@@ -2,6 +2,7 @@
 // import CandlestickChart from "./api/CandlestickChart.js";
 import { PlotlyChart } from "./PlotlyChart.js";
 import LoadingChart from "./LoadingChart.js";
+import styles from './../styles/Candlestick.module.css';
 
 const Candlestick = (props) => {
   console.log("Candlestick called");
@@ -11,7 +12,7 @@ const Candlestick = (props) => {
   }
   return (
     <>
-      <h1>The current share price for Tesla (TSLA): {props.currentPrice}</h1>
+      <h1 className={styles['price-header']}>Current Share Price for Tesla (TSLA): ${props.currentPrice}</h1>
       {/* <h1>You're visiting the Candlestick page</h1> */}
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />

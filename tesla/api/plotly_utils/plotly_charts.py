@@ -16,17 +16,26 @@ def build_candlestick(df, real_time):
         decreasing_line_color='#fe0d00',
     )])
 
-    fig.update_layout(title='Tesla (TSLA) Candlestick Chart',
-                    margin=go.layout.Margin(
-                        l=25, #left margin
-                        r=25, #right margin
-                        b=20, #bottom margin
-                        t=100, #top margin
-                    ),
-                    #   yaxis_title='Tesla Stock Price',
-                      title_x=0.5,
-                      template='plotly_dark'
-                      )
+    fig.update_layout(
+        title=dict(
+            text='Tesla (TSLA) Candlestick Chart',
+            font=dict(
+                size=14,
+                color='white'
+            )
+        ),
+        margin=go.layout.Margin(
+            l=25, #left margin
+            r=25, #right margin
+            b=20, #bottom margin
+            t=100, #top margin
+        ),
+        #   yaxis_title='Tesla Stock Price',
+        height=500,
+        title_x=0.025,
+        title_y=.85,
+        template='plotly_dark'
+    )
 
     # from SO:
     # plotly.offline.plot(data, include_plotlyjs="cdn", output_type="div")
@@ -74,6 +83,7 @@ def build_eps(df):
             ticktext=custom_x_labels,
             showgrid=False,
         ),
+        height=500,
         xaxis_title='Date Reported',
         # yaxis_title='Earnings Per Share',
         # legend_title='EPS',
@@ -161,6 +171,7 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
             b=100, #bottom margin
             t=130, #top margin
         ),
+        height=500,
         # yaxis_title='Closing Price vs SMA',
         legend=dict(x=.5, y=-0.25, xanchor='center', orientation='h', bgcolor='rgb(35, 35, 35)'),
         template='plotly_dark'
@@ -207,10 +218,11 @@ def build_recommendation(df):
             tickmode='array',
             tickvals=[i for i in period],
         ),
+        height=500,
         yaxis_title='Number of Recommendations',
         barmode='stack',
         template='plotly_dark',
-        )
+    )
 
     # chart = fig.to_html(full_html=False, default_height=800)
 

@@ -3,9 +3,7 @@ nav {
   top: 0;
   /* left: 0; */
   z-index: 1;
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
+  margin-bottom: 10vh;
   border: 1px solid rgb(218, 175, 7);
   background-color: lightgreen;
 }
