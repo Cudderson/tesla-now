@@ -49,6 +49,10 @@ def get_current_price(request):
 
     raw_current_price_data = finnhub_data.get_current_price_data()
 
+    rounded_current_price_data = round(raw_current_price_data, 2)
+
+    print(rounded_current_price_data)
+
     serialized_data = PriceSerializer({"current_price": raw_current_price_data})
 
     return Response(serialized_data.data)

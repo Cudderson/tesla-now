@@ -1,5 +1,11 @@
 .price-header {
+  font-family: "Merriweather", serif;
   font-size: clamp(18px, 4vw, 40px);
   text-align: center;
+  /* color: #00CA35; */
+}
+
+.price-header > span {
+  font-family: "Roboto", sans-serif;
   color: #00CA35;
 }

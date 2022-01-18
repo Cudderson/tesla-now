@@ -12,7 +12,7 @@ const Candlestick = (props) => {
   }
   return (
     <>
-      <h1 className={styles['price-header']}>Current Share Price for Tesla (TSLA): ${props.currentPrice}</h1>
+      <h1 className={styles['price-header']}>Current Share Price for Tesla (TSLA): <span>${props.currentPrice}</span></h1>
       {/* <h1>You're visiting the Candlestick page</h1> */}
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
