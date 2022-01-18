@@ -12,7 +12,10 @@
   flex-direction: column;
   width: 95%;
   margin: 0 auto 100px;
-  /* border: 1px solid cyan; */
+  /* keep in case want ot include these on mobile */
+  /* border-left: 10px solid #00CA35;
+  border-radius: 4px;
+  padding: 10px 0 10px 20px; */
   background-color: rgb(17, 17, 17);
 }
 
@@ -25,7 +28,6 @@
   width: 100%;
   height: 44vw;
   max-height: 250px;
-  /* border: 1px dashed hotpink; */
   border-radius: 2px;
   background-color: rgb(17, 17, 17);
 }
@@ -38,13 +40,52 @@
 .headline {
   margin: 0;
   padding: 1rem 0 .25rem;
+  font-family: 'Merriweather', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.headline > a {
+  text-decoration: none;
+}
+
+.headline > a:hover {
+  text-decoration: underline;
+  color: #00CA35;
+}
+
+.source {
+  display: flex;
+  gap: 0 .25rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+.source > span {
+  color: gray;
 }
 
 .summary {
   margin: 0;
   padding: 1rem 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 .link {
+  font-family: "Merriweather", serif;
   color: #00CA35;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+  .news {
+    border-left: 10px solid #00CA35;
+    border-radius: 4px;
+    padding: 10px 0 10px 20px;
+  }
 }
