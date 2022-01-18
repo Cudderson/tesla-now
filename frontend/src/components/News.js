@@ -13,18 +13,23 @@ const News = (props) => {
       <h4>{props.newsData.sources[0]}</h4>
       <h3>{props.newsData.headlines[0]}</h3>
       <h5>{props.newsData.summaries[0]}</h5> */}
-
-      {/* new method schema, don't remove above until sure all working */}
-      {props.newsData ? (
-        props.newsData.map((news) => (
-          <div key={news.time_posted.toString()} className={styles['news']}>
-            {news.image ? <img src={news.image}/> : <img src={tesla_default_image} /> }
-            <h4>{news.headline}</h4>
-            <h5>{news.time_posted}</h5>
-            <h6>{news.summary}</h6>
-          </div>
-        ))
-      ) : null}
+      <div className={styles['news-inner']}>
+        {/* new method schema, don't remove above until sure all working */}
+        {props.newsData ? (
+          props.newsData.map((news) => (
+            <div key={news.time_posted.toString()} className={styles['news']}>
+              <div className={styles['image-container']}>
+                {news.image ? <img src={news.image}/> : <img src={tesla_default_image} /> }
+              </div>
+              <h6>{news.time_posted}</h6>
+              <h5>{news.source}</h5>
+              <h2>{news.headline}</h2>
+              <h3>{news.summary}</h3>
+              <a href={news.url} target="_blank">Go To Article</a>
+            </div>
+          ))
+        ) : null}
+      </div>
     </div>
   )
 }

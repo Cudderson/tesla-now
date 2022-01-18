@@ -1,11 +1,32 @@
 .news-outer {
-  border: 1px solid blue;
+  border: 1px solid orange;
+}
+
+.news-inner {
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .news {
+  display: flex;
+  flex-direction: column;
   border: 1px solid cyan;
+  background-color: rgb(50, 50, 50);
 }
 
-.news > img {
-  width: 200px;
+.image-container {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  height: 50vw;
+  max-height: 300px;
+  border: 1px dashed hotpink;
+}
+
+.image-container > img {
+  width: 100%;
+  max-width: 600px;
 }
