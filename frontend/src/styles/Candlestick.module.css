@@ -1,5 +1,6 @@
 .price-header {
   font-family: "Merriweather", serif;
+  font-weight: 400;
   font-size: clamp(18px, 4vw, 40px);
   text-align: center;
   /* color: #00CA35; */
