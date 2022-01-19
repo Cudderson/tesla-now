@@ -5,6 +5,7 @@ import time
 import datetime
 import os
 import requests
+import pytz
 
 # could pass the key as a param?
 finn_key = os.getenv('FINN_KEY')
@@ -119,6 +120,20 @@ def get_news_data():
 def create_news_package(df):
     """Packages news data into a dictionary structure for easy handling"""
 
+    def format_time_posted(timestamp):
+
+        # make Timestamp tz-aware
+        localized_timestamp = timestamp.tz_localize('US/Central')
+        date_posted_string = localized_timestamp.strftime('%m-%d-%Y')
+
+        delta = datetime.timedelta(hours=6)
+        time_posted = localized_timestamp - delta
+        time_posted_string = time_posted.strftime('%I:%M%p').lstrip("0")
+
+        formatted_timestamp = f"{date_posted_string}  {time_posted_string}"
+        
+        return formatted_timestamp
+
     all_news_data = []
     headlines = []
     i = 0
@@ -133,7 +148,7 @@ def create_news_package(df):
                 news_data = {
                     'headline': df['headline'][i],
                     'source': df['source'][i],
-                    'time_posted': df['datetime'][i],
+                    'time_posted': format_time_posted(df['datetime'][i]),
                     'summary': df['summary'][i],
                     'url': df['url'][i],
                     'image': df['image'][i]
