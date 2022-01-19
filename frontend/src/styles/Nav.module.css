@@ -56,7 +56,10 @@ nav {
 .dropdown-btn {
   /* border-bottom: 1px dotted black; */
   padding: .5rem .75rem;
-  background-color: green;
+  background-color: #00CA35;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 .hide {

@@ -2,7 +2,7 @@
 // import CandlestickChart from "./api/CandlestickChart.js";
 import { PlotlyChart } from "./PlotlyChart.js";
 import LoadingChart from "./LoadingChart.js";
-import styles from './../styles/Candlestick.module.css';
+import styles from "./../styles/Candlestick.module.css";
 
 const Candlestick = (props) => {
   console.log("Candlestick called");
@@ -12,7 +12,14 @@ const Candlestick = (props) => {
   }
   return (
     <>
-      <h1 className={styles['price-header']}>Current Share Price for Tesla (TSLA): <span>${props.currentPrice}</span></h1>
+      <h1 className={styles["price-header"]}>
+        Current Share Price for Tesla (TSLA):
+        {props.currentPrice ? (
+          <span> ${props.currentPrice}</span>
+        ) : (
+          <span> Loading...</span>
+        )}
+      </h1>
       {/* <h1>You're visiting the Candlestick page</h1> */}
       {props.chartDataHTML ? (
         <PlotlyChart chartDataHTML={props.chartDataHTML} />
@@ -28,7 +35,9 @@ const Candlestick = (props) => {
       ))}
 
       <a>{props.staticContent.link}</a> */}
-      <div style={{ backgroundColor: "rgb(45, 50, 45)", height: "1000px" }}></div>
+      <div
+        style={{ backgroundColor: "rgb(45, 50, 45)", height: "1000px" }}
+      ></div>
     </>
   );
 };

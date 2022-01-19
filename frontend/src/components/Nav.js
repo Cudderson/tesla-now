@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./../styles/Nav.module.css";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Nav = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [activeTab, setActiveTab] = useState("Go To ")
 
   return (
     <nav>
@@ -16,7 +18,8 @@ const Nav = () => {
               setShowDropdown(!showDropdown);
             }}
           >
-            Go To &#9660;
+            {activeTab} &#9660;
+            {/* Go To &#9660; */}
           </button>
           {/* (mobile) <ul> is positioned according to nav-links (which wraps dropdown-btn for correct effect) */}
           <ul className={showDropdown ? "" : styles["hide"]}>
@@ -24,6 +27,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
+                  setActiveTab("Candlestick");
                 }}
                 className={styles["link"]}
                 to="/candlestick"
@@ -35,6 +39,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
+                  setActiveTab("EPS");
                 }}
                 className={styles["link"]}
                 to="/eps"
@@ -46,6 +51,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
+                  setActiveTab("SMA");
                 }}
                 className={styles["link"]}
                 to="/sma"
@@ -57,6 +63,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
+                  setActiveTab("Recommendations");
                 }}
                 className={styles["link"]}
                 to="/recommendations"
@@ -68,6 +75,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
+                  setActiveTab("News;")
                 }}
                 className={styles["link"]}
                 to="/news"
