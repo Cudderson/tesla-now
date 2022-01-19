@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./../styles/Nav.module.css";
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 const Nav = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -19,7 +18,6 @@ const Nav = () => {
             }}
           >
             {activeTab} &#9660;
-            {/* Go To &#9660; */}
           </button>
           {/* (mobile) <ul> is positioned according to nav-links (which wraps dropdown-btn for correct effect) */}
           <ul className={showDropdown ? "" : styles["hide"]}>

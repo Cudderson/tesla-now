@@ -34,7 +34,11 @@ def build_candlestick(df, real_time):
         height=500,
         title_x=0.025,
         title_y=.85,
-        template='plotly_dark'
+        template='plotly_dark',
+        modebar=dict(
+            color='rgb(17, 17, 17)', 
+            activecolor='rgb(17, 17, 17)'
+        ),
     )
 
     # from SO:
@@ -88,7 +92,11 @@ def build_eps(df):
         # yaxis_title='Earnings Per Share',
         # legend_title='EPS',
         # showlegend=False,
-        template='plotly_dark'
+        template='plotly_dark',
+        modebar=dict(
+            color='rgb(17, 17, 17)', 
+            activecolor='rgb(17, 17, 17)'
+        ),
     )
 
     # this is the new method for converting charts
@@ -174,7 +182,11 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
         height=500,
         # yaxis_title='Closing Price vs SMA',
         legend=dict(x=.5, y=-0.25, xanchor='center', orientation='h', bgcolor='rgb(35, 35, 35)'),
-        template='plotly_dark'
+        template='plotly_dark',
+        modebar=dict(
+            color='rgb(17, 17, 17)', 
+            activecolor='rgb(17, 17, 17)'
+        ),
     )
 
     # chart = fig.to_html(full_html=False, default_height=700)
@@ -222,6 +234,10 @@ def build_recommendation(df):
         yaxis_title='Number of Recommendations',
         barmode='stack',
         template='plotly_dark',
+        modebar=dict(
+            color='rgb(17, 17, 17)', 
+            activecolor='rgb(17, 17, 17)'
+        ),
     )
 
     # chart = fig.to_html(full_html=False, default_height=800)
