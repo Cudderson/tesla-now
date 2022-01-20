@@ -16,14 +16,16 @@ const pageContent = {
   },
 
   eps: {
-    title: `EPS`,
+    title: `What is EPS?`,
     descriptions: [
-      `investopedia: EPS is calculated as a company's profit divided by the outstanding shares of its common stock.
+      // `Earnings Per Share, or EPS, is an indicator of a company's profitability.`
+      // `Example: $10,000,000 profit / 10,000,000 shares outstanding = $1 EPS`
+      `" EPS is calculated as a company's profit divided by the outstanding shares of its common stock.
       The resulting number serves as an indicator of a company's profitability. 
-      The higher a company's EPS, the more profitable it is considered to be.`,
-      ``,
+      The higher a company's EPS, the more profitable it is considered to be. "`
     ],
-    link: `https://en.wikipedia.org/wiki/Earnings_per_share`,
+    fact: `The chart above compares analyst estimates vs actual reported EPS for the last 4 quarters.`,
+    link: `https://www.investopedia.com/terms/e/eps.asp`,
   },
 
   sma: {

@@ -1,0 +1,14 @@
+.static-content {
+  max-width: 700px;
+  line-height: 1.5;
+  font-size: 17px;
+}
+
+.description {
+  font-style: italic;
+}
+
+.static-content a {
+  font-style: normal;
+  color: lightgreen;
+}

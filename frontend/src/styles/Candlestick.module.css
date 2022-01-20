@@ -1,21 +1,17 @@
 .price-header {
-  padding-bottom: 1rem;
-  font-family: "Merriweather", serif;
-  font-weight: 400;
+  /* padding-bottom: 1rem; */
+  margin: 0;
   font-size: clamp(18px, 4vw, 38px);
   text-align: center;
   /* color: #00CA35; */
 }
 
 .price-header > span {
-  font-family: "Roboto", sans-serif;
   color: #00CA35;
 }
 
 .title {
   margin-bottom: 0;
-  font-family: "Merriweather", serif;
-  font-weight: 400;
 }
 
 .static-content {
@@ -24,15 +20,10 @@
   gap: 1rem;
 }
 
-/* .description {
-  font-family: "Roboto", sans-serif;
-} */
-
 .descriptions, .fact {
   flex-grow: 1;
   flex-basis: 0;
   min-width: 300px;
-  font-family: "Roboto", sans-serif;
   line-height: 1.5;
 }
 

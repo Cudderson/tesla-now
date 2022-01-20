@@ -45,12 +45,7 @@
   font-weight: 400;
 }
 
-.headline > a {
-  text-decoration: none;
-}
-
 .headline > a:hover {
-  text-decoration: underline;
   color: #00CA35;
 }
 
