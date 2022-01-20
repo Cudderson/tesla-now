@@ -6,6 +6,10 @@ const News = (props) => {
 
   return (
     <div className={styles["news-outer"]}>
+      <h1 className={styles["title"]}>Tesla Now News</h1>
+      <p>
+        The latest stories, articles, and news related to Tesla Inc.
+      </p>
       <div className={styles["news-inner"]}>
         {props.newsData
           ? props.newsData.map((news) => (
@@ -18,7 +22,9 @@ const News = (props) => {
                   )}
                 </div>
                 <h2 className={styles["headline"]}>
-                  <a href={news.url} target="_blank">{news.headline}</a>
+                  <a href={news.url} target="_blank">
+                    {news.headline}
+                  </a>
                 </h2>
                 <div className={styles["source"]}>
                   <span>{news.source}</span>

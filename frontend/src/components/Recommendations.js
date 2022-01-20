@@ -11,6 +11,15 @@ const Recommendations = (props) => {
       ) : (
         <LoadingChart />
       )}
+      {props.staticContent ? (
+        // consider a global css file for static content
+        <div>
+          <h2>{props.staticContent.title}</h2>
+          <p>
+            {props.staticContent.description}
+          </p>
+        </div>
+      ) : null}
     </>
   )
 }

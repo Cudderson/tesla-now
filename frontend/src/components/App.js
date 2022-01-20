@@ -76,6 +76,7 @@ function App() {
                 path="/recommendations"
                 element={
                   <Recommendations
+                    staticContent={pageStaticContent['recommendations']}
                     chartDataHTML={djangoAPIData["recommendations_chart"]}
                   />
                 }

@@ -24,7 +24,7 @@ const pageContent = {
       The resulting number serves as an indicator of a company's profitability. 
       The higher a company's EPS, the more profitable it is considered to be. "`
     ],
-    fact: `The chart above compares analyst estimates vs actual reported EPS for the last 4 quarters.`,
+    fact: `The chart above compares analyst estimates vs actual reported EPS for the previous 4 quarters.`,
     link: `https://www.investopedia.com/terms/e/eps.asp`,
   },
 
@@ -40,6 +40,10 @@ const pageContent = {
     ],
     link: `https://en.wikipedia.org/wiki/Moving_average`,
   },
+  recommendations: {
+    title: `Recommendation Trends`,
+    description: `The chart above displays analyst buy/sell recommendations for the previous 4 quarters.`
+  }
 };
 
 export default pageContent;
