@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
 import styles from "./../styles/Nav.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [activeTab, setActiveTab] = useState("Go To ")
+  const [activeTab, setActiveTab] = useState("Go To ");
+
+  useEffect(() => {
+    // scroll to top whenever activeTab changes
+    console.log("Nav useEffect called");
+    window.scrollTo(0, 0);
+  }, [activeTab]);
 
   return (
     <nav>
@@ -73,7 +79,7 @@ const Nav = () => {
               <Link
                 onClick={() => {
                   setShowDropdown(false);
-                  setActiveTab("News;")
+                  setActiveTab("News");
                 }}
                 className={styles["link"]}
                 to="/news"
