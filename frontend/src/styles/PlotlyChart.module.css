@@ -2,5 +2,6 @@
   /* padding-top: 15vh; */
   /* cannot change height from React */
   /* height: 1000px; */
-  border-bottom: 1px solid gray;
+  padding-bottom: 100px;
+  /* border-bottom: 1px solid gray; */
 }

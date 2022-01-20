@@ -26,17 +26,28 @@ const Candlestick = (props) => {
       ) : (
         <LoadingChart />
       )}
-      {/* <h2>{props.staticContent.title}</h2>
-
-      {props.staticContent.descriptions.map((description, index) => (
-        <p key={`${description.slice(0, 20).toString()}:${index}`}>
-          {description}
+      <h2 className={styles["title"]}>{props.staticContent.title}</h2>
+      <div className={styles["static-content"]}>
+        <div className={styles["descriptions"]}>
+          {props.staticContent.descriptions.map((description, index) => (
+            <p
+              key={`${description.slice(0, 20).toString()}:${index}`}
+              className={styles["description"]}
+            >
+              {description}
+            </p>
+          ))}
+          <a className={styles["link"]} href={props.staticContent.link}>
+            Learn More
+          </a>
+        </div>
+        <p className={styles["fact"]}>
+          {props.staticContent.fact} -{" "}
+          <a href={props.staticContent.link}>Investopedia</a>
         </p>
-      ))}
-
-      <a>{props.staticContent.link}</a> */}
+      </div>
       <div
-        style={{ backgroundColor: "rgb(45, 50, 45)", height: "1000px" }}
+        style={{ backgroundColor: "rgb(17, 17, 17)", height: "1000px" }}
       ></div>
     </>
   );

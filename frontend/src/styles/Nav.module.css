@@ -4,7 +4,7 @@ nav {
   /* left: 0; */
   z-index: 1;
   margin-bottom: calc(40px + 1vw);
-  border: 1px solid rgb(218, 175, 7);
+  /* border: 1px solid rgb(218, 175, 7); */
   background-color: #00CA35;
 }
 

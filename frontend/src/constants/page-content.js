@@ -2,17 +2,17 @@ console.log("page-content imported");
 
 const pageContent = {
   candlestick: {
-    title: `Candlestick`,
+    title: `What is a Candlestick Chart?`,
     descriptions: [
-      `Candlestick Charts use 'OHLC' prices (open, high, low, close) to create 'candles' for a certain time interval,
-    typically 1 day per candle.`,
-      `Candlestick charts are a staple for investors, as they provide detailed insight to how the market is trending
-    for a particular company, many companies, or the entire stock market.`,
-      `investopedia: "In the 1700s, a Japanese man named Homma discovered that, while there was a link between price and the supply and demand of rice,
-    the markets were strongly influenced by the emotions of traders. Candlesticks show that emotion by visually representing the size of price moves with
-    different colors. Traders use the candlesticks to make trading decisions based on regularly occurring patterns that help forecast the short-term direction of the price."`,
+      `Candlestick Charts use 'OHLC' (open, high, low, close) price data to create 'candles' that represent a given time interval,
+    usually 1 trading day.`,
+      `Candlestick charts are a staple for investors, as they provide a deeper insight to how the market is trending
+    for a particular company, many companies, or entire sectors.`
     ],
-    link: `https://en.wikipedia.org/wiki/Candlestick_chart`,
+    fact: `" In the 1700s, a Japanese man named Homma discovered that, while there was a link between price and the supply and demand of rice,
+    the markets were strongly influenced by the emotions of traders. Candlesticks show that emotion by visually representing the size of price moves with
+    different colors. Traders use the candlesticks to make trading decisions based on regularly occurring patterns that help forecast the short-term direction of the price. "`, 
+    link: `https://www.investopedia.com/trading/candlestick-charting-what-is-it/`,
   },
 
   eps: {
