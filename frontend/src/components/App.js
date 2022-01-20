@@ -10,6 +10,7 @@ import EPS from "./EPS.js";
 import SMA from "./SMA.js";
 import Recommendations from "./Recommendations.js";
 import News from "./News.js";
+import Footer from "./Footer.js";
 
 // static page text
 import pageStaticContent from "../constants/page-content.js";
@@ -21,7 +22,7 @@ import endpoints from "./../constants/django-endpoints.js";
 import { useFetchFinnhubData } from "../hooks/useFetchFinnhubData.js";
 
 // styles
-import styles from './../styles/App.module.css';
+import styles from "./../styles/App.module.css";
 
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
@@ -39,15 +40,13 @@ function App() {
   return (
     <>
       {userHasLanded ? <Nav /> : null}
-      <div className={styles['app-container']}>
+      <div className={styles["app-container"]}>
         {!userHasLanded ? (
           <div>
             <h1>on landing page, no nav</h1>
             <h1>Hello, world!</h1>
           </div>
-        ) : (
-          null
-        )}
+        ) : null}
 
         {/* routes only available once user has visited the landing page (and click Enter button) */}
         {/* this is to ensure the api data is always gathered the same way (user must visit defined entrypoint) */}
@@ -61,22 +60,36 @@ function App() {
               <Route
                 path="/candlestick"
                 element={
-                  <Candlestick staticContent={pageStaticContent['candlestick']} currentPrice={djangoAPIData["current_price"]} chartDataHTML={djangoAPIData["candlestick_chart"]} />
+                  <Candlestick
+                    staticContent={pageStaticContent["candlestick"]}
+                    currentPrice={djangoAPIData["current_price"]}
+                    chartDataHTML={djangoAPIData["candlestick_chart"]}
+                  />
                 }
               />
               <Route
                 path="/eps"
-                element={<EPS staticContent={pageStaticContent['eps']} chartDataHTML={djangoAPIData["eps_chart"]} />}
+                element={
+                  <EPS
+                    staticContent={pageStaticContent["eps"]}
+                    chartDataHTML={djangoAPIData["eps_chart"]}
+                  />
+                }
               />
               <Route
                 path="/sma"
-                element={<SMA staticContent={pageStaticContent['sma']} chartDataHTML={djangoAPIData["sma_chart"]} />}
+                element={
+                  <SMA
+                    staticContent={pageStaticContent["sma"]}
+                    chartDataHTML={djangoAPIData["sma_chart"]}
+                  />
+                }
               />
               <Route
                 path="/recommendations"
                 element={
                   <Recommendations
-                    staticContent={pageStaticContent['recommendations']}
+                    staticContent={pageStaticContent["recommendations"]}
                     chartDataHTML={djangoAPIData["recommendations_chart"]}
                   />
                 }
@@ -94,6 +107,7 @@ function App() {
           )}
         </Routes>
       </div>
+      {userHasLanded ? <Footer /> : null}
     </>
   );
 }

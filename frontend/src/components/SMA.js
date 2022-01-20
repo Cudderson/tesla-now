@@ -24,7 +24,6 @@ const SMA = (props) => {
           <a className={styles['link']} href={props.staticContent.link}>Learn More</a>
         </div>
       ) : null}
-      <div style={{ backgroundColor: "black", height: "1000px" }}></div>
     </>
   )
 }

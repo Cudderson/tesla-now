@@ -50,10 +50,6 @@ const Candlestick = (props) => {
           </div>
         </>
       ) : null}
-
-      <div
-        style={{ backgroundColor: "rgb(17, 17, 17)", height: "1000px" }}
-      ></div>
     </>
   );
 };

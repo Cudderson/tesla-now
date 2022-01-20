@@ -31,6 +31,7 @@ nav {
 .nav-links {
   position: relative;
   /* border-bottom: 1px dotted violet; */
+  padding: .25rem;
 }
 
 .nav-links > ul {
@@ -66,7 +67,7 @@ nav {
   background-color: #00CA35;
   /* border: 1px solid black; */
   border: none;
-  padding: 1.25rem .5rem;
+  padding: 1.3rem .5rem;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   color: white;
@@ -80,6 +81,10 @@ nav {
 @media (min-width: 950px) {
   nav {
     justify-content: space-between;
+  }
+
+  .nav-links {
+    padding: .5rem;
   }
 
   .nav-links > ul {
