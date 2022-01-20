@@ -26,26 +26,31 @@ const Candlestick = (props) => {
       ) : (
         <LoadingChart />
       )}
-      <h2 className={styles["title"]}>{props.staticContent.title}</h2>
-      <div className={styles["static-content"]}>
-        <div className={styles["descriptions"]}>
-          {props.staticContent.descriptions.map((description, index) => (
-            <p
-              key={`${description.slice(0, 20).toString()}:${index}`}
-              className={styles["description"]}
-            >
-              {description}
+      {props.staticContent ? (
+        <>
+          <h2 className={styles["title"]}>{props.staticContent.title}</h2>
+          <div className={styles["static-content"]}>
+            <div className={styles["descriptions"]}>
+              {props.staticContent.descriptions.map((description, index) => (
+                <p
+                  key={`${description.slice(0, 20).toString()}:${index}`}
+                  className={styles["description"]}
+                >
+                  {description}
+                </p>
+              ))}
+              <a className={styles["link"]} href={props.staticContent.link}>
+                Learn More
+              </a>
+            </div>
+            <p className={styles["fact"]}>
+              {props.staticContent.fact} -{" "}
+              <a href={props.staticContent.link}>Investopedia</a>
             </p>
-          ))}
-          <a className={styles["link"]} href={props.staticContent.link}>
-            Learn More
-          </a>
-        </div>
-        <p className={styles["fact"]}>
-          {props.staticContent.fact} -{" "}
-          <a href={props.staticContent.link}>Investopedia</a>
-        </p>
-      </div>
+          </div>
+        </>
+      ) : null}
+
       <div
         style={{ backgroundColor: "rgb(17, 17, 17)", height: "1000px" }}
       ></div>

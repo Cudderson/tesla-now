@@ -29,11 +29,12 @@ const pageContent = {
   },
 
   sma: {
-    title: `SMA`,
+    title: `What is SMA?`,
     descriptions: [
-      `SMA, or simple moving average, is a statistic used by investors to find trends in the short-term
-      fluctuations of a company's stock.`,
-      `I have chosen to use the 4-day and 20-day moving averages in this figure, but experts tend to use many variations
+      `Simple Moving Averages, or SMA, are statistics used by investors to find trends in the short-term
+      fluctuations of a company's stock.
+      The value at any given point on one of the lines represents the average share price for the previous (n) days.`,
+      `I have chosen to calculate the 4-day and 20-day moving averages for this figure, but experts tend to use many variations
       of the SMA, (7-day, 50-day, 200-day, etc.) as well as more complicated versions, such as EMA, or Exponential
       Moving Average.`,
     ],
