@@ -40,5 +40,6 @@
 }
 
 .link, .fact > a {
-  color: lightgreen;
+  /* color: lightgreen; */
+  color: #53D876;
 }

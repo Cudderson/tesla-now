@@ -124,7 +124,8 @@ def create_news_package(df):
 
         # make Timestamp tz-aware
         localized_timestamp = timestamp.tz_localize('US/Central')
-        date_posted_string = localized_timestamp.strftime('%m-%d-%Y')
+        # date_posted_string = localized_timestamp.strftime('%m-%d-%Y')
+        date_posted_string = localized_timestamp.strftime('%b %d, %Y')
 
         delta = datetime.timedelta(hours=6)
         time_posted = localized_timestamp - delta

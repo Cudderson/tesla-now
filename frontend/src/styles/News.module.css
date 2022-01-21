@@ -63,17 +63,21 @@
 
 .headline > a:hover {
   color: #00CA35;
+  /* color: #53D876; */
 }
 
 .source {
   display: flex;
   gap: 0 .25rem;
   font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .source > span {
-  color: lightslategray;
+  /* color: lightslategray; */
+  /* color: #00CA35; */
+  color: rgb(150, 160, 150);
+  /* font-style: italic; */
 }
 
 .summary {
