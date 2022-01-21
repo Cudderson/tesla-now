@@ -15,7 +15,7 @@ const Candlestick = (props) => {
       <h1 className={styles["price-header"]}>
         Current Share Price for Tesla (TSLA):
         {props.currentPrice ? (
-          <span> ${props.currentPrice}</span>
+          <span> ${props.currentPrice.toFixed(2)}</span>
         ) : (
           <span> Loading...</span>
         )}
