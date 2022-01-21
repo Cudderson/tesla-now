@@ -1,0 +1,38 @@
+.landing-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  height: 98vh;
+  /* border: 1px solid greenyellow; */
+}
+
+.landing-inner {
+  /* border: 1px dotted hotpink; */
+  max-width: 500px;
+  text-align: center;
+}
+
+.landing-inner > h1 {
+  /* font-size: 40px; */
+  font-size: clamp(26px, 8vw, 44px);
+}
+
+.landing-inner > p {
+  font-size: clamp(13px, 3.75vw, 18px);
+  margin: 0 0 1.5rem;
+}
+
+.link {
+  display: block;
+  border: 2px solid #00CA35;
+  border-radius: 2px;
+  padding: .6rem 1.1rem;
+  transition: .5s;
+}
+
+.link:hover {
+  background-color: #00CA35;
+  text-decoration: none;
+  transition: .5s;
+}

@@ -172,15 +172,13 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
             'x': .5,
             'y': .9,
         },
-        # yaxis=dict(showticklabels=False),
+        height=500,
         margin=go.layout.Margin(
             l=45, #left margin
             r=0, #right margin
             b=100, #bottom margin
             t=130, #top margin
         ),
-        height=500,
-        # yaxis_title='Closing Price vs SMA',
         legend=dict(x=.5, y=-0.25, xanchor='center', orientation='h', bgcolor='rgb(35, 35, 35)'),
         template='plotly_dark',
         modebar=dict(

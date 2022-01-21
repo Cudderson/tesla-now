@@ -41,12 +41,12 @@ function App() {
     <>
       {userHasLanded ? <Nav /> : null}
       <div className={styles["app-container"]}>
-        {!userHasLanded ? (
+        {/* {!userHasLanded ? (
           <div>
             <h1>on landing page, no nav</h1>
             <h1>Hello, world!</h1>
           </div>
-        ) : null}
+        ) : null} */}
 
         {/* routes only available once user has visited the landing page (and click Enter button) */}
         {/* this is to ensure the api data is always gathered the same way (user must visit defined entrypoint) */}
