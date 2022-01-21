@@ -10,13 +10,12 @@ const Footer = () => {
             <span>Tesla Now</span>
           </li>
           <li>
-            <span>Made By</span>
-            <span>Cody Weller</span>
-          </li>
-          <li>
             <span>Links</span>
             <span><a>Github</a> / <a>Portfolio</a></span>
-            
+          </li>
+          <li>
+            <span>Made By</span>
+            <span>Cody Weller</span>
           </li>
         </ul>
         
