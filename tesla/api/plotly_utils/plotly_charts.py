@@ -4,6 +4,11 @@ import plotly.graph_objs as go
 
 # df = pandas dataframe object
 
+# plotly.offline.plot(data, include_plotlyjs="cdn", output_type="div")
+# will give you a div with the necessary plotly js so that the div can just be embedded and you're done 
+# with 'include_plotly.js=False', we don't include any <scripts> to load Plotly within the HTML string
+# this is because plotly is linked in the <head> of our main index.html in React 
+
 def build_candlestick(df, real_time):
   # create figure using 'OHLC' Tesla data
     fig = go.Figure(data=[go.Candlestick(
@@ -30,7 +35,6 @@ def build_candlestick(df, real_time):
             b=20, #bottom margin
             t=100, #top margin
         ),
-        #   yaxis_title='Tesla Stock Price',
         height=500,
         title_x=0.025,
         title_y=.85,
@@ -41,12 +45,6 @@ def build_candlestick(df, real_time):
         ),
     )
 
-    # from SO:
-    # plotly.offline.plot(data, include_plotlyjs="cdn", output_type="div")
-    # will give you a div with the necessary plotly js so that the div can just be embedded and you're done 
-
-    # with 'include_plotly.js=False', we don't include any <scripts> to load Plotly within the HTML string
-    # this is because plotly is linked in the <head> of our main index.html in React 
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     return chart
@@ -89,9 +87,6 @@ def build_eps(df):
         ),
         height=500,
         xaxis_title='Date Reported',
-        # yaxis_title='Earnings Per Share',
-        # legend_title='EPS',
-        # showlegend=False,
         template='plotly_dark',
         modebar=dict(
             color='rgb(17, 17, 17)', 
@@ -99,15 +94,12 @@ def build_eps(df):
         ),
     )
 
-    # this is the new method for converting charts
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     return chart
 
 
 def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, real_time):
-
-    # build simple moving average chart
 
     fig = go.Figure()
 
@@ -137,9 +129,8 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
     fig.add_trace(go.Scatter(
         name='Latest Closing Price', mode='markers', x=[real_time[-1]], y=closing_prices[-1:],
         marker=dict(
-            size=15,
+            size=5,
             color='#66fe00',
-            opacity=.8
         ), showlegend=False
     ))
 
@@ -147,9 +138,8 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
     fig.add_trace(go.Scatter(
         name='Current SMA20 Level', mode='markers', x=[real_time[-1]], y=moving_averages_20_day[-1:],
         marker=dict(
-            size=15,
+            size=5,
             color='#fe0d00',
-            opacity=.8
         ), showlegend=False
     ))
 
@@ -157,9 +147,8 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
     fig.add_trace(go.Scatter(
         name='Current SMA4 Level', mode='markers', x=[real_time[-1]], y=moving_averages_4_day[-1:],
         marker=dict(
-            size=15,
+            size=5,
             color='#00cbfe',
-            opacity=.8
         ), showlegend=False
     ))
 
@@ -187,9 +176,6 @@ def build_sma(closing_prices, moving_averages_20_day, moving_averages_4_day, rea
         ),
     )
 
-    # chart = fig.to_html(full_html=False, default_height=700)
-
-    # new method
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     return chart
@@ -238,9 +224,6 @@ def build_recommendation(df):
         ),
     )
 
-    # chart = fig.to_html(full_html=False, default_height=800)
-
-    # new method
     chart = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
 
     return chart
