@@ -10,5 +10,5 @@
 
 .static-content a {
   font-style: normal;
-  color: lightgreen;
+  color: var(--alt-green);
 }

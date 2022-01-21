@@ -1,7 +1,6 @@
 .footer-outer {
   margin-top: 10rem;
-  /* border-top: 1px solid #53D876; */
-  border-top: 1px solid #00CA35;
+  border-top: 1px solid var(--brand-green);
 }
 
 .footer-inner {
@@ -32,5 +31,5 @@
 }
 
 .footer-inner > ul > li > span:first-of-type {
-  color: #00CA35;
+  color: var(--brand-green);
 }

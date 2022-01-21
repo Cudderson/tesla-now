@@ -1,38 +1,25 @@
+:root {
+  --brand-green: rgb(0, 202, 53);
+  --alt-green: rgb(83, 216, 118);
+  --brand-black: rgb(17, 17, 17);
+  --brand-white: rgb(250, 248, 255);
+  --alt-gray: rgb(150, 160, 150);
+}
+
 * {
   box-sizing: border-box;
 }
 
-/* color scheme 
-
-[] apply all colors
-
-hex:
-main-green:       rgb(0, 202, 53)
-secondary-green:  rgb(33, 85, 46)
-main-black:       rgb(17, 17, 17)
-text-white:       rgb(250, 248, 255)
-news-source-gray: rgb(150, 160, 150)
-
-*/ 
-
-/* :root {
-  --brand-green: rgb(0, 202, 53);
-  --alt-green: rgb(33, 85, 46);
-  --brand-black: rgb(17, 17, 17);
-  --brand-white: rgb(250, 248, 255);
-  --alt-gray: rgb(150, 160, 150);
-} */
-
 html, body {
   margin: 0;
   padding: 0;
-  background-color: rgb(17, 17, 17);
+  background-color: var(--brand-black);
 }
 
 h1, h2, h3,
 h4, h5, h6,
 span, a, p {
-  color: rgb(250, 248, 255);
+  color: var(--brand-white);
 }
 
 h1, h2, h3,
@@ -55,7 +42,6 @@ a:hover {
 
 .app-container {
   margin: 0 auto;
-  /* border: 1px solid darkblue; */
   width: 98%;
   max-width: 1200px;
 }

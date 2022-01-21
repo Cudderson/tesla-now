@@ -1,9 +1,4 @@
 .chart {
-  /* padding-top: 15vh; */
-  /* cannot change height from React */
-  /* height: 1000px; */
-  /* padding-top: 2rem; */
   padding-top: calc(1rem + 1vw);
   padding-bottom: 100px;
-  /* border-bottom: 1px solid gray; */
 }

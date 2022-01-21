@@ -1,12 +1,10 @@
 nav {
   position: sticky;
   top: 0;
-  /* left: 0; */
+  left: 0;
   z-index: 1;
   margin-bottom: calc(3rem + 2vw);
-  /* margin-bottom: 4rem; */
-  /* border: 1px solid rgb(218, 175, 7); */
-  background-color: #00CA35;
+  background-color: var(--brand-green);
 }
 
 .nav-inner {
@@ -19,18 +17,15 @@ nav {
 }
 
 .nav-inner > h3 {
-  /* border: 1px solid palegreen; */
   margin: 0;
   padding: 0;
   padding-left: .5rem;
-  font-family: "Merriweather", serif;
-  font-weight: 400;
-  color: white;
+  font-size: 20px;
+  text-shadow: -1px 1px 1px var(--brand-black);
 }
 
 .nav-links {
   position: relative;
-  /* border-bottom: 1px dotted violet; */
   padding: .25rem;
 }
 
@@ -39,41 +34,35 @@ nav {
   top: 100%;
   right: 0;
   margin: 0;
-  border: 2px solid #00CA35;
+  border: 2px solid var(--brand-green);
   border-top: none;
   border-radius: 0 0 4px 4px;
   padding: .5rem;
   list-style-type: none;
   white-space: nowrap;
-  /* background-color: #00CA35; */
-  /* background-color: rgba(0, 202, 53, .9); */
-  background-color: rgba(0, 0, 0, .8)
+  background-color: rgba(0, 0, 0, .8);
 }
 
 .link {
   display: block;
-  /* border: 1px solid blue; */
   padding: .5rem;
-  /* background-color: mediumspringgreen; */
-  font-family: "Roboto", sans-serif;
   text-decoration: none;
-  /* color: black; */
 }
 
 .link:hover {
   text-decoration: none;
-  color: black;
+  text-shadow: none;
+  color: var(--brand-black);
 }
 
 .dropdown-btn {
-  padding: .5rem .75rem;
-  background-color: #00CA35;
-  /* border: 1px solid black; */
   border: none;
   padding: 1.3rem .5rem;
+  background-color: var(--brand-green);
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  color: white;
+  color: var(--brand-white);
+  text-shadow: -1px 1px 1px var(--brand-black);
 }
 
 .hide {
@@ -95,7 +84,7 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0 1rem;
-    background-color: #00CA35;
+    background-color: var(--brand-green);
   }
 
   .nav-links > ul > li {
@@ -103,7 +92,7 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* border: 1px solid black; */
+    text-shadow: -1px 1px 1px var(--brand-black);
   }
 
   .dropdown-btn {

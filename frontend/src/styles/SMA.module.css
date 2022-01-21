@@ -5,5 +5,5 @@
 }
 
 .link {
-  color: lightgreen;
+  color: var(--alt-green);
 }
