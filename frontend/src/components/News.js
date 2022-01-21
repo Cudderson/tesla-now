@@ -7,13 +7,11 @@ const News = (props) => {
   return (
     <div className={styles["news-outer"]}>
       <h1 className={styles["title"]}>Tesla Now News</h1>
-      <p>
-        The latest stories, articles, and news related to Tesla Inc.
-      </p>
+      <p>The latest stories, articles, and news related to Tesla Inc.</p>
       <div className={styles["news-inner"]}>
         {props.newsData
-          ? props.newsData.map((news) => (
-              <div key={news.time_posted.toString()} className={styles["news"]}>
+          ? props.newsData.map((news, index) => (
+              <div key={`${news.time_posted.toString()}:${index}`} className={styles["news"]}>
                 <div className={styles["image-container"]}>
                   {news.image ? (
                     <img src={news.image} />

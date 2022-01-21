@@ -52,9 +52,13 @@
 .headline {
   margin: 0;
   padding: 1rem 0 .25rem;
+}
+
+.headline > a {
   font-family: 'Merriweather', serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
+  line-height: 1;
 }
 
 .headline > a:hover {
@@ -69,7 +73,7 @@
 }
 
 .source > span {
-  color: gray;
+  color: lightslategray;
 }
 
 .summary {
@@ -77,10 +81,13 @@
   padding: 1rem 0;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .link {
   font-family: "Merriweather", serif;
+  font-size: 15px;
   color: #00CA35;
   text-decoration: none;
 }

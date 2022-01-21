@@ -18,11 +18,9 @@ const pageContent = {
   eps: {
     title: `What is EPS?`,
     descriptions: [
-      // `Earnings Per Share, or EPS, is an indicator of a company's profitability.`
-      // `Example: $10,000,000 profit / 10,000,000 shares outstanding = $1 EPS`
-      `" EPS is calculated as a company's profit divided by the outstanding shares of its common stock.
+      `"EPS is calculated as a company's profit divided by the outstanding shares of its common stock.
       The resulting number serves as an indicator of a company's profitability. 
-      The higher a company's EPS, the more profitable it is considered to be. "`
+      The higher a company's EPS, the more profitable it is considered to be."`
     ],
     fact: `The chart above compares analyst estimates vs actual reported EPS for the previous 4 quarters.`,
     link: `https://www.investopedia.com/terms/e/eps.asp`,
@@ -33,7 +31,7 @@ const pageContent = {
     descriptions: [
       `Simple Moving Averages, or SMA, are statistics used by investors to find trends in the short-term
       fluctuations of a company's stock.
-      The value at any given point on one of the lines represents the average share price for the previous (n) days.`,
+      The price value at any given point on one of the lines represents the average share price for the previous (n) days.`,
       `I have chosen to calculate the 4-day and 20-day moving averages for this figure, but experts tend to use many variations
       of the SMA, (7-day, 50-day, 200-day, etc.) as well as more complicated versions, such as EMA, or Exponential
       Moving Average.`,
