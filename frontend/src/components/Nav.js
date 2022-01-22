@@ -8,7 +8,6 @@ const Nav = () => {
 
   useEffect(() => {
     // scroll to top whenever activeTab changes
-    console.log("Nav useEffect called");
     window.scrollTo(0, 0);
   }, [activeTab]);
 

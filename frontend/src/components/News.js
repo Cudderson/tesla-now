@@ -2,7 +2,6 @@ import styles from "./../styles/News.module.css";
 import tesla_default_image from "./../tesla-logo.png";
 
 const News = (props) => {
-  // console.log(props.newsData);
 
   return (
     <div className={styles["news-outer"]}>

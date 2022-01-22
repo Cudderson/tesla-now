@@ -28,14 +28,10 @@ function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
   const [djangoAPIData, setDjangoAPIData] = useState({});
 
-  console.log("App called");
-  console.log("user landed? " + userHasLanded);
-
   // this custom hook has a useEffect() that only runs on the first render
   // i.e this hook will only update <App/>'s state once
   // On <App/> re-render, this hook is called again, but the useEffect will prevent logic from executing!
   const response = useFetchFinnhubData(endpoints.django, setDjangoAPIData);
-  console.log("useFetch response: " + response);
 
   return (
     <>

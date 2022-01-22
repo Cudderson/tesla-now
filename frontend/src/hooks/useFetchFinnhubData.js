@@ -4,10 +4,7 @@ import { useEffect } from "react";
 
 const useFetchFinnhubData = (urls, setDjangoAPIData) => {
 
-  console.log('useFetch called');
-
   useEffect(() => {
-    console.log("useFetch useEffect called");
 
     // async IIFE defined here, because useEffect() doesn't expect a Promise to be returned
     (async () => {
@@ -21,8 +18,6 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
           // change dev/prod here
           const res = await fetch(BASE_URL + urls[url]);
           const data = await res.json();
-
-          console.log(url);
 
           // handle charts and news
           if (data.chart) {

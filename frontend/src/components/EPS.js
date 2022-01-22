@@ -3,7 +3,6 @@ import LoadingChart from "./LoadingChart.js";
 import styles from "./../styles/EPS.module.css";
 
 const EPS = (props) => {
-  console.log("EPS called");
 
   return (
     <>

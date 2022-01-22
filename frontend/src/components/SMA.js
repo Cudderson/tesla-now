@@ -3,7 +3,6 @@ import LoadingChart from "./LoadingChart.js";
 import styles from './../styles/SMA.module.css';
 
 const SMA = (props) => {
-  console.log("SMA called");
   return (
     <>
       {props.chartDataHTML ? (

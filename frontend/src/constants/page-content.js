@@ -1,5 +1,3 @@
-console.log("page-content imported");
-
 const pageContent = {
   candlestick: {
     title: `What is a Candlestick Chart?`,

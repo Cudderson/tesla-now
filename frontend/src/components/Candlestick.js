@@ -5,11 +5,7 @@ import LoadingChart from "./LoadingChart.js";
 import styles from "./../styles/Candlestick.module.css";
 
 const Candlestick = (props) => {
-  console.log("Candlestick called");
-  console.log(props);
-  if (props.chartDataHTML) {
-    console.log("hello");
-  }
+
   return (
     <>
       <h1 className={styles["price-header"]}>
