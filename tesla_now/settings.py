@@ -103,7 +103,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'tesla_now.wsgi.application'
 
 CORS_ORIGIN_WHITELIST = [
+    # dev
     'http://localhost:3000',
+    # prod
+    'https://tesla-now.netlify.app/'
 ]
 
 
