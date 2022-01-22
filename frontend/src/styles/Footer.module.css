@@ -1,0 +1,35 @@
+.footer-outer {
+  margin-top: 10rem;
+  border-top: 1px solid var(--brand-green);
+}
+
+.footer-inner {
+  padding: 1rem 0;
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-inner > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.footer-inner > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem 0;
+  font-size: 14px;
+}
+
+.copyright {
+  margin-right: auto;
+}
+
+.footer-inner > ul > li > span:first-of-type {
+  color: var(--brand-green);
+}

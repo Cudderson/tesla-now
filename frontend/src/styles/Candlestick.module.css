@@ -1,0 +1,44 @@
+.price-header {
+  margin: 0;
+  font-size: clamp(18px, 4vw, 38px);
+  text-align: center;
+}
+
+.price-header > span {
+  color: var(--brand-green);
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.static-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.descriptions, .fact {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 300px;
+  line-height: 1.5;
+}
+
+.descriptions {
+  font-size: 17px;
+}
+
+.fact {
+  border: 4px solid var(--brand-green);
+  border-radius: 12px;
+  padding: 1.1rem;
+  font-style: italic;
+  font-size: 17px;
+  /* this color only used here */
+  color: rgb(230, 230, 230);
+}
+
+.link, .fact > a {
+  color: var(--alt-green);
+}

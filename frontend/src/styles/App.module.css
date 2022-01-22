@@ -1,0 +1,47 @@
+:root {
+  --brand-green: rgb(0, 202, 53);
+  --alt-green: rgb(83, 216, 118);
+  --brand-black: rgb(17, 17, 17);
+  --brand-white: rgb(250, 248, 255);
+  --alt-gray: rgb(150, 160, 150);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--brand-black);
+}
+
+h1, h2, h3,
+h4, h5, h6,
+span, a, p {
+  color: var(--brand-white);
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+}
+
+span, a, p {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.app-container {
+  margin: 0 auto;
+  width: 98%;
+  max-width: 1200px;
+}
