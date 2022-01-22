@@ -11,10 +11,15 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
 
     // async IIFE defined here, because useEffect() doesn't expect a Promise to be returned
     (async () => {
+      // base urls for dev and prod servers
+      const DEV_BASE_URL = "http://localhost:8000/api";
+      const BASE_URL = "https://tesla-now.herokuapp.com/api";
       const allData = {};
+
       for (const url in urls) {
         try {
-          const res = await fetch(urls[url]);
+          // change dev/prod here
+          const res = await fetch(BASE_URL + urls[url]);
           const data = await res.json();
 
           console.log(url);
