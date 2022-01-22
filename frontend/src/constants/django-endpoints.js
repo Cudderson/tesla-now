@@ -2,14 +2,14 @@
 
 const endpoints = {
   django: {
-    current_price: "http://localhost:8000/api/current-price",
-    candlestick_chart: "http://localhost:8000/api/candlestick",
-    eps_chart: "http://localhost:8000/api/eps",
-    sma_chart: "http://localhost:8000/api/sma",
-    recommendations_chart: "http://localhost:8000/api/recommendations",
-
-    // still testing
-    news: "http://localhost:8000/api/news",
+    // endpoints same for dev/prod 
+    // BASE_URL (dev/prod) is controlled by hooks/useFetchFinnhubData.js
+    current_price: `/current-price`,
+    candlestick_chart: `/candlestick`,
+    eps_chart: `/eps`,
+    sma_chart: `/sma`,
+    recommendations_chart: `/recommendations`,
+    news: `/news`,
   }
 }
 
