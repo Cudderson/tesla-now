@@ -58,9 +58,6 @@ INSTALLED_APPS = [
     # My Apps
     'tesla',
 
-    # Third Party Apps
-    'bootstrap4',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -106,7 +103,7 @@ CORS_ORIGIN_WHITELIST = [
     # dev
     'http://localhost:3000',
     # prod
-    'https://tesla-now.netlify.app/'
+    'https://tesla-now.netlify.app'
 ]
 
 
@@ -157,10 +154,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
-# for prod
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# # for prod
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # heroku settings
 import django_heroku

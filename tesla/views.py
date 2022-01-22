@@ -1,78 +1,78 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
-from . import tesla_utils
-from . import tesla_api
-
-
-def landing(request):
-    """The initial landing page for Tesla Now"""
-
-    welcome_text = "Tesla Now"
-
-    description = "View Tesla-specific charts, news, and analyst recommendations, all in real-time."
-
-    context = {'greeting': welcome_text, "description": description}
-
-    return render(request, 'tesla/landing.html', context)
+# from . import tesla_utils
+# from . import tesla_api
 
 
-def home(request):
-    """The Home/Main page of Tesla One"""
+# def landing(request):
+#     """The initial landing page for Tesla Now"""
 
-    current_price = tesla_api.current_price()
+#     welcome_text = "Tesla Now"
 
-    home_chart = tesla_utils.create_candle_chart()
+#     description = "View Tesla-specific charts, news, and analyst recommendations, all in real-time."
 
-    context = {'current_price': current_price, 'home_chart': home_chart}
+#     context = {'greeting': welcome_text, "description": description}
 
-    return render(request, 'tesla/home.html', context)
-
-
-def eps(request):
-    """Page that displays an EPS chart for Tesla"""
-
-    eps_chart = tesla_utils.create_eps_chart()
-
-    context = {'eps_chart': eps_chart}
-
-    return render(request, 'tesla/eps.html', context)
+#     return render(request, 'tesla/landing.html', context)
 
 
-def sma(request):
-    """Page that displays a 20-day sma chart for Tesla"""
+# def home(request):
+#     """The Home/Main page of Tesla One"""
 
-    sma_chart = tesla_utils.create_sma_chart()
+#     current_price = tesla_api.current_price()
 
-    context = {'sma_chart': sma_chart}
+#     home_chart = tesla_utils.create_candle_chart()
 
-    return render(request, 'tesla/sma.html', context)
+#     context = {'current_price': current_price, 'home_chart': home_chart}
 
-
-def recommendations(request):
-    """Page that displays analyst recommendations for Tesla"""
-
-    recommend_chart = tesla_utils.create_recommend_chart()
-
-    context = {'recommend_chart': recommend_chart}
-
-    return render(request, 'tesla/recommend.html', context)
+#     return render(request, 'tesla/home.html', context)
 
 
-def news(request):
-    """Page that displays newest news articles for Tesla"""
+# def eps(request):
+#     """Page that displays an EPS chart for Tesla"""
 
-    news_package = tesla_utils.create_news_package()
+#     eps_chart = tesla_utils.create_eps_chart()
 
-    context = {'news_package': news_package}
+#     context = {'eps_chart': eps_chart}
 
-    return render(request, 'tesla/news.html', context)
+#     return render(request, 'tesla/eps.html', context)
 
 
-def about(request):
-    """Page that displays information about the project"""
+# def sma(request):
+#     """Page that displays a 20-day sma chart for Tesla"""
 
-    about_page_data = tesla_utils.about_page_data()
+#     sma_chart = tesla_utils.create_sma_chart()
 
-    context = {'about_page_data': about_page_data}
+#     context = {'sma_chart': sma_chart}
 
-    return render(request, 'tesla/about.html', context)
+#     return render(request, 'tesla/sma.html', context)
+
+
+# def recommendations(request):
+#     """Page that displays analyst recommendations for Tesla"""
+
+#     recommend_chart = tesla_utils.create_recommend_chart()
+
+#     context = {'recommend_chart': recommend_chart}
+
+#     return render(request, 'tesla/recommend.html', context)
+
+
+# def news(request):
+#     """Page that displays newest news articles for Tesla"""
+
+#     news_package = tesla_utils.create_news_package()
+
+#     context = {'news_package': news_package}
+
+#     return render(request, 'tesla/news.html', context)
+
+
+# def about(request):
+#     """Page that displays information about the project"""
+
+#     about_page_data = tesla_utils.about_page_data()
+
+#     context = {'about_page_data': about_page_data}
+
+#     return render(request, 'tesla/about.html', context)

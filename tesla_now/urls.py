@@ -15,8 +15,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # django frontend (deprecating/replacing with React frontend, may break at any time)
-    path('', include('tesla.urls')),
+    # path('', include('tesla.urls')),
 
+    # new: only allow '/api' or '/admin' as backend url patterns (can make new basename later)
     # sets 'api/' as the basename for api urls
     path('api/', include(api_urls)),
 ]

@@ -5,7 +5,6 @@ import time
 import datetime
 import os
 import requests
-import pytz
 
 # could pass the key as a param?
 finn_key = os.getenv('FINN_KEY')
