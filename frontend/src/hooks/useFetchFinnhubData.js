@@ -34,7 +34,7 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
           console.log(err);
         }  
       }
-      console.log('useFetch useEffect setting state');
+      // console.log('useFetch useEffect setting state');
       setDjangoAPIData(allData);
     })();
   }, [setDjangoAPIData, urls]);
