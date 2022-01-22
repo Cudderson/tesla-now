@@ -2,7 +2,7 @@ import styles from "./../styles/News.module.css";
 import tesla_default_image from "./../tesla-logo.png";
 
 const News = (props) => {
-  console.log(props.newsData);
+  // console.log(props.newsData);
 
   return (
     <div className={styles["news-outer"]}>
@@ -11,16 +11,19 @@ const News = (props) => {
       <div className={styles["news-inner"]}>
         {props.newsData
           ? props.newsData.map((news, index) => (
-              <div key={`${news.time_posted.toString()}:${index}`} className={styles["news"]}>
+              <div
+                key={`${news.time_posted.toString()}:${index}`}
+                className={styles["news"]}
+              >
                 <div className={styles["image-container"]}>
                   {news.image ? (
-                    <img src={news.image} />
+                    <img src={news.image} alt="" />
                   ) : (
-                    <img src={tesla_default_image} />
+                    <img src={tesla_default_image} alt="" />
                   )}
                 </div>
                 <h2 className={styles["headline"]}>
-                  <a href={news.url} target="_blank">
+                  <a href={news.url} target="_blank" rel="noreferrer">
                     {news.headline}
                   </a>
                 </h2>
@@ -32,7 +35,12 @@ const News = (props) => {
                 </div>
                 <p className={styles["summary"]}>{news.summary}</p>
                 <span>
-                  <a className={styles["link"]} href={news.url} target="_blank">
+                  <a
+                    className={styles["link"]}
+                    href={news.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Go To Article
                   </a>
                 </span>

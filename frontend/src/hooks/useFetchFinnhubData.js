@@ -12,7 +12,7 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
     // async IIFE defined here, because useEffect() doesn't expect a Promise to be returned
     (async () => {
       // base urls for dev and prod servers
-      const DEV_BASE_URL = "http://localhost:8000/api";
+      // const DEV_BASE_URL = "http://localhost:8000/api";
       const BASE_URL = "https://tesla-now.herokuapp.com/api";
       const allData = {};
 
@@ -42,7 +42,7 @@ const useFetchFinnhubData = (urls, setDjangoAPIData) => {
       console.log('useFetch useEffect setting state');
       setDjangoAPIData(allData);
     })();
-  }, []);
+  }, [setDjangoAPIData, urls]);
 
   // currently, this Hook doesn't return anything, but
   // rather updates <App/>'s state via the passed updater function
