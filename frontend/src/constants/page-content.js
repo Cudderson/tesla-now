@@ -4,7 +4,7 @@ const pageContent = {
     descriptions: [
       `Candlestick Charts use 'OHLC' (open, high, low, close) price data to create 'candles' that represent a given time interval,
     usually 1 trading day.`,
-      `Candlestick charts are a staple for investors, as they provide a deeper insight to how the market is trending
+      `Candlestick charts are a common tool for investors, as they provide a deeper insight to how the market is trending
     for a particular company, many companies, or entire sectors.`
     ],
     fact: `" In the 1700s, a Japanese man named Homma discovered that, while there was a link between price and the supply and demand of rice,
@@ -30,7 +30,7 @@ const pageContent = {
       `Simple Moving Averages, or SMA, are statistics used by investors to find trends in the short-term
       fluctuations of a company's stock.
       The price value at any given point on one of the lines represents the average share price for the previous (n) days.`,
-      `I have chosen to calculate the 4-day and 20-day moving averages for this figure, but experts tend to use many variations
+      `The chart above calculates the 4-day and 20-day moving averages for Tesla, but there exists many variations
       of the SMA, (7-day, 50-day, 200-day, etc.) as well as more complicated versions, such as EMA, or Exponential
       Moving Average.`,
     ],
