@@ -27,7 +27,7 @@ const EPS = (props) => {
               <a href={props.staticContent.link}>Investopedia</a>
             </p>
           ))}
-          <p>{props.staticContent.fact}</p>
+          <p className={styles['fact']}>{props.staticContent.fact}</p>
           <a href={props.staticContent.link}>Learn More</a>
         </div>
       ) : null}

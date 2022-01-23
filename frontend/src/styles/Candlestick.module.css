@@ -10,12 +10,13 @@
 
 .title {
   margin-bottom: 0;
+  font-size: clamp(19px, 3vw, 24px);
 }
 
 .static-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 4rem 1rem;
 }
 
 .descriptions, .fact {
@@ -26,7 +27,7 @@
 }
 
 .descriptions {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .fact {
@@ -34,7 +35,7 @@
   border-radius: 12px;
   padding: 1.1rem;
   font-style: italic;
-  font-size: 17px;
+  font-size: 15px;
   /* this color only used here */
   color: rgb(230, 230, 230);
 }

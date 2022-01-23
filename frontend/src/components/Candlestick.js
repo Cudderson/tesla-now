@@ -24,7 +24,7 @@ const Candlestick = (props) => {
       )}
       {props.staticContent ? (
         <>
-          <h2 className={styles["title"]}>{props.staticContent.title}</h2>
+          <h3 className={styles["title"]}>{props.staticContent.title}</h3>
           <div className={styles["static-content"]}>
             <div className={styles["descriptions"]}>
               {props.staticContent.descriptions.map((description, index) => (

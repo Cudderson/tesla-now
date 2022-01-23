@@ -6,9 +6,21 @@
 
 .description {
   font-style: italic;
+  font-size: 15px;
 }
 
 .static-content a {
   font-style: normal;
   color: var(--alt-green);
+  font-size: 15px;
+}
+
+.static-content > h2 {
+  font-size: clamp(19px, 3vw, 24px);
+}
+
+.fact {
+  padding-top: 2rem;
+  margin-bottom: .25rem;
+  font-size: 15px;
 }

@@ -4,6 +4,15 @@
   line-height: 1.5;
 }
 
+.static-content > h2 {
+  font-size: clamp(19px, 3vw, 24px);
+}
+
+.static-content > p {
+  font-size: 15px;
+}
+
 .link {
   color: var(--alt-green);
+  font-size: 15px;
 }

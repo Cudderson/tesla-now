@@ -2,7 +2,6 @@ import styles from "./../styles/News.module.css";
 import tesla_default_image from "./../tesla-logo.png";
 
 const News = (props) => {
-
   return (
     <div className={styles["news-outer"]}>
       <h1 className={styles["title"]}>Tesla Now News</h1>
@@ -32,7 +31,11 @@ const News = (props) => {
                     {news.time_posted}
                   </span>
                 </div>
-                <p className={styles["summary"]}>{news.summary}</p>
+                <p className={styles["summary"]}>
+                  {news.summary.length < 350
+                    ? news.summary
+                    : news.summary.slice(0, 350) + "..."}
+                </p>
                 <span>
                   <a
                     className={styles["link"]}

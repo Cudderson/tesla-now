@@ -1,0 +1,7 @@
+.static-content > h2 {
+  font-size: clamp(19px, 3vw, 24px);
+}
+
+.static-content > p {
+  font-size: 15px;
+}
