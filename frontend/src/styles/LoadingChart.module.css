@@ -1,0 +1,12 @@
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 0;
+  border-bottom: 1px solid var(--brand-green);
+  border-radius: 2px;
+  /* make height equal to a rendered plotly chart */
+  height: calc(600px + 1rem + 1vw);
+  pointer-events: none;
+}
