@@ -1,5 +1,6 @@
 import styles from "./../styles/News.module.css";
 import tesla_default_image from "./../tesla-logo.png";
+import LoadingChart from "./LoadingChart.js";
 
 const News = (props) => {
   return (
@@ -48,7 +49,7 @@ const News = (props) => {
                 </span>
               </div>
             ))
-          : null}
+          : <LoadingChart />}
       </div>
     </div>
   );
