@@ -1,24 +1,53 @@
-## This project is live: 
+---
+<div align='center'>
+  
+  # Tesla Now
+  
+  ### Real-time charts, trends, and news for Tesla Inc.
+  <img src='https://img.shields.io/badge/Tesla Now-online-brightgreen'>
+  
+  ### Live: [https://tesla-now.netlify.app/](https://tesla-now.netlify.app/)
+</div>
 
-### http://tesla-now.herokuapp.com
+---
 
-#### ( Allow time for initial load, as this app will likely be cold-starting due to low traffic/requests. Page requests after the inital connection will be quicker. ) 
-
-# About
+<!-- =============================
+<br><br><br><br><br><br><br><br><br><br>
+ -->
+ <br>
 
 ![tesla-now-1.png](https://github.com/Cudderson/tesla-now/blob/master/tesla-now-1.png)
 
-## Tesla Now is a web application that serves as a central location for all things Tesla. 
+<br>
 
-### Using real-time data, Tesla Now provides the user with interactive charts, statistics, and Tesla-related news/articles-- as soon as they're published.
+## About 
 
+### Tesla Now is a web application that uses real-time data to provide users with interactive charts, statistics, and Tesla-related news/articles --as soon as they're published.
+
+<br>
 
 ## Built With
+- ReactJS
 - Django/Python
-- Bootstrap
 - Plotly
 
-## Usage
+<br>
+
+## Content/Usage
+#### This site offers the following content, constructed with real-time Tesla data:
+  - Candlestick Chart (OHLC)
+  - Earnings Per Share Chart
+  - Moving Averages Chart
+  - Analyst Buy/Sell Recommendations Chart
+  - News Page
+
+<br>
+
+### Notes:
+  - #### *New data is retrieved every (FILL IN) minutes, and site content will update automatically. No need to refresh the page.*
+  - #### *Double-tap on a chart to restore it to its original state.*
+
+<!-- ## Usage
 
 - Running this project locally will require a little extra work, as you will need your own assets/keys:
   - A Free API key from http://finnhub.io
@@ -49,19 +78,12 @@ Create environment variables with names `SECRET_KEY` and `FINN_KEY`, with values
 ### 3. Run Local Server
   - Still in terminal, navigate back to the previous directory `cd ..` and run `python manage.py runserver`
   - Project should now be running on your local server: `http://127.0.0.1:8000/`
+  -->
 
-## Developer Notes
-  - Site is secure via SSL/HTTPS
-  - Though this site is fully-responsive, view on desktop for the best user-experince. The plotly charts appear more-congested on mobile. 
+<br>
 
+### Author
 
-## Author
-
-- Cody : Myself
-  - This was a fun project to make, and I use it often to check out the newest Tesla articles and watch the candlestick chart evolve. Django is great as well.
-
-- Contact me for anything related to this project, programming, or hiring: - codered1227@gmail.com
-
-Thanks for checking it out. If you enjoyed the project, consider giving it a 'star'! 
-
-*** Tesla Now is a non-monetized project with no affiliation to Tesla Inc. ***
+- #### Cody : Myself
+- #### Contact me for anything related to this project, programming, or hiring: 
+  - #### email: codered1227@gmail.com
