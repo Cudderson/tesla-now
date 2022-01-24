@@ -27,8 +27,9 @@ import styles from "./../styles/App.module.css";
 function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
   const [djangoAPIData, setDjangoAPIData] = useState({});
+  const [staticApiData, setStaticApiData] = useState({});
 
-  console.log("app called");
+  // console.log("app called");
 
   // this custom hook has a useEffect() that only runs on the first render
   // i.e this hook will only update <App/>'s state once
@@ -40,9 +41,7 @@ function App() {
   // The goal is to retrieve api data every X minutes.
   // we can test this by retrieving something like the current price data every minute, and see how often it changes
   // due to rules of hooks, I'll actually set up the timer inside the hook itself!
-  useFetchFinnhubData(endpoints.django, setDjangoAPIData);
-
-  djangoAPIData ? console.log(djangoAPIData.current_price) : console.log('waiting...');
+  useFetchFinnhubData(endpoints.django, setDjangoAPIData, setStaticApiData);
 
   return (
     <>
@@ -73,7 +72,7 @@ function App() {
                 element={
                   <EPS
                     staticContent={pageStaticContent["eps"]}
-                    chartDataHTML={djangoAPIData["eps_chart"]}
+                    chartDataHTML={staticApiData["eps_chart"]}
                   />
                 }
               />
@@ -91,7 +90,7 @@ function App() {
                 element={
                   <Recommendations
                     staticContent={pageStaticContent["recommendations"]}
-                    chartDataHTML={djangoAPIData["recommendations_chart"]}
+                    chartDataHTML={staticApiData["recommendations_chart"]}
                   />
                 }
               />
