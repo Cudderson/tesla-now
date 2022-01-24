@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -28,10 +28,21 @@ function App() {
   const [userHasLanded, setUserHasLanded] = useState(false);
   const [djangoAPIData, setDjangoAPIData] = useState({});
 
+  console.log("app called");
+
   // this custom hook has a useEffect() that only runs on the first render
   // i.e this hook will only update <App/>'s state once
   // On <App/> re-render, this hook is called again, but the useEffect will prevent logic from executing!
+  // useFetchFinnhubData(endpoints.django, setDjangoAPIData); <-- OG
+
+  // ==== new ====
+
+  // The goal is to retrieve api data every X minutes.
+  // we can test this by retrieving something like the current price data every minute, and see how often it changes
+  // due to rules of hooks, I'll actually set up the timer inside the hook itself!
   useFetchFinnhubData(endpoints.django, setDjangoAPIData);
+
+  djangoAPIData ? console.log(djangoAPIData.current_price) : console.log('waiting...');
 
   return (
     <>
