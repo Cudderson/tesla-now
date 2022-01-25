@@ -44,7 +44,7 @@
 <br>
 
 ### Notes:
-  - #### *New data is retrieved every (FILL IN) minutes, and site content will update automatically. No need to refresh the page.*
+  - #### *New data is retrieved every 5 minutes, and site content will update automatically. No need to refresh the page.*
   - #### *Double-tap on a chart to restore it to its original state.*
 
 <!-- ## Usage
